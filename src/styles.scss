@@ -1,0 +1,62 @@
+/* Global styles for Portfolio 2026 */
+
+:root {
+  --bg-color: #fafafa; /* off-white */
+  --text-color: #2c2c2c; /* charcoal */
+  --accent-color: #007acc; /* subtle blue */
+  --font-serif: 'Crimson Text', serif;
+  --font-sans: 'Inter', sans-serif;
+  --spacing-unit: 1rem;
+  --max-width: 800px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  margin: 0 0 var(--spacing-unit) 0;
+}
+
+p {
+  margin: 0 0 var(--spacing-unit) 0;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #005a9e; /* darker blue */
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-unit);
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

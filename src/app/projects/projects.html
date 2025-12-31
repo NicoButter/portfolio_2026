@@ -1,0 +1,20 @@
+<section class="projects">
+  <div class="container">
+    <h2>Projects</h2>
+    <div class="project-list">
+      <article class="project" *ngFor="let project of projects()">
+        <h3>{{ project.title }}</h3>
+        <h4>Context</h4>
+        <p>{{ project.context }}</p>
+        <h4>Problem</h4>
+        <p>{{ project.problem }}</p>
+        <h4>Technical Decisions</h4>
+        <p>{{ project.decisions }}</p>
+        <h4>Trade-offs</h4>
+        <p>{{ project.tradeoffs }}</p>
+        <h4>What I'd Improve Today</h4>
+        <p>{{ project.improvements }}</p>
+      </article>
+    </div>
+  </div>
+</section>
