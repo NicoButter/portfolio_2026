@@ -1,7 +1,7 @@
 /* Import partials */
-@import 'variables';
-@import 'themes';
-@import 'mixins';
+@use 'variables' as *;
+@use 'themes' as *;
+@use 'mixins' as *;
 
 /* Typography utilities */
 .inter-thin {
@@ -139,9 +139,10 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--font-sans);
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: var(--bg);
+  color: var(--text);
   line-height: 1.6;
+  padding-top: 80px; /* Space for fixed header */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -155,13 +156,13 @@ p {
 }
 
 a {
-  color: var(--accent-color);
+  color: var(--accent);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #005a9e; /* darker blue */
+  color: #3730a3; /* darker indigo */
 }
 
 .container {
