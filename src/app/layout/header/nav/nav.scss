@@ -20,13 +20,27 @@
   padding: 0 var(--spacing-unit);
 }
 
-.nav-item {
+/* Animation only when on home page initial load */
+.animate-nav .brand,
+.animate-nav .nav-link {
   opacity: 0;
-  transform: translateY(-20px);
+  animation: slideInDown 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-.nav-item.animate {
-  animation: slideInDown 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+.animate-nav .brand {
+  animation-delay: 1.5s;
+}
+
+.animate-nav .nav-link:nth-child(1) {
+  animation-delay: 1.65s;
+}
+
+.animate-nav .nav-link:nth-child(2) {
+  animation-delay: 1.8s;
+}
+
+.animate-nav .nav-link:nth-child(3) {
+  animation-delay: 1.95s;
 }
 
 .brand {

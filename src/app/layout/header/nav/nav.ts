@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, OnInit, inject, signal } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -8,16 +8,15 @@ import { RouterLink } from '@angular/router';
   styleUrl: './nav.scss',
 })
 export class Nav implements OnInit {
+  private router = inject(Router);
+  
+  animateOnHome = signal(false);
+
   ngOnInit() {
-    // Start nav animation after hero content (1.5s total for hero)
-    setTimeout(() => {
-      const navItems = document.querySelectorAll('.nav-item');
-      
-      navItems.forEach((item, index) => {
-        setTimeout(() => {
-          item.classList.add('animate');
-        }, index * 150); // Stagger each item by 150ms
-      });
-    }, 1500); // Start after hero animation begins
+    const isHome = this.router.url === '/' || this.router.url === '';
+    
+    if (isHome) {
+      this.animateOnHome.set(true);
+    }
   }
 }
