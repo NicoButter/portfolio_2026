@@ -9,8 +9,54 @@
     <span class="status-item">MEM: 87%</span>
   </div>
 
+  <!-- Hero Profile Section (appears after boot) -->
+  @if (bootComplete() && !showMenu()) {
+    <div class="hero-profile-section">
+      <div class="profile-container">
+        <div class="profile-image-wrapper">
+          <div class="scan-line"></div>
+          <img 
+            src="assets/images/profile-cyberpunk.png" 
+            alt="Profile" 
+            class="profile-image"
+          />
+          <div class="profile-overlay"></div>
+          <div class="profile-corners">
+            <span class="corner tl"></span>
+            <span class="corner tr"></span>
+            <span class="corner bl"></span>
+            <span class="corner br"></span>
+          </div>
+        </div>
+        
+        <div class="profile-data">
+          <div class="data-line scanning">
+            <span class="label">SCANNING...</span>
+            <span class="progress-bar"></span>
+          </div>
+          <div class="data-line" [class.visible]="dataLoaded()">
+            <span class="label">USER_ID:</span>
+            <span class="value">NB_SYS_2077</span>
+          </div>
+          <div class="data-line" [class.visible]="dataLoaded()">
+            <span class="label">STATUS:</span>
+            <span class="value status-active">ONLINE</span>
+          </div>
+          <div class="data-line" [class.visible]="dataLoaded()">
+            <span class="label">CLEARANCE:</span>
+            <span class="value">LEVEL_5</span>
+          </div>
+          <div class="data-line" [class.visible]="dataLoaded()">
+            <span class="label">ROLE:</span>
+            <span class="value">DEVELOPER</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+
   <!-- Terminal window -->
-  <div class="terminal-window">
+  <div class="terminal-window" [class.minimized]="bootComplete()">
     <div class="terminal-header">
       <div class="terminal-buttons">
         <span class="btn-close"></span>

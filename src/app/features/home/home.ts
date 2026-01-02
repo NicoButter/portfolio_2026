@@ -20,6 +20,7 @@ export class Home implements OnInit, OnDestroy {
   readonly bootSequence = signal<BootLine[]>([]);
   readonly bootComplete = signal(false);
   readonly showMenu = signal(false);
+  readonly dataLoaded = signal(false);
   readonly currentTime = signal(this.getCurrentTime());
   
   private timeInterval: ReturnType<typeof setInterval> | null = null;
@@ -87,7 +88,10 @@ export class Home implements OnInit, OnDestroy {
         if (index === this.bootLines.length - 1) {
           setTimeout(() => {
             this.bootComplete.set(true);
-            setTimeout(() => this.showMenu.set(true), 500);
+            setTimeout(() => {
+              this.dataLoaded.set(true);
+              setTimeout(() => this.showMenu.set(true), 2000);
+            }, 1000);
           }, 500);
         }
       }, totalDelay);
@@ -100,6 +104,7 @@ export class Home implements OnInit, OnDestroy {
     }
     this.bootSequence.set(this.bootLines);
     this.bootComplete.set(true);
+    this.dataLoaded.set(true);
     setTimeout(() => this.showMenu.set(true), 100);
   }
 }
