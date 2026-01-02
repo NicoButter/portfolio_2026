@@ -1,5 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink, Router, NavigationEnd } from '@angular/router';
+import { AccessControlComponent } from '../../shared/ui/access-control/access-control.component';
+import { filter } from 'rxjs';
 
 interface Project {
   title: string;
@@ -12,11 +15,38 @@ interface Project {
 
 @Component({
   selector: 'app-projects',
-  imports: [CommonModule],
+  imports: [CommonModule, AccessControlComponent, RouterLink],
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Projects {
+export class Projects implements OnInit, OnDestroy {
+  readonly showContent = signal(false);
+  readonly resetKey = signal(0);
+  
+  private routerSubscription?: any;
+
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    this.routerSubscription = this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: any) => {
+        if (event.url.includes('/projects')) {
+          this.resetAnimation();
+        }
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.routerSubscription?.unsubscribe();
+  }
+
+  resetAnimation(): void {
+    this.showContent.set(false);
+    this.resetKey.update(v => v + 1);
+  }
+  
   projects = signal<Project[]>([
     {
       title: 'E-commerce Platform',
@@ -35,4 +65,8 @@ export class Projects {
       improvements: 'Would add AI-powered task prioritization and integrate with popular project management tools like Jira.',
     },
   ]);
+
+  onAccessComplete(): void {
+    this.showContent.set(true);
+  }
 }

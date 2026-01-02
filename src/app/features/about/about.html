@@ -1,17 +1,99 @@
-<section class="about">
-  <div class="container">
-    <h2>About</h2>
-    <p>
-      Soy Nicolás Butterfield, desarrollador Fullstack Junior con foco en construir aplicaciones web claras, mantenibles y pensadas para crecer. Trabajo principalmente con Angular, TypeScript y Django, combinando frontend moderno con backend sólido y bases de datos relacionales.
-    </p>
-    <p>
-      Tengo experiencia desarrollando sistemas en entornos institucionales, donde la estabilidad, la claridad del código y el mantenimiento a largo plazo importan tanto como que la aplicación funcione. Me interesa especialmente la arquitectura de aplicaciones, el diseño por features y las buenas prácticas que facilitan que otros desarrolladores puedan entender y reutilizar el proyecto.
-    </p>
-    <p>
-      Actualmente estoy construyendo este portfolio con Angular y Server-Side Rendering, no solo como presentación personal, sino como un proyecto open-source, pensado para ser explorado, forkeado y usado como base por otros desarrolladores que estén aprendiendo o buscando una estructura profesional.
-    </p>
-    <p>
-      Disfruto aprender tecnologías nuevas, mejorar procesos existentes y resolver problemas reales con soluciones simples y bien pensadas. Mi objetivo es seguir creciendo como desarrollador, aportando valor desde el código y la arquitectura.
-    </p>
+<section class="terminal-page">
+  <!-- Access animation -->
+  <app-access-control 
+    [attr.key]="resetKey()"
+    filename="access_control.sys"
+    moduleName="ABOUT.exe"
+    (onAccessComplete)="onAccessComplete()"
+  ></app-access-control>
+
+  <!-- Main content -->
+  <div class="content-container" [class.visible]="showContent()">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// USER_PROFILE</span>
+        <h1 class="glitch-title" data-text="ABOUT.exe">ABOUT.exe</h1>
+        <div class="header-line"></div>
+      </div>
+
+      <div class="profile-grid">
+        <div class="profile-card">
+          <div class="card-header">
+            <span class="card-icon">◆</span>
+            <span class="card-title">IDENTITY</span>
+          </div>
+          <div class="card-content">
+            <div class="data-row">
+              <span class="data-label">NAME:</span>
+              <span class="data-value">Nicolás Butterfield</span>
+            </div>
+            <div class="data-row">
+              <span class="data-label">ROLE:</span>
+              <span class="data-value">Fullstack Developer</span>
+            </div>
+            <div class="data-row">
+              <span class="data-label">STATUS:</span>
+              <span class="data-value status-online">ACTIVE</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-card wide">
+          <div class="card-header">
+            <span class="card-icon">◆</span>
+            <span class="card-title">BIO_DATA</span>
+          </div>
+          <div class="card-content">
+            <p class="bio-text">
+              > Desarrollador Fullstack Junior con foco en construir aplicaciones web claras, 
+              mantenibles y pensadas para crecer. Stack principal: Angular, TypeScript, Django.
+            </p>
+            <p class="bio-text">
+              > Experiencia en entornos institucionales donde la estabilidad, claridad del código 
+              y mantenimiento a largo plazo son críticos.
+            </p>
+            <p class="bio-text">
+              > Interés especial en arquitectura de aplicaciones, diseño por features y 
+              buenas prácticas que facilitan colaboración.
+            </p>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="card-header">
+            <span class="card-icon">◆</span>
+            <span class="card-title">CURRENT_PROJECT</span>
+          </div>
+          <div class="card-content">
+            <p class="bio-text">
+              > Portfolio con Angular + SSR como proyecto open-source, pensado para ser 
+              explorado y usado como base por otros desarrolladores.
+            </p>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="card-header">
+            <span class="card-icon">◆</span>
+            <span class="card-title">OBJECTIVES</span>
+          </div>
+          <div class="card-content">
+            <ul class="objective-list">
+              <li>[✓] Aprender tecnologías nuevas</li>
+              <li>[✓] Mejorar procesos existentes</li>
+              <li>[✓] Resolver problemas reales</li>
+              <li>[○] World domination (pending)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-prompt">
+        <span class="prompt-symbol">❯</span>
+        <span class="prompt-text">End of file. Return to </span>
+        <a routerLink="/" class="prompt-link">[HOME]</a>
+        <span class="cursor blink">█</span>
+      </div>
+    </div>
   </div>
 </section>

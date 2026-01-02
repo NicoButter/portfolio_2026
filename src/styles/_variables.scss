@@ -1,32 +1,51 @@
-/* Variables - Creative & Experimental Design System */
+/* Variables - Cyberpunk Terminal System */
 :root {
-  /* Colors - Modern Vibrant Palette */
-  --bg: #fafafa;
-  --bg-secondary: #f5f1ff;
-  --text: #111111;
-  --text-secondary: #4b5563;
-  --muted: #8b9dc3;
+  /* Dark Background Colors */
+  --bg: #0a0a0f;
+  --bg-secondary: #0f0f18;
+  --bg-terminal: #050508;
+  --bg-panel: rgba(10, 10, 15, 0.95);
   
-  /* Primary Gradient Colors */
-  --accent-primary: #7c3aed;      /* Purple */
-  --accent-secondary: #ec4899;    /* Pink */
-  --accent-tertiary: #06b6d4;    /* Cyan */
-  --accent-quaternary: #f97316;  /* Orange */
+  /* Text Colors */
+  --text: #e0e0e0;
+  --text-secondary: #8892b0;
+  --text-dim: #4a5568;
   
-  /* Gradient Combinations */
-  --gradient-main: linear-gradient(135deg, #7c3aed 0%, #ec4899 50%, #06b6d4 100%);
-  --gradient-alt: linear-gradient(45deg, #f97316 0%, #ec4899 100%);
-  --gradient-subtle: linear-gradient(180deg, rgba(124, 58, 237, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+  /* Neon Accent Colors */
+  --neon-green: #00ff41;
+  --neon-cyan: #00d4ff;
+  --neon-magenta: #ff00ff;
+  --neon-yellow: #ffff00;
+  --neon-red: #ff0040;
+  --neon-orange: #ff6600;
+  
+  /* Primary accent */
+  --accent-primary: var(--neon-cyan);
+  --accent-secondary: var(--neon-magenta);
+  --accent-tertiary: var(--neon-green);
+  
+  /* Glow Effects */
+  --glow-cyan: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan);
+  --glow-green: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green), 0 0 40px var(--neon-green);
+  --glow-magenta: 0 0 10px var(--neon-magenta), 0 0 20px var(--neon-magenta), 0 0 40px var(--neon-magenta);
+  --glow-red: 0 0 10px var(--neon-red), 0 0 20px var(--neon-red);
+  
+  /* Terminal Colors */
+  --terminal-green: #00ff41;
+  --terminal-prompt: #00d4ff;
+  --terminal-error: #ff0040;
+  --terminal-warning: #ffff00;
+  --terminal-success: #00ff41;
   
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
-  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.15);
-  --shadow-glow: 0 0 30px rgba(124, 58, 237, 0.3);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.7);
   
   /* Fonts */
-  --font-serif: 'Crimson Text', serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
   --font-sans: 'Inter', sans-serif;
+  --font-display: 'Orbitron', sans-serif;
   
   /* Spacing */
   --spacing-unit: 1rem;
@@ -39,12 +58,11 @@
   
   /* Layout */
   --max-width: 1200px;
-  --border-radius: 16px;
-  --border-radius-lg: 24px;
-  --border-radius-xl: 32px;
+  --border-radius: 4px;
+  --border-radius-lg: 8px;
   
   /* Transitions */
-  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.6s ease;
 }

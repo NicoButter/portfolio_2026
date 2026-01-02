@@ -1,20 +1,63 @@
-<section class="projects">
-  <div class="container">
-    <h2>Projects</h2>
-    <div class="project-list">
-      <article class="project" *ngFor="let project of projects()">
-        <h3>{{ project.title }}</h3>
-        <h4>Context</h4>
-        <p>{{ project.context }}</p>
-        <h4>Problem</h4>
-        <p>{{ project.problem }}</p>
-        <h4>Technical Decisions</h4>
-        <p>{{ project.decisions }}</p>
-        <h4>Trade-offs</h4>
-        <p>{{ project.tradeoffs }}</p>
-        <h4>What I'd Improve Today</h4>
-        <p>{{ project.improvements }}</p>
-      </article>
+<section class="terminal-page">
+  <!-- Access animation -->
+  <app-access-control 
+    [attr.key]="resetKey()"
+    filename="projects.sys"
+    moduleName="PROJECTS.dll"
+    (onAccessComplete)="onAccessComplete()"
+  ></app-access-control>
+
+  <!-- Main content -->
+  <div class="content-container" [class.visible]="showContent()">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// PORTFOLIO_ARCHIVE</span>
+        <h1 class="glitch-title" data-text="PROJECTS.dll">PROJECTS.dll</h1>
+        <div class="header-line"></div>
+      </div>
+
+      <div class="project-list">
+        <article class="project-card" *ngFor="let project of projects()">
+          <div class="project-header">
+            <span class="project-icon">◆</span>
+            <h2 class="project-title">{{ project.title }}</h2>
+          </div>
+          
+          <div class="project-content">
+            <div class="project-section">
+              <h3 class="section-label">// CONTEXT</h3>
+              <p class="section-text">{{ project.context }}</p>
+            </div>
+            
+            <div class="project-section">
+              <h3 class="section-label">// PROBLEM</h3>
+              <p class="section-text">{{ project.problem }}</p>
+            </div>
+            
+            <div class="project-section">
+              <h3 class="section-label">// TECHNICAL_DECISIONS</h3>
+              <p class="section-text">{{ project.decisions }}</p>
+            </div>
+            
+            <div class="project-section">
+              <h3 class="section-label">// TRADE_OFFS</h3>
+              <p class="section-text">{{ project.tradeoffs }}</p>
+            </div>
+            
+            <div class="project-section">
+              <h3 class="section-label">// IMPROVEMENTS</h3>
+              <p class="section-text">{{ project.improvements }}</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="footer-prompt">
+        <span class="prompt-symbol">❯</span>
+        <span class="prompt-text">End of archive. Return to </span>
+        <a routerLink="/" class="prompt-link">[HOME]</a>
+        <span class="cursor blink">█</span>
+      </div>
     </div>
   </div>
 </section>

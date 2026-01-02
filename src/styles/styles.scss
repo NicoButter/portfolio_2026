@@ -142,37 +142,76 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   background-color: var(--bg);
   color: var(--text);
   line-height: 1.6;
-  padding-top: 80px; /* Space for fixed header */
+  padding-top: 60px;
   overflow-x: hidden;
+  
+  /* Scanlines effect */
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.1) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+    pointer-events: none;
+    z-index: 9999;
+  }
+  
+  /* CRT vignette */
+  &::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+    pointer-events: none;
+    z-index: 9998;
+  }
 }
 
-/* Headings */
+/* Headings - Cyberpunk style */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-weight: 700;
   margin: 0 0 var(--spacing-md) 0;
   line-height: 1.2;
+  color: var(--neon-cyan);
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  text-shadow: var(--glow-cyan);
 }
 
 h2 {
-  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  color: var(--neon-green);
+  text-shadow: var(--glow-green);
 }
 
 h3 {
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
 }
 
 /* Paragraphs */
 p {
   margin: 0 0 var(--spacing-md) 0;
+  color: var(--text-secondary);
   
   &:last-child {
     margin-bottom: 0;
@@ -181,12 +220,13 @@ p {
 
 /* Links */
 a {
-  color: var(--accent-primary);
+  color: var(--neon-cyan);
   text-decoration: none;
-  transition: color var(--transition-normal);
+  transition: all var(--transition-fast);
   
   &:hover {
-    color: var(--accent-secondary);
+    color: var(--neon-magenta);
+    text-shadow: var(--glow-magenta);
   }
 }
 
@@ -197,57 +237,71 @@ a {
   padding: 0 var(--spacing-lg);
 }
 
-/* Animation utilities */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity var(--transition-slow), transform var(--transition-slow);
+/* Terminal text utilities */
+.terminal-text {
+  font-family: var(--font-mono);
+  color: var(--neon-green);
 }
 
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
+.prompt {
+  color: var(--terminal-prompt);
+  
+  &::before {
+    content: '> ';
+    color: var(--neon-green);
+  }
 }
 
-/* Scrollbar styling */
+.error-text {
+  color: var(--terminal-error);
+}
+
+.success-text {
+  color: var(--terminal-success);
+}
+
+.warning-text {
+  color: var(--terminal-warning);
+}
+
+/* Scrollbar styling - Cyberpunk */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
   background: var(--bg);
+  border-left: 1px solid var(--neon-green);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-primary);
-  border-radius: 5px;
+  background: var(--neon-green);
+  box-shadow: 0 0 10px var(--neon-green);
   
   &:hover {
-    background: var(--accent-secondary);
+    background: var(--neon-cyan);
+    box-shadow: var(--glow-cyan);
   }
 }
 
 /* Selection color */
 ::selection {
-  background: var(--accent-primary);
-  color: white;
+  background: var(--neon-cyan);
+  color: var(--bg);
 }
 
 /* Focus states */
 :focus-visible {
-  outline: 2px solid var(--accent-primary);
+  outline: 1px solid var(--neon-cyan);
   outline-offset: 2px;
-  border-radius: 4px;
-}
-
-button:focus-visible {
-  outline-offset: 4px;
+  box-shadow: var(--glow-cyan);
 }
 
 /* Responsive utilities */
 @media (max-width: 768px) {
   body {
-    padding-top: 70px;
+    padding-top: 50px;
   }
 }
 

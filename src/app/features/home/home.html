@@ -1,28 +1,91 @@
-<section class="home">
-  <div class="decorative-elements">
-    <div class="shape shape-1"></div>
-    <div class="shape shape-2"></div>
-    <div class="shape shape-3"></div>
+<section class="terminal-container">
+  <!-- Status bar -->
+  <div class="status-bar">
+    <span class="status-item">
+      <span class="status-dot online"></span>
+      CONNECTED
+    </span>
+    <span class="status-item">SYS_TIME: {{ currentTime() }}</span>
+    <span class="status-item">MEM: 87%</span>
   </div>
-  
-  <div class="container">
-    <div class="hero-content">
-      <h1 class="hero-title">Nicolás Butterfield</h1>
-      <p class="hero-subtitle">Creative Developer & Digital Craftsman</p>
-      <p class="hero-description">
-        Building beautiful, interactive digital experiences with Angular, TypeScript, and modern web technologies. 
-        Focused on clean architecture, thoughtful UI, and performance.
-      </p>
-      
-      <div class="cta-buttons">
-        <button class="cta-button primary" routerLink="/projects">
-          Explore My Work
-          <span>→</span>
-        </button>
-        <button class="cta-button secondary" routerLink="/about">
-          Learn About Me
-        </button>
+
+  <!-- Terminal window -->
+  <div class="terminal-window">
+    <div class="terminal-header">
+      <div class="terminal-buttons">
+        <span class="btn-close"></span>
+        <span class="btn-min"></span>
+        <span class="btn-max"></span>
       </div>
+      <span class="terminal-title">nb_system://home</span>
+    </div>
+    
+    <div class="terminal-body">
+      <!-- Boot sequence lines -->
+      @for (line of bootSequence(); track $index) {
+        <div 
+          class="boot-line" 
+          [class.success]="line.type === 'success'"
+          [class.warning]="line.type === 'warning'"
+          [class.error]="line.type === 'error'"
+          [class.info]="line.type === 'info'"
+          [class.ascii]="line.type === 'ascii'"
+          [style.animation-delay.ms]="$index * 50"
+        >
+          {{ line.text }}
+        </div>
+      }
+      
+      <!-- Blinking cursor -->
+      @if (!bootComplete()) {
+        <div class="cursor-line">
+          <span class="cursor">█</span>
+        </div>
+        <button class="skip-btn" (click)="skipBoot()">
+          [SKIP BOOT] Press to continue...
+        </button>
+      }
+      
+      <!-- Menu after boot -->
+      @if (showMenu()) {
+        <div class="menu-container">
+          <div class="prompt-line">
+            <span class="prompt-symbol">❯</span>
+            <span class="prompt-text">Select destination:</span>
+          </div>
+          
+          <nav class="terminal-menu">
+            <a routerLink="/about" class="menu-item">
+              <span class="menu-key">[1]</span>
+              <span class="menu-label">ABOUT.exe</span>
+              <span class="menu-desc">// User profile & background</span>
+            </a>
+            <a routerLink="/projects" class="menu-item">
+              <span class="menu-key">[2]</span>
+              <span class="menu-label">PROJECTS.dll</span>
+              <span class="menu-desc">// View portfolio archives</span>
+            </a>
+            <a routerLink="/skills" class="menu-item">
+              <span class="menu-key">[3]</span>
+              <span class="menu-label">SKILLS.sys</span>
+              <span class="menu-desc">// Technical capabilities</span>
+            </a>
+          </nav>
+          
+          <div class="input-line">
+            <span class="prompt-symbol">❯</span>
+            <span class="input-text">_</span>
+            <span class="cursor blink">█</span>
+          </div>
+        </div>
+      }
     </div>
   </div>
+
+  <!-- Decorative elements -->
+  <div class="grid-overlay"></div>
+  <div class="corner-decoration top-left"></div>
+  <div class="corner-decoration top-right"></div>
+  <div class="corner-decoration bottom-left"></div>
+  <div class="corner-decoration bottom-right"></div>
 </section>
