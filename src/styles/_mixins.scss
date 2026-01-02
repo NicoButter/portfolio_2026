@@ -1,11 +1,132 @@
-/* Mixins */
+/* Mixins - Creative Animations & Utilities */
+
+/* Fade & Slide Animations */
 @mixin fade-in {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity var(--transition-slow) ease, transform var(--transition-slow) ease;
 }
 
 @mixin fade-in-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Floating Animation */
+@mixin float-animation {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Glow Effect */
+@mixin glow-effect {
+  filter: drop-shadow(0 0 20px rgba(124, 58, 237, 0.4));
+  transition: filter var(--transition-normal);
+  
+  &:hover {
+    filter: drop-shadow(0 0 30px rgba(124, 58, 237, 0.6));
+  }
+}
+
+/* Smooth Gradient Background */
+@mixin gradient-bg {
+  background: var(--gradient-main);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* Border Gradient */
+@mixin border-gradient {
+  border: 2px solid transparent;
+  background: linear-gradient(var(--bg), var(--bg)) padding-box,
+              var(--gradient-main) border-box;
+}
+
+/* Smooth Transitions */
+@mixin smooth-transition($properties: all) {
+  transition: $properties var(--transition-normal);
+}
+
+/* Flex Center */
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Grid Responsive */
+@mixin grid-responsive($min: 250px) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min, 1fr));
+  gap: var(--spacing-lg);
+}
+
+/* Keyframe Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes blur-in {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate-in {
+  from {
+    opacity: 0;
+    transform: rotate(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

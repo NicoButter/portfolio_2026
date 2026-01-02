@@ -135,6 +135,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -143,39 +147,107 @@ body {
   color: var(--text);
   line-height: 1.6;
   padding-top: 80px; /* Space for fixed header */
+  overflow-x: hidden;
 }
 
+/* Headings */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
-  font-weight: 400;
-  margin: 0 0 var(--spacing-unit) 0;
+  font-weight: 700;
+  margin: 0 0 var(--spacing-md) 0;
+  line-height: 1.2;
 }
 
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+h2 {
+  font-size: clamp(1.75rem, 4vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+/* Paragraphs */
 p {
-  margin: 0 0 var(--spacing-unit) 0;
+  margin: 0 0 var(--spacing-md) 0;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
+/* Links */
 a {
-  color: var(--accent);
+  color: var(--accent-primary);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color var(--transition-normal);
+  
+  &:hover {
+    color: var(--accent-secondary);
+  }
 }
 
-a:hover {
-  color: #3730a3; /* darker indigo */
-}
-
+/* Container */
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 var(--spacing-unit);
+  padding: 0 var(--spacing-lg);
 }
 
-/* Animations */
+/* Animation utilities */
 .fade-in {
-  @include fade-in;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
 }
 
 .fade-in.visible {
-  @include fade-in-visible;
+  opacity: 1;
+  transform: translateY(0);
 }
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 5px;
+  
+  &:hover {
+    background: var(--accent-secondary);
+  }
+}
+
+/* Selection color */
+::selection {
+  background: var(--accent-primary);
+  color: white;
+}
+
+/* Focus states */
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+button:focus-visible {
+  outline-offset: 4px;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;
+  }
+}
+

@@ -1,11 +1,50 @@
-/* Variables */
+/* Variables - Creative & Experimental Design System */
 :root {
+  /* Colors - Modern Vibrant Palette */
   --bg: #fafafa;
+  --bg-secondary: #f5f1ff;
   --text: #111111;
-  --muted: #6b7280;
-  --accent: #4f46e5;
+  --text-secondary: #4b5563;
+  --muted: #8b9dc3;
+  
+  /* Primary Gradient Colors */
+  --accent-primary: #7c3aed;      /* Purple */
+  --accent-secondary: #ec4899;    /* Pink */
+  --accent-tertiary: #06b6d4;    /* Cyan */
+  --accent-quaternary: #f97316;  /* Orange */
+  
+  /* Gradient Combinations */
+  --gradient-main: linear-gradient(135deg, #7c3aed 0%, #ec4899 50%, #06b6d4 100%);
+  --gradient-alt: linear-gradient(45deg, #f97316 0%, #ec4899 100%);
+  --gradient-subtle: linear-gradient(180deg, rgba(124, 58, 237, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.15);
+  --shadow-glow: 0 0 30px rgba(124, 58, 237, 0.3);
+  
+  /* Fonts */
   --font-serif: 'Crimson Text', serif;
   --font-sans: 'Inter', sans-serif;
+  
+  /* Spacing */
   --spacing-unit: 1rem;
-  --max-width: 800px;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+  
+  /* Layout */
+  --max-width: 1200px;
+  --border-radius: 16px;
+  --border-radius-lg: 24px;
+  --border-radius-xl: 32px;
+  
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
