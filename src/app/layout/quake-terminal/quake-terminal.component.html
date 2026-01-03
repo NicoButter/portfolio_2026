@@ -4,9 +4,11 @@
   [class.minimizing]="minimizing()"
   [class.expanded]="expanded()"
   [class.hidden]="!booting() && !bootComplete() && hidden()"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
 >
-  <div class="terminal-window-footer">
-    <div class="terminal-header">
+  <div class="terminal-window-footer" (mouseenter)="onWindowEnter()" (mouseleave)="onWindowLeave()">
+    <div class="terminal-header" (mouseenter)="onHeaderEnter()" (mouseleave)="onHeaderLeave()">
       <div class="terminal-buttons">
         <span class="btn-close"></span>
         <span class="btn-min"></span>

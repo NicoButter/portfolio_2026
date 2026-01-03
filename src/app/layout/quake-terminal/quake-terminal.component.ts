@@ -58,6 +58,35 @@ export class QuakeTerminal implements OnInit, OnDestroy {
     this.quakeSvc.skipBoot();
   }
 
+  onMouseEnter(): void {
+    console.log('🟢 FOOTER mouseenter', {
+      booting: this.booting(),
+      expanded: this.expanded(),
+      minimizing: this.minimizing(),
+      bootComplete: this.bootComplete()
+    });
+  }
+
+  onMouseLeave(): void {
+    console.log('🔴 FOOTER mouseleave');
+  }
+
+  onWindowEnter(): void {
+    console.log('🟡 WINDOW mouseenter');
+  }
+
+  onWindowLeave(): void {
+    console.log('🟠 WINDOW mouseleave');
+  }
+
+  onHeaderEnter(): void {
+    console.log('🔵 HEADER mouseenter');
+  }
+
+  onHeaderLeave(): void {
+    console.log('⚪ HEADER mouseleave');
+  }
+
   private now(): string {
     return new Date().toLocaleTimeString('en-US', { hour12: false });
   }

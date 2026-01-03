@@ -10,6 +10,7 @@ interface BootLine {
 export class QuakeTerminalService {
   private expandTimeout: ReturnType<typeof setTimeout> | null = null;
   private bootTimeout: ReturnType<typeof setTimeout> | null = null;
+  private hasBootedOnce = false;
 
   readonly expanded = signal(false);
   readonly routeLabel = signal('home');
@@ -86,8 +87,13 @@ export class QuakeTerminalService {
         if (index === navCommands.length - 1) {
           // Después del último comando, minimizar
           setTimeout(() => {
+            this.minimizing.set(true);
             this.expanded.set(false);
             this.bootSequence.set([]);
+            // Desactivar minimizing después de la animación
+            setTimeout(() => {
+              this.minimizing.set(false);
+            }, 400);
           }, 800);
         }
       }, currentDelay);
@@ -131,15 +137,19 @@ export class QuakeTerminalService {
         if (index === navCommands.length - 1) {
           // Primero minimizar la terminal
           setTimeout(() => {
+            this.minimizing.set(true);
             this.expanded.set(false);
             this.bootSequence.set([]);
             
-            // Después de minimizar, navegar y mostrar contenido
+            // Desactivar minimizing después de la animación
             setTimeout(() => {
+              this.minimizing.set(false);
+              
+              // Después de minimizar, navegar y mostrar contenido
               if (callback) {
                 callback();
               }
-            }, 300);
+            }, 400);
           }, 500);
         }
       }, currentDelay);
@@ -155,6 +165,16 @@ export class QuakeTerminalService {
   }
 
   startBoot(): void {
+    // Si ya se ejecutó el boot una vez, solo minimizar rápidamente
+    if (this.hasBootedOnce) {
+      this.hidden.set(false);
+      if (!this.bootComplete()) {
+        this.bootComplete.set(true);
+      }
+      return;
+    }
+
+    // Primera vez: ejecutar boot completo
     this.booting.set(true);
     this.bootComplete.set(false);
     this.hidden.set(false);
@@ -187,13 +207,16 @@ export class QuakeTerminalService {
   private completeBoot(): void {
     setTimeout(() => {
       this.minimizing.set(true);
-      // Activar hover inmediatamente después del boot sequence
       setTimeout(() => {
         this.booting.set(false);
         this.bootComplete.set(true);
-        // No desactivar minimizing aquí para mantener la animación pero permitir hover
         this.expanded.set(false);
-      }, 100); // Pequeño delay para que empiece la animación de minimización
+        this.hasBootedOnce = true; // Marcar que el boot ya se ejecutó
+        // Desactivar minimizing después de que termina la animación
+        setTimeout(() => {
+          this.minimizing.set(false);
+        }, 400); // Duración de la transición (0.3s) + buffer
+      }, 100);
     }, 500);
   }
 

@@ -5,17 +5,10 @@
   right: 0;
   background: transparent;
   z-index: 999999;
-  pointer-events: none;
+  pointer-events: auto;
   transform: translateY(calc(100% - 36px));
-  
-  /* Solo el header tiene pointer-events cuando está minimizado */
-  .terminal-window-footer {
-    pointer-events: none;
-  }
-  
-  .terminal-header {
-    pointer-events: auto;
-  }
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.3s ease;
+  will-change: transform;
   
   &.hidden {
     display: none;
@@ -32,6 +25,7 @@
     transform: translateY(0);
     z-index: 999999;
     pointer-events: auto;
+    transition: none;
     
     .terminal-window-footer,
     .terminal-header,
@@ -40,13 +34,9 @@
     }
   }
   
-  /* Estado Expanded: Pantalla completa para navegación */
+  /* Estado Expanded: altura ajustada al contenido para navegación */
   &.expanded {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: var(--bg);
+    background: rgba(0, 0, 0, 0.95);
     transform: translateY(0);
     z-index: 999999;
     pointer-events: auto;
@@ -63,6 +53,12 @@
     transform: translateY(calc(100% - 36px));
     pointer-events: auto;
   }
+  
+  /* Hover en el header cuando está minimizado: expandir solo lo necesario */
+  &:not(.booting):not(.expanded):not(.minimizing):hover {
+    transform: translateY(0);
+    background: rgba(0, 0, 0, 0.95);
+  }
 }
 
 .terminal-window-footer {
@@ -76,6 +72,8 @@
   position: relative;
   max-height: 36px;
   pointer-events: auto;
+  transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: max-height;
   
   /* Durante boot: pantalla completa */
   .terminal-footer.booting & {
@@ -86,16 +84,13 @@
     border-radius: 0;
     box-shadow: none;
     pointer-events: none;
+    transition: none;
   }
 
-  /* Durante expanded: pantalla completa */
+  /* Durante expanded: altura ajustada al contenido */
   .terminal-footer.expanded & {
-    height: 100%;
-    max-height: none;
-    border: none;
-    border-top: none;
-    border-radius: 0;
-    box-shadow: none;
+    max-height: fit-content;
+    max-height: min(50vh, fit-content);
     pointer-events: auto;
   }
 
@@ -103,6 +98,12 @@
   .terminal-footer.minimizing & {
     max-height: 36px;
     pointer-events: auto;
+  }
+  
+  /* Hover: expandir contenedor hasta el contenido */
+  .terminal-footer:not(.booting):not(.expanded):not(.minimizing):hover & {
+    max-height: fit-content;
+    max-height: min(50vh, fit-content);
   }
 }
 
@@ -154,9 +155,10 @@
   max-height: 160px;
   overflow: hidden;
   opacity: 1;
+  transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.4s ease, padding 0.4s ease;
+  will-change: max-height, opacity;
   
-  .terminal-footer.booting &,
-  .terminal-footer.expanded & {
+  .terminal-footer.booting & {
     max-height: none;
     height: calc(100vh - 40px);
     overflow-y: hidden;
@@ -168,6 +170,15 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+    transition: none;
+  }
+
+  .terminal-footer.expanded & {
+    max-height: fit-content;
+    max-height: min(50vh - 40px, fit-content);
+    opacity: 1;
+    overflow-y: auto;
+    padding: var(--spacing-md);
   }
 
   .terminal-footer:not(.booting):not(.expanded) & {
@@ -176,11 +187,13 @@
     padding-bottom: 0;
     opacity: 0;
   }
-
-  .terminal-footer.expanded & {
-    max-height: 160px;
+  
+  /* Mostrar contenido en hover cuando está minimizado */
+  .terminal-footer:not(.booting):not(.expanded):not(.minimizing):hover & {
+    max-height: fit-content;
+    max-height: min(50vh - 40px, fit-content);
     opacity: 1;
-    padding: var(--spacing-md);
+    overflow-y: auto;
   }
 }
 
