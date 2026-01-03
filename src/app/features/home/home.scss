@@ -5,9 +5,14 @@
   align-items: center;
   justify-content: center;
   padding: var(--spacing-lg);
+  padding-top: 180px; /* Espacio extra superior para que no tape el header */
   position: relative;
   background: var(--bg);
   padding-bottom: 120px;
+  
+  /* Home no debe tener scroll */
+  overflow: hidden;
+  height: calc(100vh - 60px);
 }
 
 /* Terminal window in main (during boot) */

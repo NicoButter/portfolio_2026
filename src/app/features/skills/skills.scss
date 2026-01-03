@@ -2,6 +2,7 @@
   min-height: calc(100vh - 60px);
   padding: var(--spacing-lg);
   position: relative;
+  padding-bottom: 100px; /* Espacio extra para la terminal */
 }
 
 /* Main Content */

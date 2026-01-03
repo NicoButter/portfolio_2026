@@ -148,7 +148,10 @@ body {
   line-height: 1.6;
   padding-top: 60px;
   overflow-x: hidden;
-  overflow-y: hidden;
+  
+  /* Por defecto, permitir scroll */
+  overflow-y: auto;
+  height: 100vh;
   
   /* Scanlines effect */
   &::before {
