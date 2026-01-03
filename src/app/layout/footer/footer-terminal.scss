@@ -66,17 +66,42 @@
 }
 
 .terminal-footer.expanded {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg);
   transform: translateY(0);
+  z-index: 200;
+  animation: expand-to-fullscreen 0.4s ease forwards;
 }
 
+.terminal-footer.expanded .terminal-window-footer {
+  height: 100%;
+  max-height: none;
+  border: none;
+  border-top: none;
+  border-radius: 0;
+  box-shadow: none;
+}
 
-.terminal-footer.expanded .terminal-window-footer,
-.terminal-footer:not(.booting) .terminal-window-footer:hover {
+.terminal-footer:not(.booting):not(.expanded) .terminal-window-footer:hover {
   max-height: 240px;
 }
 
-.terminal-footer:not(.booting):hover {
+.terminal-footer:not(.booting):not(.expanded):hover {
   transform: translateY(calc(100% - 200px));
+}
+
+@keyframes expand-to-fullscreen {
+  from {
+    transform: translateY(calc(100% - 36px));
+    background: transparent;
+  }
+  to {
+    transform: translateY(0);
+    background: var(--bg);
+  }
 }
 
 @keyframes footer-fade-in {
@@ -154,7 +179,8 @@
   transition: all 0.3s ease;
   opacity: 1;
   
-  .terminal-footer.booting & {
+  .terminal-footer.booting &,
+  .terminal-footer.expanded & {
     max-height: none;
     height: calc(100vh - 40px);
     overflow-y: hidden;
@@ -206,6 +232,10 @@
     letter-spacing: -0.5px;
     margin-bottom: 0px;
     animation: cyan-pulse 2s ease-in-out infinite, fade-in 0.3s ease-out forwards;
+  }
+  &.command { 
+    color: var(--neon-green);
+    font-weight: 600;
   }
 }
 

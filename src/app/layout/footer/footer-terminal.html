@@ -12,7 +12,7 @@
         <span class="btn-min"></span>
         <span class="btn-max"></span>
       </div>
-      <span class="terminal-title">nb_system://{{ booting() ? 'boot' : routeLabel() }}</span>
+      <span class="terminal-title">nb_system://{{ booting() ? 'boot' : expanded() ? 'nav' : routeLabel() }}</span>
       @if (!booting()) {
         <span class="terminal-meta">{{ timestamp() }}</span>
       }
@@ -42,6 +42,26 @@
         <button class="skip-btn" (click)="skipBoot()">
           [SKIP BOOT] Press to continue...
         </button>
+      } @else if (expanded()) {
+        <!-- Navigation commands -->
+        @for (line of bootSequence(); track $index) {
+          <div 
+            class="boot-line" 
+            [class.success]="line.type === 'success'"
+            [class.warning]="line.type === 'warning'"
+            [class.error]="line.type === 'error'"
+            [class.info]="line.type === 'info'"
+            [class.command]="line.type === 'command'"
+            [style.animation-delay.ms]="$index * 100"
+          >
+            {{ line.text }}
+          </div>
+        }
+        
+        <!-- Blinking cursor during navigation -->
+        <div class="cursor-line">
+          <span class="cursor">█</span>
+        </div>
       } @else {
         <!-- Status content -->
         <div class="prompt-line">

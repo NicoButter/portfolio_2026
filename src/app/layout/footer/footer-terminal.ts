@@ -39,7 +39,7 @@ export class FooterTerminal implements OnInit, OnDestroy {
           return;
         }
         const label = this.titles[event.urlAfterRedirects] ?? event.urlAfterRedirects ?? 'route';
-        this.footerSvc.pulse(label);
+        this.footerSvc.navigate(label);
       });
 
     this.tickInterval = setInterval(() => this.timestamp.set(this.now()), 1000);

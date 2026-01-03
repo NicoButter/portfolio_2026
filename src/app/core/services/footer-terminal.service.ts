@@ -2,7 +2,7 @@ import { Injectable, signal } from '@angular/core';
 
 interface BootLine {
   text: string;
-  type: 'system' | 'success' | 'warning' | 'error' | 'info' | 'ascii';
+  type: 'system' | 'success' | 'warning' | 'error' | 'info' | 'ascii' | 'command';
   delay: number;
 }
 
@@ -54,21 +54,44 @@ export class FooterTerminalService {
     { text: 'System ready. Welcome, User.', type: 'success', delay: 300 },
   ];
 
-  pulse(label: string, durationMs = 2200): void {
-    if (this.booting() || this.minimizing()) {
+  navigate(route: string): void {
+    if (this.booting() || this.minimizing() || this.expanded()) {
       return;
     }
 
-    this.routeLabel.set(label);
+    this.routeLabel.set(route);
+    
+    // Maximizar completamente la terminal
     this.expanded.set(true);
+    
+    // Simular comandos de navegación
+    const navCommands = [
+      { text: `$ cd /portfolio/${route}`, type: 'command' as const, delay: 200 },
+      { text: `Navigating to ${route} section...`, type: 'system' as const, delay: 300 },
+      { text: `[OK] Route loaded: /portfolio/${route}`, type: 'success' as const, delay: 400 },
+      { text: `[OK] Content rendered`, type: 'success' as const, delay: 200 },
+      { text: `$ clear`, type: 'command' as const, delay: 100 },
+    ];
 
-    if (this.expandTimeout) {
-      clearTimeout(this.expandTimeout);
-    }
-
-    this.expandTimeout = setTimeout(() => {
-      this.expanded.set(false);
-    }, durationMs);
+    // Mostrar comandos con delays progresivamente
+    this.bootSequence.set([]); // Limpiar primero
+    let currentDelay = 0;
+    navCommands.forEach((cmd, index) => {
+      currentDelay += cmd.delay;
+      setTimeout(() => {
+        // Agregar comando progresivamente
+        const current = this.bootSequence();
+        this.bootSequence.set([...current, cmd]);
+        
+        if (index === navCommands.length - 1) {
+          // Después del último comando, minimizar
+          setTimeout(() => {
+            this.expanded.set(false);
+            this.bootSequence.set([]);
+          }, 800);
+        }
+      }, currentDelay);
+    });
   }
 
   hide(): void {
