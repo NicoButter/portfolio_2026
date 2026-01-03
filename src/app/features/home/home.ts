@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal, computed, OnInit, OnDestroy, inject } from '@angular/core';
-import { FooterTerminalService } from '../../core/services/footer-terminal.service';
+import { QuakeTerminalService } from '../../core/services/quake-terminal.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +8,7 @@ import { FooterTerminalService } from '../../core/services/footer-terminal.servi
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Home implements OnInit, OnDestroy {
-  private readonly footerSvc = inject(FooterTerminalService);
+  private readonly footerSvc = inject(QuakeTerminalService);
   
   readonly bootComplete = computed(() => this.footerSvc.bootComplete());
   readonly showMenu = signal(false);

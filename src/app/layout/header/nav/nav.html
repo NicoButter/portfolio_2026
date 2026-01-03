@@ -1,10 +1,10 @@
 <nav class="nav" [class.animate-nav]="animateOnHome()">
   <div class="container">
-    <a routerLink="/" class="brand">NB_SYS</a>
+    <a (click)="navigateTo($event, '/')" class="brand" style="cursor: pointer;">NB_SYS</a>
     <div class="nav-links">
-      <a routerLink="/about" class="nav-link">About</a>
-      <a routerLink="/projects" class="nav-link">Projects</a>
-      <a routerLink="/skills" class="nav-link">Skills</a>
+      <a (click)="navigateTo($event, '/about')" class="nav-link" style="cursor: pointer;">About</a>
+      <a (click)="navigateTo($event, '/projects')" class="nav-link" style="cursor: pointer;">Projects</a>
+      <a (click)="navigateTo($event, '/skills')" class="nav-link" style="cursor: pointer;">Skills</a>
     </div>
   </div>
 </nav>

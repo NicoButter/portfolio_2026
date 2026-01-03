@@ -1,14 +1,6 @@
 <section class="terminal-page">
-  <!-- Access animation -->
-  <app-access-control 
-    [attr.key]="resetKey()"
-    filename="projects.ko"
-    moduleName="PROJECTS.so"
-    (onAccessComplete)="onAccessComplete()"
-  ></app-access-control>
-
   <!-- Main content -->
-  <div class="content-container" [class.visible]="showContent()">
+  <div class="content-container visible">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">// PORTFOLIO_ARCHIVE</span>

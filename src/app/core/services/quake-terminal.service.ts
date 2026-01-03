@@ -7,7 +7,7 @@ interface BootLine {
 }
 
 @Injectable({ providedIn: 'root' })
-export class FooterTerminalService {
+export class QuakeTerminalService {
   private expandTimeout: ReturnType<typeof setTimeout> | null = null;
   private bootTimeout: ReturnType<typeof setTimeout> | null = null;
 
@@ -89,6 +89,58 @@ export class FooterTerminalService {
             this.expanded.set(false);
             this.bootSequence.set([]);
           }, 800);
+        }
+      }, currentDelay);
+    });
+  }
+
+  navigateWithCallback(route: string, callback?: () => void): void {
+    if (this.booting() || this.minimizing()) {
+      return;
+    }
+
+    // Si ya está expandido, no hacer nada
+    if (this.expanded()) {
+      return;
+    }
+
+    this.routeLabel.set(route);
+    
+    // Maximizar completamente la terminal
+    this.expanded.set(true);
+    
+    // Simular comandos de navegación
+    const navCommands = [
+      { text: `$ cd /portfolio/${route}`, type: 'command' as const, delay: 300 },
+      { text: `Navigating to ${route} section...`, type: 'system' as const, delay: 400 },
+      { text: `[OK] Route loaded: /portfolio/${route}`, type: 'success' as const, delay: 500 },
+      { text: `[OK] Content rendered`, type: 'success' as const, delay: 300 },
+      { text: `$ clear`, type: 'command' as const, delay: 200 },
+    ];
+
+    // Mostrar comandos con delays progresivamente
+    this.bootSequence.set([]); // Limpiar primero
+    let currentDelay = 0;
+    navCommands.forEach((cmd, index) => {
+      currentDelay += cmd.delay;
+      setTimeout(() => {
+        // Agregar comando progresivamente
+        const current = this.bootSequence();
+        this.bootSequence.set([...current, cmd]);
+        
+        if (index === navCommands.length - 1) {
+          // Primero minimizar la terminal
+          setTimeout(() => {
+            this.expanded.set(false);
+            this.bootSequence.set([]);
+            
+            // Después de minimizar, navegar y mostrar contenido
+            setTimeout(() => {
+              if (callback) {
+                callback();
+              }
+            }, 300);
+          }, 500);
         }
       }, currentDelay);
     });
