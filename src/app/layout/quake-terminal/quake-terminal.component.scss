@@ -4,9 +4,8 @@
   left: 0;
   right: 0;
   background: transparent;
-  z-index: 9999;
+  z-index: 999999;
   pointer-events: none;
-  transition: none;
   transform: translateY(calc(100% - 36px));
   
   /* Solo el header tiene pointer-events cuando está minimizado */
@@ -31,10 +30,8 @@
     display: block;
     background: var(--bg);
     transform: translateY(0);
-    z-index: 9999;
-    animation: none;
+    z-index: 999999;
     pointer-events: auto;
-    transition: none;
     
     .terminal-window-footer,
     .terminal-header,
@@ -50,10 +47,9 @@
     left: 0;
     right: 0;
     background: var(--bg);
-    transform: translateY(0) !important;
-    z-index: 9999;
+    transform: translateY(0);
+    z-index: 999999;
     pointer-events: auto;
-    transition: all 0.4s ease;
     
     .terminal-window-footer,
     .terminal-header,
@@ -62,22 +58,10 @@
     }
   }
   
-  /* Animación de minimización */
+  /* Estado Minimizing: Regresando al footer */
   &.minimizing {
-    animation: slide-to-footer 0.8s ease forwards;
+    transform: translateY(calc(100% - 36px));
     pointer-events: auto;
-  }
-
-  /* Fade in después del boot */
-  &:not(.booting):not(.expanded) {
-    opacity: 0;
-    animation: footer-fade-in 0.4s ease forwards;
-  }
-  
-  /* Hover solo cuando está minimizado */
-  &:not(.booting):not(.expanded):not(.minimizing):hover {
-    transform: translateY(calc(100% - 200px));
-    transition: transform 0.35s ease;
   }
 }
 
@@ -91,7 +75,6 @@
   overflow: hidden;
   position: relative;
   max-height: 36px;
-  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: auto;
   
   /* Durante boot: pantalla completa */
@@ -116,43 +99,15 @@
     pointer-events: auto;
   }
 
+  /* Durante minimizing: regresando al footer */
   .terminal-footer.minimizing & {
+    max-height: 36px;
     pointer-events: auto;
   }
-  
-  /* Hover solo cuando NO está expanded ni booting */
-  .terminal-footer:not(.booting):not(.expanded):not(.minimizing):hover & {
-    max-height: 240px;
-  }
 }
 
-@keyframes footer-fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slide-to-footer {
-  0% {
-    top: 0;
-    bottom: 0;
-    background: var(--bg);
-    transform: translateY(0);
-  }
-  70% {
-    top: auto;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
-  }
-  100% {
-    top: auto;
-    bottom: 0;
-    background: transparent;
-    transform: translateY(calc(100% - 36px));
-  }
+@keyframes fade-in {
+  to { opacity: 1; }
 }
 
 .terminal-header {
@@ -198,7 +153,6 @@
   padding: var(--spacing-md);
   max-height: 160px;
   overflow: hidden;
-  transition: all 0.3s ease;
   opacity: 1;
   
   .terminal-footer.booting &,
@@ -223,7 +177,6 @@
     opacity: 0;
   }
 
-  .terminal-window-footer:hover &,
   .terminal-footer.expanded & {
     max-height: 160px;
     opacity: 1;
