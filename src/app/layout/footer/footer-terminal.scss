@@ -61,7 +61,7 @@
   }
 
   .terminal-footer.minimizing & {
-    pointer-events: none;
+    pointer-events: auto; /* Permitir hover durante minimización */
   }
 }
 
@@ -71,11 +71,11 @@
 
 
 .terminal-footer.expanded .terminal-window-footer,
-.terminal-footer:not(.booting):not(.minimizing) .terminal-window-footer:hover {
+.terminal-footer:not(.booting) .terminal-window-footer:hover {
   max-height: 240px;
 }
 
-.terminal-footer:not(.booting):not(.minimizing):hover {
+.terminal-footer:not(.booting):hover {
   transform: translateY(calc(100% - 200px));
 }
 

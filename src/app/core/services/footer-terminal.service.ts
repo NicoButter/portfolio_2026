@@ -29,22 +29,26 @@ export class FooterTerminalService {
     { text: '║  ╚═╝  ╚═══╝╚═════╝     ╚══════╝   ╚═╝   ╚══════╝        ║', type: 'ascii', delay: 50 },
     { text: '╚══════════════════════════════════════════════════════════╝', type: 'ascii', delay: 50 },
     { text: '', type: 'system', delay: 200 },
-    { text: 'BIOS v3.14.159 - NB_SYSTEMS', type: 'system', delay: 100 },
-    { text: 'Initializing neural interface...', type: 'info', delay: 300 },
-    { text: '[OK] Memory check: 32GB Neural RAM', type: 'success', delay: 200 },
-    { text: '[OK] CPU: Quantum Core i9-2077', type: 'success', delay: 150 },
-    { text: '[OK] GPU: RTX CYBER 9090', type: 'success', delay: 150 },
+    { text: 'openSUSE Tumbleweed 2026.01 - NB_SYSTEMS', type: 'system', delay: 100 },
+    { text: 'Kernel 6.6.0-1-default x86_64', type: 'system', delay: 100 },
+    { text: 'Initializing systemd services...', type: 'info', delay: 300 },
+    { text: '[OK] Memory check: 64GB DDR5-5200 SODIMM', type: 'success', delay: 200 },
+    { text: '[OK] CPU: AMD Ryzen 9 7945HX (16 cores)', type: 'success', delay: 150 },
+    { text: '[OK] GPU: NVIDIA RTX 4070 (8GB GDDR6)', type: 'success', delay: 150 },
+    { text: '[OK] Storage: 2TB NVMe PCIe 4.0 SSD', type: 'success', delay: 150 },
+    { text: '[OK] Display: 16" 2560x1600 IPS 165Hz', type: 'success', delay: 150 },
+    { text: '[OK] System76 Oryx Pro 16 (oryp16)', type: 'success', delay: 200 },
     { text: '', type: 'system', delay: 100 },
-    { text: 'Loading kernel modules...', type: 'info', delay: 400 },
-    { text: '[OK] angular.core.module', type: 'success', delay: 100 },
-    { text: '[OK] typescript.compiler.v5', type: 'success', delay: 100 },
-    { text: '[OK] creativity.engine', type: 'success', delay: 100 },
-    { text: '[OK] coffee.dependency.injection', type: 'success', delay: 100 },
+    { text: 'Loading systemd units...', type: 'info', delay: 400 },
+    { text: '[OK] network.service', type: 'success', delay: 100 },
+    { text: '[OK] sshd.service', type: 'success', delay: 100 },
+    { text: '[OK] apache2.service', type: 'success', delay: 100 },
+    { text: '[OK] postgresql.service', type: 'success', delay: 100 },
     { text: '', type: 'system', delay: 100 },
     { text: 'Establishing secure connection...', type: 'warning', delay: 500 },
     { text: '[OK] Connection established', type: 'success', delay: 300 },
     { text: '', type: 'system', delay: 100 },
-    { text: 'NICOLAS BUTTERFIELD // DEVELOPER TERMINAL v2.0.26', type: 'system', delay: 100 },
+    { text: 'NICOLAS BUTTERFIELD // openSUSE TERMINAL v2.0.26', type: 'system', delay: 100 },
     { text: 'Status: ONLINE | Location: CYBERSPACE', type: 'info', delay: 100 },
     { text: '', type: 'system', delay: 100 },
     { text: 'System ready. Welcome, User.', type: 'success', delay: 300 },
@@ -108,12 +112,13 @@ export class FooterTerminalService {
   private completeBoot(): void {
     setTimeout(() => {
       this.minimizing.set(true);
+      // Activar hover inmediatamente después del boot sequence
       setTimeout(() => {
         this.booting.set(false);
         this.bootComplete.set(true);
-        this.minimizing.set(false);
+        // No desactivar minimizing aquí para mantener la animación pero permitir hover
         this.expanded.set(false);
-      }, 800);
+      }, 100); // Pequeño delay para que empiece la animación de minimización
     }, 500);
   }
 
