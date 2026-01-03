@@ -9,7 +9,32 @@
     <span class="status-item">MEM: 87%</span>
   </div>
 
-  <!-- Hero Profile Section (appears after boot) -->
+  <!-- Welcome Section (appears after boot completes) -->
+  @if (bootComplete() && !showMenu()) {
+    <div class="welcome-section">
+      <div class="welcome-content">
+        <h1 class="welcome-title">
+          <span class="glitch-text" data-text="WELCOME TO NB_SYS.2077">WELCOME TO NB_SYS.2077</span>
+        </h1>
+        <div class="welcome-divider"></div>
+        <p class="welcome-text">
+          > System initialized<br>
+          > Scanning credentials...<br>
+          > Identity verified<br>
+          > Access granted to classified sectors<br>
+          <br>
+          >> Enter the network. Explore encrypted archives.<br>
+          >> Decrypt legacy systems. Discover hidden protocols.<br>
+          >> You are now connected to the mainframe.
+        </p>
+        <div class="welcome-cursor">
+          <span class="cursor">█</span>
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- Hero Profile Section (appears with welcome) -->
   @if (bootComplete() && !showMenu()) {
     <div class="hero-profile-section">
       <div class="profile-container">
@@ -34,19 +59,19 @@
             <span class="label">SCANNING...</span>
             <span class="progress-bar"></span>
           </div>
-          <div class="data-line" [class.visible]="dataLoaded()">
+          <div class="data-line" [class.visible]="bootComplete()">
             <span class="label">USER_ID:</span>
             <span class="value">NB_SYS_2077</span>
           </div>
-          <div class="data-line" [class.visible]="dataLoaded()">
+          <div class="data-line" [class.visible]="bootComplete()">
             <span class="label">STATUS:</span>
             <span class="value status-active">ONLINE</span>
           </div>
-          <div class="data-line" [class.visible]="dataLoaded()">
+          <div class="data-line" [class.visible]="bootComplete()">
             <span class="label">CLEARANCE:</span>
             <span class="value">LEVEL_5</span>
           </div>
-          <div class="data-line" [class.visible]="dataLoaded()">
+          <div class="data-line" [class.visible]="bootComplete()">
             <span class="label">ROLE:</span>
             <span class="value">DEVELOPER</span>
           </div>
@@ -54,79 +79,6 @@
       </div>
     </div>
   }
-
-  <!-- Terminal window -->
-  <div class="terminal-window" [class.minimized]="bootComplete()">
-    <div class="terminal-header">
-      <div class="terminal-buttons">
-        <span class="btn-close"></span>
-        <span class="btn-min"></span>
-        <span class="btn-max"></span>
-      </div>
-      <span class="terminal-title">nb_system://home</span>
-    </div>
-    
-    <div class="terminal-body">
-      <!-- Boot sequence lines -->
-      @for (line of bootSequence(); track $index) {
-        <div 
-          class="boot-line" 
-          [class.success]="line.type === 'success'"
-          [class.warning]="line.type === 'warning'"
-          [class.error]="line.type === 'error'"
-          [class.info]="line.type === 'info'"
-          [class.ascii]="line.type === 'ascii'"
-          [style.animation-delay.ms]="$index * 50"
-        >
-          {{ line.text }}
-        </div>
-      }
-      
-      <!-- Blinking cursor -->
-      @if (!bootComplete()) {
-        <div class="cursor-line">
-          <span class="cursor">█</span>
-        </div>
-        <button class="skip-btn" (click)="skipBoot()">
-          [SKIP BOOT] Press to continue...
-        </button>
-      }
-      
-      <!-- Menu after boot -->
-      @if (showMenu()) {
-        <div class="menu-container">
-          <div class="prompt-line">
-            <span class="prompt-symbol">❯</span>
-            <span class="prompt-text">Select destination:</span>
-          </div>
-          
-          <nav class="terminal-menu">
-            <a routerLink="/about" class="menu-item">
-              <span class="menu-key">[1]</span>
-              <span class="menu-label">ABOUT.exe</span>
-              <span class="menu-desc">// User profile & background</span>
-            </a>
-            <a routerLink="/projects" class="menu-item">
-              <span class="menu-key">[2]</span>
-              <span class="menu-label">PROJECTS.dll</span>
-              <span class="menu-desc">// View portfolio archives</span>
-            </a>
-            <a routerLink="/skills" class="menu-item">
-              <span class="menu-key">[3]</span>
-              <span class="menu-label">SKILLS.sys</span>
-              <span class="menu-desc">// Technical capabilities</span>
-            </a>
-          </nav>
-          
-          <div class="input-line">
-            <span class="prompt-symbol">❯</span>
-            <span class="input-text">_</span>
-            <span class="cursor blink">█</span>
-          </div>
-        </div>
-      }
-    </div>
-  </div>
 
   <!-- Decorative elements -->
   <div class="grid-overlay"></div>

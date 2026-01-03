@@ -1,0 +1,67 @@
+<footer 
+  class="terminal-footer" 
+  [class.booting]="booting()"
+  [class.minimizing]="minimizing()"
+  [class.expanded]="expanded()"
+  [class.hidden]="!booting() && !bootComplete() && hidden()"
+>
+  <div class="terminal-window-footer">
+    <div class="terminal-header">
+      <div class="terminal-buttons">
+        <span class="btn-close"></span>
+        <span class="btn-min"></span>
+        <span class="btn-max"></span>
+      </div>
+      <span class="terminal-title">nb_system://{{ booting() ? 'boot' : routeLabel() }}</span>
+      @if (!booting()) {
+        <span class="terminal-meta">{{ timestamp() }}</span>
+      }
+    </div>
+    
+    <div class="terminal-body">
+      @if (booting()) {
+        <!-- Boot sequence lines -->
+        @for (line of bootSequence(); track $index) {
+          <div 
+            class="boot-line" 
+            [class.success]="line.type === 'success'"
+            [class.warning]="line.type === 'warning'"
+            [class.error]="line.type === 'error'"
+            [class.info]="line.type === 'info'"
+            [class.ascii]="line.type === 'ascii'"
+            [style.animation-delay.ms]="$index * 50"
+          >
+            {{ line.text }}
+          </div>
+        }
+        
+        <!-- Blinking cursor -->
+        <div class="cursor-line">
+          <span class="cursor">█</span>
+        </div>
+        <button class="skip-btn" (click)="skipBoot()">
+          [SKIP BOOT] Press to continue...
+        </button>
+      } @else {
+        <!-- Status content -->
+        <div class="prompt-line">
+          <span class="prompt-symbol">❯</span>
+          <span class="prompt-text">Routing: {{ routeLabel() }} // link matrix disabled</span>
+        </div>
+        <div class="progress-bar"></div>
+        <div class="status-line">
+          <span class="label">STATE</span>
+          <span class="value">Docked</span>
+        </div>
+        <div class="status-line">
+          <span class="label">HOVER</span>
+          <span class="value">Expand terminal logs</span>
+        </div>
+        <div class="status-line">
+          <span class="label">FOCUS</span>
+          <span class="value">Content in main view</span>
+        </div>
+      }
+    </div>
+  </div>
+</footer>
