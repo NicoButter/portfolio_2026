@@ -38,7 +38,6 @@ export class QuakeTerminal implements OnInit, OnDestroy {
         if (!this.quakeSvc.bootComplete()) {
           return;
         }
-        // Solo actualizar el routeLabel, no ejecutar navigate
         const label = this.titles[event.urlAfterRedirects] ?? event.urlAfterRedirects ?? 'route';
         this.quakeSvc.routeLabel.set(label);
       });
@@ -56,35 +55,6 @@ export class QuakeTerminal implements OnInit, OnDestroy {
 
   skipBoot(): void {
     this.quakeSvc.skipBoot();
-  }
-
-  onMouseEnter(): void {
-    console.log('🟢 FOOTER mouseenter', {
-      booting: this.booting(),
-      expanded: this.expanded(),
-      minimizing: this.minimizing(),
-      bootComplete: this.bootComplete()
-    });
-  }
-
-  onMouseLeave(): void {
-    console.log('🔴 FOOTER mouseleave');
-  }
-
-  onWindowEnter(): void {
-    console.log('🟡 WINDOW mouseenter');
-  }
-
-  onWindowLeave(): void {
-    console.log('🟠 WINDOW mouseleave');
-  }
-
-  onHeaderEnter(): void {
-    console.log('🔵 HEADER mouseenter');
-  }
-
-  onHeaderLeave(): void {
-    console.log('⚪ HEADER mouseleave');
   }
 
   private now(): string {
