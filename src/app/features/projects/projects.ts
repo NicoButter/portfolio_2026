@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
 
 interface Project {
   title: string;
@@ -13,7 +12,7 @@ interface Project {
 
 @Component({
   selector: 'app-projects',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,55 +1,40 @@
 <section class="terminal-page">
-  <!-- Main content -->
-  <div class="content-container visible">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">// PORTFOLIO_ARCHIVE</span>
-        <h1 class="glitch-title" data-text="PROJECTS.so">PROJECTS.so</h1>
-        <div class="header-line"></div>
-      </div>
+  <!-- Nano Editor Simulation -->
+  <div class="nano-editor">
+    <!-- Nano Header -->
+    <div class="nano-header">
+      <span class="terminal-icon">▶</span>
+      <span class="nano-title">NB_SYSTEM NANO v∞.0 // NEURAL_ENHANCED</span>
+      <span class="nano-file">projects.log</span>
+      <span class="nano-modified">Modified</span>
+    </div>
 
-      <div class="project-list">
-        <article class="project-card" *ngFor="let project of projects()">
-          <div class="project-header">
-            <span class="project-icon">◆</span>
-            <h2 class="project-title">{{ project.title }}</h2>
-          </div>
-          
-          <div class="project-content">
-            <div class="project-section">
-              <h3 class="section-label">// CONTEXT</h3>
-              <p class="section-text">{{ project.context }}</p>
-            </div>
-            
-            <div class="project-section">
-              <h3 class="section-label">// PROBLEM</h3>
-              <p class="section-text">{{ project.problem }}</p>
-            </div>
-            
-            <div class="project-section">
-              <h3 class="section-label">// TECHNICAL_DECISIONS</h3>
-              <p class="section-text">{{ project.decisions }}</p>
-            </div>
-            
-            <div class="project-section">
-              <h3 class="section-label">// TRADE_OFFS</h3>
-              <p class="section-text">{{ project.tradeoffs }}</p>
-            </div>
-            
-            <div class="project-section">
-              <h3 class="section-label">// IMPROVEMENTS</h3>
-              <p class="section-text">{{ project.improvements }}</p>
-            </div>
-          </div>
-        </article>
+    <!-- Nano Content Area -->
+    <div class="nano-content">
+      <div class="nano-text">
+        <div class="line"><span class="line-number">  1</span><span class="line-content"><span class="pixel-icon">▲</span> <span class="section-title">// PORTFOLIO_ARCHIVE</span></span></div>
+        <div class="line"><span class="line-number">  2</span><span class="line-content"></span></div>
+        <div *ngFor="let project of projects(); let i = index" class="project-section-container">
+          <div class="line"><span class="line-number">  {{ 3 + (i * 8) }}</span><span class="line-content"><span class="pixel-icon">◆</span> <span class="section-title">[{{ project.title | uppercase }}]</span></span></div>
+          <div class="line"><span class="line-number">  {{ 4 + (i * 8) }}</span><span class="line-content"></span></div>
+          <div class="line"><span class="line-number">  {{ 5 + (i * 8) }}</span><span class="line-content"><span class="arrow-animate">></span> {{ project.context }}</span></div>
+          <div class="line"><span class="line-number">  {{ 6 + (i * 8) }}</span><span class="line-content"><span class="arrow-animate">></span> {{ project.problem }}</span></div>
+          <div class="line"><span class="line-number">  {{ 7 + (i * 8) }}</span><span class="line-content"><span class="arrow-animate">></span> {{ project.decisions }}</span></div>
+          <div class="line"><span class="line-number">  {{ 8 + (i * 8) }}</span><span class="line-content"></span></div>
+        </div>
+        <div class="line"><span class="line-number"> 99</span><span class="line-content"><span class="pixel-icon">▼</span> [EOF]</span></div>
       </div>
+    </div>
 
-      <div class="footer-prompt">
-        <span class="prompt-symbol">❯</span>
-        <span class="prompt-text">End of archive. Return to </span>
-        <a routerLink="/" class="prompt-link">[HOME]</a>
-        <span class="cursor blink">█</span>
-      </div>
+    <!-- Nano Footer -->
+    <div class="nano-footer">
+      <span class="nano-command">^G</span><span class="nano-desc">Help</span>
+      <span class="nano-command">^O</span><span class="nano-desc">Write Out</span>
+      <span class="nano-command">^W</span><span class="nano-desc">Where Is</span>
+      <span class="nano-command">^K</span><span class="nano-desc">Cut</span>
+      <span class="nano-command">^T</span><span class="nano-desc">Execute</span>
+      <span class="nano-command">^C</span><span class="nano-desc">Location</span>
+      <span class="nano-command">^X</span><span class="nano-desc">Exit</span>
     </div>
   </div>
 </section>

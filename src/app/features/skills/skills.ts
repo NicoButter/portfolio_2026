@@ -1,12 +1,11 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-skills',
-  imports: [RouterLink],
   templateUrl: './skills.html',
   styleUrl: './skills.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Skills {
+  testSignal = signal(true);
 }
