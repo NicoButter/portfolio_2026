@@ -1,8 +1,9 @@
 <nav class="nav" [class.animate-nav]="animateOnHome()">
   <div class="container">
-    <a (click)="navigateTo($event, '/')" class="brand" style="cursor: pointer;">
+    <div class="brand">
+      <a (click)="navigateTo($event, '/')" class="terminal-icon-link" style="cursor: pointer;">▶</a>
       <span class="path-text">{{ currentPath() }}</span>
-    </a>
+    </div>
     <div class="nav-links">
       <a (click)="navigateTo($event, '/about')" class="nav-link" style="cursor: pointer;">About</a>
       <a (click)="navigateTo($event, '/projects')" class="nav-link" style="cursor: pointer;">Projects</a>

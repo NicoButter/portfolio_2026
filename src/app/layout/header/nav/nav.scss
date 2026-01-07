@@ -92,11 +92,6 @@
   text-shadow: 0 0 10px var(--neon-cyan);
   position: relative;
   overflow: hidden;
-  
-  &:hover {
-    color: var(--neon-magenta);
-    text-shadow: var(--glow-magenta);
-  }
 }
 
 .path-text {
@@ -195,4 +190,12 @@
     font-size: 0.9rem;
     letter-spacing: 2px;
   }
+}
+
+.terminal-icon-link {
+  color: var(--neon-cyan);
+  margin-right: var(--spacing-xs);
+  font-weight: bold;
+  text-decoration: none;
+  transition: color var(--transition-fast);
 }
