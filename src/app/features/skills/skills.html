@@ -1,45 +1,64 @@
 <section class="terminal-page">
-  <!-- Nano Editor Simulation -->
-  <div class="nano-editor">
-    <!-- Nano Header -->
-    <div class="nano-header">
+  <div class="terminal-simulator">
+    <!-- Terminal Header -->
+    <div class="terminal-header">
       <span class="terminal-icon">▶</span>
-      <span class="nano-title">NB_SYSTEM NANO v∞.0 // NEURAL_ENHANCED</span>
-      <span class="nano-file">skills.txt</span>
-      <span class="nano-modified">Modified</span>
+      <span class="terminal-title">NB_SYSTEM TERMINAL v∞.0 // SKILLS_MODULE</span>
+      <span class="terminal-status">CONNECTED</span>
     </div>
 
-    <!-- Nano Content Area -->
-    <div class="nano-content">
-      <div class="nano-text">
-        <div class="line"><span class="line-number">  1</span><span class="line-content"><span class="pixel-icon">▲</span> <span class="section-title">// TECHNICAL_CAPABILITIES</span></span></div>
-        <div class="line"><span class="line-number">  2</span><span class="line-content"></span></div>
-        <div class="line"><span class="line-number">  3</span><span class="line-content"><span class="pixel-icon">◆</span> <span class="section-title">[LANGUAGES]</span></span></div>
-        <div class="line"><span class="line-number">  4</span><span class="line-content">  <span class="skill-item">◈ TypeScript</span> / <span class="skill-item">◈ JavaScript</span> / <span class="skill-item">◈ Python</span> / <span class="skill-item">◈ Java</span></span></div>
-        <div class="line"><span class="line-number">  5</span><span class="line-content"></span></div>
-        <div class="line"><span class="line-number">  6</span><span class="line-content"><span class="pixel-icon">◆</span> <span class="section-title">[FRAMEWORKS]</span></span></div>
-        <div class="line"><span class="line-number">  7</span><span class="line-content">  <span class="skill-item">◈ Angular</span> / <span class="skill-item">◈ React</span> / <span class="skill-item">◈ Node.js</span> / <span class="skill-item">◈ Express</span></span></div>
-        <div class="line"><span class="line-number">  8</span><span class="line-content"></span></div>
-        <div class="line"><span class="line-number">  9</span><span class="line-content"><span class="pixel-icon">◆</span> <span class="section-title">[TOOLS]</span></span></div>
-        <div class="line"><span class="line-number"> 10</span><span class="line-content">  <span class="skill-item">◈ Git</span> / <span class="skill-item">◈ Docker</span> / <span class="skill-item">◈ VS Code</span> / <span class="skill-item">◈ Webpack</span></span></div>
-        <div class="line"><span class="line-number"> 11</span><span class="line-content"></span></div>
-        <div class="line"><span class="line-number"> 12</span><span class="line-content"><span class="pixel-icon">◆</span> <span class="section-title">[CONCEPTS]</span></span></div>
-        <div class="line"><span class="line-number"> 13</span><span class="line-content">  <span class="skill-item">◈ Clean Architecture</span> / <span class="skill-item">◈ Responsive Design</span></span></div>
-        <div class="line"><span class="line-number"> 14</span><span class="line-content">  <span class="skill-item">◈ TDD</span> / <span class="skill-item">◈ Agile</span></span></div>
-        <div class="line"><span class="line-number"> 15</span><span class="line-content"></span></div>
-        <div class="line"><span class="line-number"> 16</span><span class="line-content"><span class="pixel-icon">▼</span> [EOF]</span></div>
+    <!-- Terminal Content -->
+    <div class="terminal-content">
+      <div class="terminal-output">
+        <!-- Initial Prompt -->
+        <div class="terminal-line">
+          <span class="prompt">lordcommander@portfolio:~$</span>
+          @if (!commandExecuted()) {
+            <span class="command">skills --progress</span>
+            <span class="cursor">█</span>
+          }
+        </div>
+
+        <!-- Executed Command -->
+        @if (commandExecuted()) {
+          <div class="terminal-line">
+            <span class="prompt">lordcommander@portfolio:~$</span>
+            <span class="command">skills --progress</span>
+          </div>
+        }
+
+        <!-- Loading Animation -->
+        @if (commandExecuted() && skills()[0].animatedLevel === 0) {
+          <div class="terminal-line">
+            <span class="output">Loading skills data...</span>
+            <span class="loading-dots">...</span>
+          </div>
+        }
+
+        <!-- Skills Progress Bars -->
+        @for (skill of skills(); track skill.name) {
+          <div class="terminal-line">
+            @if (skill.animatedLevel > 0) {
+              <span class="output">
+                {{ skill.name }}: [{{ generateProgressBar(skill.animatedLevel) }}] {{ skill.animatedLevel }}%
+              </span>
+            }
+          </div>
+        }
+
+        <!-- Completion Message -->
+        @if (commandExecuted() && skills()[skills().length - 1].animatedLevel === skills()[skills().length - 1].level) {
+          <div class="terminal-line">
+            <span class="prompt">lordcommander@portfolio:~$</span>
+            <span class="cursor">█</span>
+          </div>
+        }
       </div>
     </div>
 
-    <!-- Nano Footer -->
-    <div class="nano-footer">
-      <span class="nano-command">^G</span><span class="nano-desc">Help</span>
-      <span class="nano-command">^O</span><span class="nano-desc">Write Out</span>
-      <span class="nano-command">^W</span><span class="nano-desc">Where Is</span>
-      <span class="nano-command">^K</span><span class="nano-desc">Cut</span>
-      <span class="nano-command">^T</span><span class="nano-desc">Execute</span>
-      <span class="nano-command">^C</span><span class="nano-desc">Location</span>
-      <span class="nano-command">^X</span><span class="nano-desc">Exit</span>
+    <!-- Terminal Footer -->
+    <div class="terminal-footer">
+      <span class="footer-text">Press Ctrl+C to exit | Skills loaded successfully</span>
     </div>
   </div>
 </section>

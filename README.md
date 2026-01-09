@@ -73,6 +73,7 @@ Portfolio2026 es la presencia personal de Nicolás Butterfield: un portafolio mo
 - Enfoque en accesibilidad y legibilidad (WCAG AA objetivo).
 - **Quake Terminal**: Una interfaz de navegación inmersiva estilo terminal desplegable, con secuencia de arranque animada, efectos hover y navegación dinámica basada en rutas. Incluye un efecto CRT retro que simula monitores antiguos de tubo de rayos catódicos, con líneas de escaneo, glow y distorsiones visuales para una experiencia nostálgica e interactiva.
 - **Simulación de Editor Nano**: En las secciones de proyectos y habilidades, el contenido se presenta en una simulación de editor de texto Nano, con efectos CRT mejorados, animaciones de fondo y estructura de contenido inmersiva.
+- **Simulación de Terminal Interactiva**: En la sección de habilidades, se simula un terminal que ejecuta el comando `skills --progress`, mostrando barras de progreso ASCII animadas para cada skill (ej. TypeScript: [██████████░░░░░░░░░░] 50%), con efectos CRT retro y animaciones de carga.
 
 ## Stack tecnológico
 
@@ -155,6 +156,7 @@ Para visualizar las interfaces interactivas, aquí se incluyen capturas de panta
 
 - ![Vista principal con Quake Terminal desplegado](src/assets/images/screenshots/quake-terminal-expanded.png)
 - ![Simulación de Editor Nano en sección de proyectos](src/assets/images/screenshots/nano-editor-projects.png)
+- ![Simulación de Terminal en sección de skills con barras de progreso](src/assets/images/screenshots/terminal-skills-progress.png)
 - ![Efecto CRT en la terminal](src/assets/images/screenshots/crt-effect-terminal.png)
 
 ## Contribuir
