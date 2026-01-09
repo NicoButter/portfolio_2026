@@ -1,64 +1,39 @@
-<section class="terminal-page">
-  <div class="terminal-simulator">
-    <!-- Terminal Header -->
-    <div class="terminal-header">
-      <span class="terminal-icon">▶</span>
-      <span class="terminal-title">NB_SYSTEM TERMINAL v∞.0 // SKILLS_MODULE</span>
-      <span class="terminal-status">CONNECTED</span>
-    </div>
-
-    <!-- Terminal Content -->
-    <div class="terminal-content">
-      <div class="terminal-output">
-        <!-- Initial Prompt -->
-        <div class="terminal-line">
-          <span class="prompt">lordcommander@portfolio:~$</span>
-          @if (!commandExecuted()) {
-            <span class="command">skills --progress</span>
-            <span class="cursor">█</span>
-          }
-        </div>
-
-        <!-- Executed Command -->
-        @if (commandExecuted()) {
-          <div class="terminal-line">
-            <span class="prompt">lordcommander@portfolio:~$</span>
-            <span class="command">skills --progress</span>
-          </div>
+<section class="skills-constellation">
+  <h2 class="constellation-title">Skill Constellation</h2>
+  <div class="night-sky">
+    <svg class="connections" viewBox="0 0 100 100" preserveAspectRatio="none">
+      @for (skill of skills(); track skill.name; let i = $index) {
+        @for (conn of skill.connections; track conn) {
+          <line
+            [attr.x1]="skill.x"
+            [attr.y1]="skill.y"
+            [attr.x2]="skills()[conn].x"
+            [attr.y2]="skills()[conn].y"
+            class="connection-line"
+          />
         }
-
-        <!-- Loading Animation -->
-        @if (commandExecuted() && skills()[0].animatedLevel === 0) {
-          <div class="terminal-line">
-            <span class="output">Loading skills data...</span>
-            <span class="loading-dots">...</span>
-          </div>
-        }
-
-        <!-- Skills Progress Bars -->
-        @for (skill of skills(); track skill.name) {
-          <div class="terminal-line">
-            @if (skill.animatedLevel > 0) {
-              <span class="output">
-                {{ skill.name }}: [{{ generateProgressBar(skill.animatedLevel) }}] {{ skill.animatedLevel }}%
-              </span>
-            }
-          </div>
-        }
-
-        <!-- Completion Message -->
-        @if (commandExecuted() && skills()[skills().length - 1].animatedLevel === skills()[skills().length - 1].level) {
-          <div class="terminal-line">
-            <span class="prompt">lordcommander@portfolio:~$</span>
-            <span class="cursor">█</span>
-          </div>
-        }
+      }
+    </svg>
+    @for (skill of skills(); track skill.name; let i = $index) {
+      <div
+        class="skill-star"
+        [style.left.%]="skill.x"
+        [style.top.%]="skill.y"
+        [style.box-shadow]="getGlowStyle(skill)"
+        [title]="skill.name + ': ' + skill.level + '%'"
+        [class]="skill.category.toLowerCase()"
+      >
+        <div class="star-glow"></div>
+        <span class="skill-percentage">{{ skill.level }}%</span>
       </div>
+    }
+  </div>
+  <div class="legend">
+    <div class="legend-item">
+      <span class="legend-color frontend"></span> Frontend
     </div>
-
-    <!-- Terminal Footer -->
-    <div class="terminal-footer">
-      <span class="footer-text">Press Ctrl+C to exit | Skills loaded successfully</span>
+    <div class="legend-item">
+      <span class="legend-color backend"></span> Backend
     </div>
   </div>
 </section>

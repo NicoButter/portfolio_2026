@@ -3,7 +3,10 @@ import { ChangeDetectionStrategy, Component, signal, OnInit } from '@angular/cor
 interface Skill {
   name: string;
   level: number;
-  animatedLevel: number;
+  category: string;
+  x: number;
+  y: number;
+  connections: number[]; // indices of connected skills
 }
 
 @Component({
@@ -14,65 +17,27 @@ interface Skill {
 })
 export class Skills implements OnInit {
   skills = signal<Skill[]>([
-    { name: 'TypeScript', level: 90, animatedLevel: 0 },
-    { name: 'JavaScript', level: 95, animatedLevel: 0 },
-    { name: 'Angular', level: 85, animatedLevel: 0 },
-    { name: 'React', level: 80, animatedLevel: 0 },
-    { name: 'Node.js', level: 75, animatedLevel: 0 },
-    { name: 'Python', level: 70, animatedLevel: 0 },
-    { name: 'Git', level: 95, animatedLevel: 0 },
-    { name: 'Docker', level: 65, animatedLevel: 0 },
+    { name: 'TypeScript', level: 65, category: 'Frontend', x: 20, y: 30, connections: [1, 2] },
+    { name: 'JavaScript', level: 65, category: 'Frontend', x: 50, y: 20, connections: [0, 2] },
+    { name: 'Angular', level: 80, category: 'Frontend', x: 80, y: 40, connections: [0, 1] },
+    { name: 'Java', level: 80, category: 'Backend', x: 30, y: 70, connections: [4, 5, 6] },
+    { name: 'Python', level: 80, category: 'Backend', x: 70, y: 80, connections: [3, 5, 6] },
+    { name: 'Spring', level: 80, category: 'Backend', x: 10, y: 60, connections: [3, 4, 6] },
+    { name: 'Django', level: 80, category: 'Backend', x: 60, y: 90, connections: [3, 4, 5] },
   ]);
 
   commandExecuted = signal(false);
 
   ngOnInit(): void {
-    // Simular ejecución del comando después de un delay
     setTimeout(() => {
-      this.executeCommand();
+      this.commandExecuted.set(true);
     }, 1000);
   }
 
-  executeCommand(): void {
-    this.commandExecuted.set(true);
-    // Animar las barras de progreso
-    this.skills().forEach((skill, index) => {
-      setTimeout(() => {
-        this.animateSkill(index);
-      }, index * 200); // Delay escalonado
-    });
-  }
-
-  private animateSkill(index: number): void {
-    const skill = this.skills()[index];
-    const targetLevel = skill.level;
-    const duration = 1500; // ms
-    const steps = 60;
-    const increment = targetLevel / steps;
-    let current = 0;
-
-    const interval = setInterval(() => {
-      current += increment;
-      if (current >= targetLevel) {
-        current = targetLevel;
-        clearInterval(interval);
-      }
-      // Actualizar la señal
-      this.skills.update(skills => {
-        const newSkills = [...skills];
-        newSkills[index] = { ...newSkills[index], animatedLevel: Math.round(current) };
-        return newSkills;
-      });
-    }, duration / steps);
-  }
-
-  generateProgressBar(level: number): string {
-    const filled = Math.round((level / 100) * 20);
-    const empty = 20 - filled;
-    return '█'.repeat(filled) + '░'.repeat(empty);
-  }
-
-  trackBySkill(index: number, skill: Skill): string {
-    return skill.name;
+  getGlowStyle(skill: Skill): string {
+    const color = skill.category === 'Frontend' ? '#00d4ff' :
+                  skill.category === 'Backend' ? '#00ff41' : '#8000ff';
+    const size = skill.level / 5;
+    return `0 0 ${size}px ${color}`;
   }
 }
