@@ -71,6 +71,8 @@ Portfolio2026 es la presencia personal de Nicolás Butterfield: un portafolio mo
 - Estilos con SCSS moderno usando `@use` y variables de diseño en `src/styles/_variables.scss`.
 - Tipografía: `Crimson Text` para títulos y `Inter` (variable) para texto corporal.
 - Enfoque en accesibilidad y legibilidad (WCAG AA objetivo).
+- **Quake Terminal**: Una interfaz de navegación inmersiva estilo terminal desplegable, con secuencia de arranque animada, efectos hover y navegación dinámica basada en rutas. Incluye un efecto CRT retro que simula monitores antiguos de tubo de rayos catódicos, con líneas de escaneo, glow y distorsiones visuales para una experiencia nostálgica e interactiva.
+- **Simulación de Editor Nano**: En las secciones de proyectos y habilidades, el contenido se presenta en una simulación de editor de texto Nano, con efectos CRT mejorados, animaciones de fondo y estructura de contenido inmersiva.
 
 ## Stack tecnológico
 
@@ -146,6 +148,14 @@ Si necesitas personalizar SSR/prerender, revisa `angular.json` y los targets `bu
 - Opción SSR: desplegar `dist/portfolio-2026` en un servidor Node y ejecutar `node server/server.mjs` o usar el script `serve:ssr:portfolio-2026`.
 
 Consideraciones de producción: configurar cabeceras (CSP, HSTS), HTTPS, y servir assets desde CDN cuando sea posible.
+
+## Capturas de pantalla
+
+Para visualizar las interfaces interactivas, aquí se incluyen capturas de pantalla del proyecto. Sube las imágenes a `src/assets/images/screenshots/` y enlázalas aquí.
+
+- ![Vista principal con Quake Terminal desplegado](src/assets/images/screenshots/quake-terminal-expanded.png)
+- ![Simulación de Editor Nano en sección de proyectos](src/assets/images/screenshots/nano-editor-projects.png)
+- ![Efecto CRT en la terminal](src/assets/images/screenshots/crt-effect-terminal.png)
 
 ## Contribuir
 
