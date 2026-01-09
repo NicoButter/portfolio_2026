@@ -42,4 +42,8 @@ export class Skills implements OnInit {
     const size = skill.level / 5;
     return `0 0 ${size}px ${color}`;
   }
+
+  getSize(skill: Skill): number {
+    return 10 + skill.level / 2; // level 80 -> 50px, level 65 -> 42.5px, etc.
+  }
 }

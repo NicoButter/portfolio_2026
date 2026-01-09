@@ -19,6 +19,8 @@
         class="skill-star"
         [style.left.%]="skill.x"
         [style.top.%]="skill.y"
+        [style.width.px]="getSize(skill)"
+        [style.height.px]="getSize(skill)"
         [style.box-shadow]="getGlowStyle(skill)"
         [title]="skill.name + ': ' + skill.level + '%'"
         [class]="skill.category.toLowerCase()"
