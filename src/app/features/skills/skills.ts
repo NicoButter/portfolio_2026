@@ -47,17 +47,6 @@ export class Skills implements OnInit {
     return 10 + skill.level / 2; // level 80 -> 50px, level 65 -> 42.5px, etc.
   }
 
-  onStarClick(skill: Skill): void {
-    const prizes = [
-      "¡Felicidades! Has desbloqueado un conocimiento secreto sobre " + skill.name + ". ¡Sigue explorando!",
-      "Premio: Una estrella fugaz de inspiración. " + skill.name + " brilla con " + skill.level + "% de maestría.",
-      "¡Recompensa cósmica! Has tocado " + skill.name + ". Tu curiosidad te hace un desarrollador estelar.",
-      "Easter Egg: " + skill.name + " te otorga +10 de suerte en tu próximo proyecto.",
-    ];
-    const randomPrize = prizes[Math.floor(Math.random() * prizes.length)];
-    alert(randomPrize);
-  }
-
   getIcon(skill: Skill): string {
     const icons: { [key: string]: string } = {
       'TypeScript': '🟦',
