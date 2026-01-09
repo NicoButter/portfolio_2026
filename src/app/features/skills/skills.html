@@ -24,9 +24,11 @@
         [style.box-shadow]="getGlowStyle(skill)"
         [title]="skill.name + ': ' + skill.level + '%'"
         [class]="skill.category.toLowerCase()"
+        (click)="onStarClick(skill)"
       >
         <div class="star-glow"></div>
         <span class="skill-percentage">{{ skill.level }}%</span>
+        <span class="skill-icon">{{ getIcon(skill) }}</span>
       </div>
     }
   </div>

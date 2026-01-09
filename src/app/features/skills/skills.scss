@@ -60,6 +60,32 @@
   background-position: 0 0;
   pointer-events: none;
   z-index: 1;
+  box-shadow: 
+    50px 30px 1px 0 rgba(255,255,255,0.9),
+    120px 80px 2px 0 rgba(255,255,255,0.7),
+    200px 50px 1px 0 rgba(255,255,255,0.8),
+    300px 120px 3px 0 rgba(255,255,255,0.6),
+    400px 70px 1px 0 rgba(255,255,255,0.9),
+    150px 200px 2px 0 rgba(255,255,255,0.5),
+    250px 180px 1px 0 rgba(255,255,255,0.8),
+    350px 250px 2px 0 rgba(255,255,255,0.7),
+    100px 300px 1px 0 rgba(255,255,255,0.9),
+    450px 150px 3px 0 rgba(255,255,255,0.6),
+    50px 400px 1px 0 rgba(255,255,255,0.8),
+    200px 350px 2px 0 rgba(255,255,255,0.7),
+    300px 400px 1px 0 rgba(255,255,255,0.9),
+    400px 300px 2px 0 rgba(255,255,255,0.6),
+    150px 450px 1px 0 rgba(255,255,255,0.8),
+    250px 500px 3px 0 rgba(255,255,255,0.7),
+    350px 450px 1px 0 rgba(255,255,255,0.9),
+    450px 400px 2px 0 rgba(255,255,255,0.6),
+    100px 550px 1px 0 rgba(255,255,255,0.8),
+    500px 200px 2px 0 rgba(255,255,255,0.7),
+    600px 100px 1px 0 rgba(255,255,255,0.9),
+    700px 300px 3px 0 rgba(255,255,255,0.6),
+    800px 200px 2px 0 rgba(255,255,255,0.8),
+    650px 500px 1px 0 rgba(255,255,255,0.7),
+    750px 400px 2px 0 rgba(255,255,255,0.9);
 }
 
 /* CRT Scanline Sweep Effect */
@@ -138,6 +164,21 @@
   }
 
   &:hover .skill-percentage {
+    opacity: 1;
+  }
+
+  .skill-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  &:hover .skill-icon {
     opacity: 1;
   }
 }
