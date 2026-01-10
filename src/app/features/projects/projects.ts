@@ -189,5 +189,47 @@ export class Projects {
       ],
       githubUrl: 'https://github.com/NicoButter/librolink'
     },
+    {
+      title: 'Sonar',
+      tagline: 'Plataforma web para fomentar la escena musical en Río Gallegos',
+      description: 'Sonar es una plataforma web desarrollada con Django + PostgreSQL, creada para fomentar la escena musical en Río Gallegos y conectar bandas emergentes con su comunidad. Pensada para ser simple, funcional y con amor al under, esta aplicación permite a las bandas registrarse, subir sus demos y compartir sus fotos.',
+      technologies: ['Django', 'PostgreSQL', 'Python 3.x', 'HTML5', 'CSS3'],
+      highlights: [
+        'Registro y autenticación de bandas locales.',
+        'Perfiles de banda con hasta 4 demos de audio (.mp3/.wav).',
+        'Galería de imágenes para portadas y fotos de recitales.',
+        'Información de contacto y descripción de estilo musical.',
+        'Visualización pública de bandas registradas.',
+        'Sistema de búsqueda por género, nombre o ciudad.',
+        'Panel de administración para editar perfiles.',
+        'Interfaz web simple y funcional sin frameworks pesados.',
+        'Desarrollado con pasión por la música y el software libre.',
+        'Conexión entre músicos, organizadores de eventos y oyentes.',
+        'Fomenta la escena musical emergente de Río Gallegos.',
+        'Arquitectura Django robusta con PostgreSQL.'
+      ],
+      githubUrl: 'https://github.com/NicoButter/sonar'
+    },
+    {
+      title: 'Joi Secure Pass',
+      tagline: 'Sistema de Control de Acceso Basado en Reconocimiento Facial y NFC',
+      description: 'JoiSecurePass es una aplicación web desarrollada con Django y PostgreSQL diseñada para gestionar de manera eficiente el control de acceso del personal en una organización. El sistema combina tecnologías de reconocimiento facial y NFC para registrar los ingresos y salidas de los empleados, generando reportes detallados sobre su actividad laboral.',
+      technologies: ['Django 4', 'PostgreSQL', 'Python 3.11', 'OpenCV', 'HTML5', 'CSS3'],
+      highlights: [
+        'Reconocimiento facial avanzado con cámara web y base de datos de rostros.',
+        'Registro preciso de ingresos y salidas de empleados.',
+        'Control de acceso mediante tarjetas y dispositivos NFC.',
+        'Generación de reportes personalizados sobre actividad laboral.',
+        'Cálculo automático de horas extras, faltas y horas trabajadas.',
+        'Integración robusta con PostgreSQL para almacenamiento seguro.',
+        'Interfaz web intuitiva para administración del sistema.',
+        'Sistema de autenticación y autorización de usuarios.',
+        'Auditoría completa de accesos y movimientos.',
+        'Escalabilidad para organizaciones de diferentes tamaños.',
+        'Procesamiento en tiempo real de reconocimiento facial.',
+        'Reportes exportables en múltiples formatos.'
+      ],
+      githubUrl: 'https://github.com/NicoButter/JoiSecurePass'
+    },
   ]);
 }
