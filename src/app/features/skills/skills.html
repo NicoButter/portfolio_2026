@@ -1,6 +1,13 @@
 <section class="skills-constellation">
   <h2 class="constellation-title">Skill Constellation</h2>
   <div class="night-sky">
+    <div class="stars-group-2"></div>
+    <div class="stars-group-3"></div>
+    <div class="comet comet-1"></div>
+    <div class="comet comet-2"></div>
+    <div class="comet comet-3"></div>
+    <div class="comet comet-4"></div>
+    <div class="comet comet-5"></div>
     <svg class="connections" viewBox="0 0 100 100" preserveAspectRatio="none">
       @for (skill of skills(); track skill.name; let i = $index) {
         @for (conn of skill.connections; track conn) {
@@ -26,8 +33,13 @@
         [class]="skill.category.toLowerCase()"
       >
         <div class="star-glow"></div>
-        <span class="skill-percentage">{{ skill.level }}%</span>
-        <span class="skill-icon">{{ getIcon(skill) }}</span>
+        <div class="skill-progress-bar">
+          <div class="progress-container">
+            <div class="progress-fill" [style.width.%]="skill.level"></div>
+            <div class="progress-text">{{ skill.level }}%</div>
+          </div>
+        </div>
+        <img [src]="getIcon(skill)" [alt]="skill.name" class="skill-icon" (error)="onImageError($event, skill)" />
       </div>
     }
   </div>

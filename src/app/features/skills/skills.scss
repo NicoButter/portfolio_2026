@@ -46,7 +46,7 @@
   box-shadow: none;
 }
 
-/* Star field background */
+/* Star field background - Group 1 */
 .night-sky::before {
   content: '';
   position: absolute;
@@ -60,34 +60,72 @@
   z-index: 0;
   box-shadow: 
     5vw 3vh 0px 1px rgba(255,255,255,1),
-    12vw 8vh 0px 2px rgba(255,255,255,0.9),
     20vw 5vh 0px 1px rgba(255,255,255,1),
-    30vw 12vh 0px 2px rgba(255,255,255,0.8),
     40vw 7vh 0px 1px rgba(255,255,255,1),
-    15vw 20vh 0px 1px rgba(255,255,255,0.9),
     25vw 18vh 0px 1px rgba(255,255,255,1),
-    35vw 25vh 0px 2px rgba(255,255,255,0.9),
     10vw 30vh 0px 1px rgba(255,255,255,1),
-    45vw 15vh 0px 2px rgba(255,255,255,0.8),
     5vw 40vh 0px 1px rgba(255,255,255,1),
-    20vw 35vh 0px 1px rgba(255,255,255,0.9),
     30vw 40vh 0px 1px rgba(255,255,255,1),
-    40vw 30vh 0px 2px rgba(255,255,255,0.9),
     15vw 45vh 0px 1px rgba(255,255,255,1),
-    25vw 50vh 0px 2px rgba(255,255,255,0.9),
     35vw 45vh 0px 1px rgba(255,255,255,1),
-    45vw 40vh 0px 1px rgba(255,255,255,0.8),
     10vw 55vh 0px 1px rgba(255,255,255,1),
-    50vw 20vh 0px 2px rgba(255,255,255,0.9),
     60vw 10vh 0px 1px rgba(255,255,255,1),
-    70vw 30vh 0px 2px rgba(255,255,255,0.9),
     80vw 20vh 0px 1px rgba(255,255,255,1),
+    85vw 60vh 0px 1px rgba(255,255,255,1),
+    95vw 55vh 0px 1px rgba(255,255,255,1),
+    3vw 50vh 0px 1px rgba(255,255,255,1),
+    42vw 60vh 0px 1px rgba(255,255,255,1),
+    82vw 45vh 0px 1px rgba(255,255,255,1);
+  animation: twinkle-stars-1 3s ease-in-out infinite;
+}
+
+/* Star field background - Group 2 */
+.stars-group-2 {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: white;
+  pointer-events: none;
+  z-index: 0;
+  box-shadow: 
+    12vw 8vh 0px 2px rgba(255,255,255,0.9),
+    30vw 12vh 0px 2px rgba(255,255,255,0.8),
+    15vw 20vh 0px 1px rgba(255,255,255,0.9),
+    35vw 25vh 0px 2px rgba(255,255,255,0.9),
+    45vw 15vh 0px 2px rgba(255,255,255,0.8),
+    20vw 35vh 0px 1px rgba(255,255,255,0.9),
+    40vw 30vh 0px 2px rgba(255,255,255,0.9),
+    25vw 50vh 0px 2px rgba(255,255,255,0.9),
+    45vw 40vh 0px 1px rgba(255,255,255,0.8),
+    50vw 20vh 0px 2px rgba(255,255,255,0.9),
+    70vw 30vh 0px 2px rgba(255,255,255,0.9),
     65vw 50vh 0px 1px rgba(255,255,255,0.9),
     75vw 40vh 0px 2px rgba(255,255,255,1),
-    85vw 60vh 0px 1px rgba(255,255,255,1),
     55vw 70vh 0px 2px rgba(255,255,255,0.9),
     90vw 35vh 0px 1px rgba(255,255,255,0.8),
-    95vw 55vh 0px 1px rgba(255,255,255,1),
+    52vw 5vh 0px 1px rgba(255,255,255,0.9),
+    72vw 65vh 0px 2px rgba(255,255,255,1),
+    62vw 35vh 0px 2px rgba(255,255,255,0.9);
+  animation: twinkle-stars-2 4s ease-in-out infinite 0.8s;
+}
+
+/* Star field background - Group 3 */
+.stars-group-3 {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: white;
+  pointer-events: none;
+  z-index: 0;
+  box-shadow: 
     8vw 12vh 0px 1px rgba(255,255,255,0.9),
     18vw 22vh 0px 2px rgba(255,255,255,1),
     28vw 32vh 0px 1px rgba(255,255,255,0.9),
@@ -98,17 +136,71 @@
     78vw 82vh 0px 2px rgba(255,255,255,1),
     88vw 15vh 0px 1px rgba(255,255,255,0.9),
     92vw 25vh 0px 2px rgba(255,255,255,1),
-    3vw 50vh 0px 1px rgba(255,255,255,1),
-    52vw 5vh 0px 1px rgba(255,255,255,0.9),
-    72vw 65vh 0px 2px rgba(255,255,255,1),
     17vw 75vh 0px 1px rgba(255,255,255,0.9),
-    42vw 60vh 0px 1px rgba(255,255,255,1),
-    62vw 35vh 0px 2px rgba(255,255,255,0.9),
-    82vw 45vh 0px 1px rgba(255,255,255,1),
     13vw 55vh 0px 1px rgba(255,255,255,0.9),
     33vw 15vh 0px 2px rgba(255,255,255,1),
     53vw 78vh 0px 1px rgba(255,255,255,0.9);
-  animation: twinkle-stars 3s ease-in-out infinite;
+  animation: twinkle-stars-3 3.5s ease-in-out infinite 1.6s;
+}
+
+/* Comets */
+.comet {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.8);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.8) 60%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: translate(0, -50%) rotate(-45deg);
+    transform-origin: left center;
+  }
+}
+
+.comet-1 {
+  top: 10%;
+  right: -10%;
+  animation: shooting-star-1 25s linear infinite;
+}
+
+.comet-2 {
+  top: 30%;
+  right: -10%;
+  animation: shooting-star-2 35s linear infinite 15s;
+}
+
+.comet-3 {
+  top: 60%;
+  right: -10%;
+  animation: shooting-star-3 30s linear infinite 28s;
+}
+
+.comet-4 {
+  top: 20%;
+  right: -10%;
+  animation: shooting-star-4 40s linear infinite 42s;
+}
+
+.comet-5 {
+  top: 80%;
+  right: -10%;
+  animation: shooting-star-5 32s linear infinite 55s;
 }
 
 /* CRT Scanline Sweep Effect */
@@ -150,9 +242,100 @@
   50% { opacity: 0.8; }
 }
 
-@keyframes twinkle-stars {
-  0%, 100% { opacity: 0.5; }
+@keyframes twinkle-stars-1 {
+  0%, 100% { opacity: 0.7; }
   50% { opacity: 1; }
+}
+
+@keyframes twinkle-stars-2 {
+  0%, 100% { opacity: 0.85; }
+  35% { opacity: 0.6; }
+  70% { opacity: 1; }
+}
+
+@keyframes twinkle-stars-3 {
+  0%, 100% { opacity: 0.75; }
+  25% { opacity: 1; }
+  60% { opacity: 0.65; }
+}
+
+@keyframes shooting-star-1 {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-120vw, 60vh);
+    opacity: 0;
+  }
+}
+
+@keyframes shooting-star-2 {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-110vw, 55vh);
+    opacity: 0;
+  }
+}
+
+@keyframes shooting-star-3 {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-115vw, 50vh);
+    opacity: 0;
+  }
+}
+
+@keyframes shooting-star-4 {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  4% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-125vw, 65vh);
+    opacity: 0;
+  }
+}
+
+@keyframes shooting-star-5 {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  7% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-118vw, 58vh);
+    opacity: 0;
+  }
+}
+
+@keyframes progress-shine {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.3);
+  }
 }
 
 .skill-star {
@@ -175,27 +358,116 @@
     animation: twinkle 2s ease-in-out infinite;
   }
 
-  .skill-percentage {
+  .skill-progress-bar {
     position: absolute;
-    top: -25px;
+    top: -40px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.8);
-    color: var(--neon-cyan);
-    padding: 2px 4px;
-    border-radius: 4px;
-    font-size: 0.8rem;
+    min-width: 180px;
+    background: rgba(0, 0, 0, 0.95);
+    border: 1px solid var(--neon-green);
+    border-radius: 0;
+    padding: 6px 8px;
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
     white-space: nowrap;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+    font-family: 'Courier New', monospace;
   }
 
-  &:hover .skill-percentage {
+  .progress-container {
+    position: relative;
+    width: 100%;
+    height: 16px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    border-radius: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  .progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: var(--neon-green);
+    border-radius: 0;
+    box-shadow: none;
+    animation: terminal-blink 1.5s ease-in-out infinite;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.1) 2px,
+        rgba(0, 0, 0, 0.1) 4px
+      );
+    }
+  }
+
+  .progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--neon-green);
+    font-size: 0.75rem;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 3px var(--neon-green);
+    z-index: 1;
+    letter-spacing: 1px;
+  }
+
+  &:hover .skill-progress-bar {
     opacity: 1;
   }
 
+  &:hover .progress-fill {
+    animation: progress-fill-animation 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards, terminal-blink 1.5s ease-in-out infinite;
+  }
+
+  @keyframes progress-fill-animation {
+    from {
+      width: 0;
+    }
+  }
+
+  @keyframes terminal-blink {
+    0%, 100% { 
+      opacity: 0.9;
+    }
+    50% { 
+      opacity: 1;
+    }
+  }
+
   .skill-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border-radius: 4px;
+    filter: brightness(1.1) contrast(1.2) drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+  }
+
+  .skill-icon-emoji {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -206,7 +478,8 @@
     pointer-events: none;
   }
 
-  &:hover .skill-icon {
+  &:hover .skill-icon,
+  &:hover .skill-icon-emoji {
     opacity: 1;
   }
 }

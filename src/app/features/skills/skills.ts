@@ -49,6 +49,23 @@ export class Skills implements OnInit {
 
   getIcon(skill: Skill): string {
     const icons: { [key: string]: string } = {
+      'TypeScript': 'assets/images/typescript_logo.jpeg',
+      'JavaScript': 'assets/images/javascript_logo.png',
+      'Angular': 'assets/images/angular_logo.png',
+      'Java': 'assets/images/java_logo.png',
+      'Python': 'assets/images/python_logo.png',
+      'Spring': 'assets/images/springboot_logo.png',
+      'Django': 'assets/images/django_logo.png',
+      'SQL': 'assets/images/sql_logo.png',
+      'Linux': 'assets/images/tux.png',
+    };
+    return icons[skill.name] || 'assets/images/default.png';
+  }
+
+  onImageError(event: Event, skill: Skill): void {
+    const img = event.target as HTMLImageElement;
+    // Fallback to emoji if image fails to load
+    const emojiFallbacks: { [key: string]: string } = {
       'TypeScript': '🟦',
       'JavaScript': '🟨',
       'Angular': '🅰️',
@@ -59,6 +76,10 @@ export class Skills implements OnInit {
       'SQL': '🗄️',
       'Linux': '🐧',
     };
-    return icons[skill.name] || '⭐';
+    img.style.display = 'none';
+    const fallbackSpan = document.createElement('span');
+    fallbackSpan.textContent = emojiFallbacks[skill.name] || '⭐';
+    fallbackSpan.className = 'skill-icon-emoji';
+    img.parentElement?.appendChild(fallbackSpan);
   }
 }
