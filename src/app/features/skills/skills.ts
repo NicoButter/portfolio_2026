@@ -7,6 +7,8 @@ interface Skill {
   x: number;
   y: number;
   connections: number[]; // indices of connected skills
+  description: string;
+  image?: string;
 }
 
 @Component({
@@ -15,17 +17,89 @@ interface Skill {
   styleUrl: './skills.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Skills implements OnInit {
+export class SkillsComponent implements OnInit {
   skills = signal<Skill[]>([
-    { name: 'TypeScript', level: 65, category: 'Frontend', x: 15, y: 20, connections: [1, 7, 8] }, // Cabeza
-    { name: 'JavaScript', level: 65, category: 'Frontend', x: 25, y: 30, connections: [0, 2] }, // Parte superior del cuerpo
-    { name: 'Angular', level: 80, category: 'Frontend', x: 40, y: 40, connections: [1, 3] }, // Medio del cuerpo
-    { name: 'Java', level: 80, category: 'Backend', x: 60, y: 50, connections: [2, 4] }, // Curva
-    { name: 'Python', level: 80, category: 'Backend', x: 75, y: 60, connections: [3, 5] }, // Cola recta
-    { name: 'Spring', level: 80, category: 'Backend', x: 85, y: 75, connections: [4, 6] }, // Gancho
-    { name: 'Django', level: 80, category: 'Backend', x: 90, y: 85, connections: [5] }, // Punta de la cola
-    { name: 'SQL', level: 80, category: 'Backend', x: 5, y: 25, connections: [0] }, // Pinza izquierda
-    { name: 'Linux', level: 75, category: 'Tools', x: 35, y: 25, connections: [0] }, // Pinza derecha
+    {
+      name: 'TypeScript',
+      level: 65,
+      category: 'Frontend',
+      x: 15,
+      y: 20,
+      connections: [1, 7, 8],
+      description: 'Superset tipado de JavaScript que añade tipos estáticos opcionales. Compila a JavaScript puro, mejorando la mantenibilidad y detección de errores en desarrollo. Soporta las últimas características de ECMAScript con compatibilidad hacia atrás.'
+    },
+    {
+      name: 'JavaScript',
+      level: 65,
+      category: 'Frontend',
+      x: 25,
+      y: 30,
+      connections: [0, 2],
+      description: 'Lenguaje de programación interpretado, orientado a objetos y basado en prototipos. Es el corazón del desarrollo web moderno, ejecutándose en todos los navegadores. Soporta programación asíncrona y manipulación del DOM.'
+    },
+    {
+      name: 'Angular',
+      level: 80,
+      category: 'Frontend',
+      x: 40,
+      y: 40,
+      connections: [1, 3],
+      description: 'Framework completo para desarrollo de aplicaciones web SPA. Utiliza TypeScript, componentes reutilizables y enlace de datos bidireccional. Incluye herramientas avanzadas como dependency injection, routing y formularios reactivos.'
+    },
+    {
+      name: 'Java',
+      level: 80,
+      category: 'Backend',
+      x: 60,
+      y: 50,
+      connections: [2, 4],
+      description: 'Lenguaje de programación orientado a objetos, strongly-typed y multiplataforma. Ejecuta en JVM (Java Virtual Machine), permitiendo "write once, run anywhere". Excelente para aplicaciones enterprise, Android y sistemas distribuidos.'
+    },
+    {
+      name: 'Python',
+      level: 80,
+      category: 'Backend',
+      x: 75,
+      y: 60,
+      connections: [3, 5],
+      description: 'Lenguaje de alto nivel con sintaxis clara y legible. Excelente para desarrollo rápido, ciencia de datos, machine learning y scripting. Filosofía "batteries included" con extensa librería estándar.'
+    },
+    {
+      name: 'Spring',
+      level: 80,
+      category: 'Backend',
+      x: 85,
+      y: 75,
+      connections: [4, 6],
+      description: 'Framework Java para desarrollo de aplicaciones enterprise. Proporciona inyección de dependencias, AOP, seguridad y integración con bases de datos. Spring Boot simplifica la configuración y despliegue de microservicios.'
+    },
+    {
+      name: 'Django',
+      level: 80,
+      category: 'Backend',
+      x: 90,
+      y: 85,
+      connections: [5],
+      description: 'Framework web Python de alto nivel que fomenta el desarrollo rápido y diseño limpio. Incluye ORM, sistema de autenticación, panel admin y seguridad integrada. Principio "DRY" (Don\'t Repeat Yourself).'
+    },
+    {
+      name: 'SQL',
+      level: 80,
+      category: 'Backend',
+      x: 5,
+      y: 25,
+      connections: [0],
+      description: 'Lenguaje estándar para gestión de bases de datos relacionales. Permite consultar, insertar, actualizar y eliminar datos. Soporta joins, subqueries, transacciones y optimización de consultas para alto rendimiento.'
+    },
+    {
+      name: 'Linux',
+      level: 75,
+      category: 'Tools',
+      x: 35,
+      y: 25,
+      connections: [0],
+      description: 'Sistema operativo open-source basado en Unix. Kernel robusto con distribución de software amplia. Excelente para servidores, desarrollo y computación de alto rendimiento. Filosofía de libertad y colaboración.'
+    }
   ]);
 
   commandExecuted = signal(false);

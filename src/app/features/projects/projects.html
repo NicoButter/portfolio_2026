@@ -15,12 +15,24 @@
         <div class="line"><span class="line-number">  1</span><span class="line-content"><span class="pixel-icon">▲</span> <span class="section-title">// PORTFOLIO_ARCHIVE</span></span></div>
         <div class="line"><span class="line-number">  2</span><span class="line-content"></span></div>
         <div *ngFor="let project of projects(); let i = index" class="project-section-container">
-          <div class="line"><span class="line-number">  {{ 3 + (i * 8) }}</span><span class="line-content"><span class="pixel-icon">◆</span> <span class="section-title">[{{ project.title | uppercase }}]</span></span></div>
-          <div class="line"><span class="line-number">  {{ 4 + (i * 8) }}</span><span class="line-content"></span></div>
-          <div class="line"><span class="line-number">  {{ 5 + (i * 8) }}</span><span class="line-content"><span class="arrow-animate">></span> {{ project.context }}</span></div>
-          <div class="line"><span class="line-number">  {{ 6 + (i * 8) }}</span><span class="line-content"><span class="arrow-animate">></span> {{ project.problem }}</span></div>
-          <div class="line"><span class="line-number">  {{ 7 + (i * 8) }}</span><span class="line-content"><span class="arrow-animate">></span> {{ project.decisions }}</span></div>
-          <div class="line"><span class="line-number">  {{ 8 + (i * 8) }}</span><span class="line-content"></span></div>
+          <div class="line"><span class="line-number">  {{ 3 + (i * 15) }}</span><span class="line-content"><span class="pixel-icon">◆</span> <span class="section-title">[{{ project.title | uppercase }}]</span></span></div>
+          <div class="line"><span class="line-number">  {{ 4 + (i * 15) }}</span><span class="line-content"></span></div>
+          <div class="line"><span class="line-number">  {{ 5 + (i * 15) }}</span><span class="line-content"><span class="tagline">{{ project.tagline }}</span></span></div>
+          <div class="line"><span class="line-number">  {{ 6 + (i * 15) }}</span><span class="line-content"></span></div>
+          <div class="line"><span class="line-number">  {{ 7 + (i * 15) }}</span><span class="line-content"><span class="arrow-animate">></span> {{ project.description }}</span></div>
+          <div class="line"><span class="line-number">  {{ 8 + (i * 15) }}</span><span class="line-content"></span></div>
+          <div class="line"><span class="line-number">  {{ 9 + (i * 15) }}</span><span class="line-content"><span class="pixel-icon">⚙</span> <span class="tech-label">Tech Stack:</span> <span class="tech-tags">{{ project.technologies.join(' • ') }}</span></span></div>
+          <div class="line"><span class="line-number"> {{ 10 + (i * 15) }}</span><span class="line-content"></span></div>
+          <div class="line"><span class="line-number"> {{ 11 + (i * 15) }}</span><span class="line-content"><span class="pixel-icon">✦</span> <span class="highlights-label">Highlights:</span></span></div>
+          <div *ngFor="let highlight of project.highlights; let j = index" class="line">
+            <span class="line-number"> {{ 12 + (i * 15) + j }}</span>
+            <span class="line-content"><span class="arrow-animate">  -</span> {{ highlight }}</span>
+          </div>
+          <div class="line" *ngIf="project.githubUrl">
+            <span class="line-number"> {{ 12 + (i * 15) + project.highlights.length }}</span>
+            <span class="line-content"><span class="pixel-icon">🔗</span> <a [href]="project.githubUrl" target="_blank" class="github-link">{{ project.githubUrl }}</a></span>
+          </div>
+          <div class="line"><span class="line-number"> {{ 13 + (i * 15) + project.highlights.length }}</span><span class="line-content"></span></div>
         </div>
         <div class="line"><span class="line-number"> 99</span><span class="line-content"><span class="pixel-icon">▼</span> [EOF]</span></div>
       </div>

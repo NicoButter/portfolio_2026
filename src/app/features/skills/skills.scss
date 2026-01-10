@@ -360,14 +360,15 @@
 
   .skill-progress-bar {
     position: absolute;
-    top: -40px;
+    top: -80px;
     left: 50%;
     transform: translateX(-50%);
-    min-width: 180px;
+    min-width: 280px;
+    max-width: 320px;
     background: rgba(0, 0, 0, 0.95);
     border: 1px solid var(--neon-green);
     border-radius: 0;
-    padding: 6px 8px;
+    padding: 10px 12px;
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
@@ -386,6 +387,7 @@
     overflow: hidden;
     display: flex;
     align-items: center;
+    margin-bottom: 8px;
   }
 
   .progress-fill {
@@ -427,6 +429,33 @@
     text-shadow: 0 0 3px var(--neon-green);
     z-index: 1;
     letter-spacing: 1px;
+  }
+
+  .skill-description {
+    color: var(--neon-green);
+    font-size: 0.65rem;
+    line-height: 1.3;
+    font-family: 'Courier New', monospace;
+    text-align: justify;
+    white-space: normal;
+    word-wrap: break-word;
+    max-height: 80px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--neon-green) rgba(0, 0, 0, 0.5);
+    
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.5);
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: var(--neon-green);
+      border-radius: 0;
+    }
   }
 
   &:hover .skill-progress-bar {

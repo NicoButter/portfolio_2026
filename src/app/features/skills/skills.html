@@ -38,6 +38,7 @@
             <div class="progress-fill" [style.width.%]="skill.level"></div>
             <div class="progress-text">{{ skill.level }}%</div>
           </div>
+          <div class="skill-description">{{ skill.description }}</div>
         </div>
         <img [src]="getIcon(skill)" [alt]="skill.name" class="skill-icon" (error)="onImageError($event, skill)" />
       </div>

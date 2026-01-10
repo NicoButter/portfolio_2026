@@ -225,6 +225,41 @@
   margin-right: 2px;
 }
 
+.tagline {
+  color: var(--neon-magenta);
+  font-style: italic;
+  text-shadow: 0 0 5px var(--neon-magenta);
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.tech-label,
+.highlights-label {
+  color: var(--neon-cyan);
+  font-weight: bold;
+  text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.tech-tags {
+  color: var(--neon-green);
+  font-size: 0.95em;
+}
+
+.github-link {
+  color: var(--neon-cyan);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    color: var(--neon-green);
+    text-shadow: 0 0 10px var(--neon-green);
+  }
+}
+
+.project-section-container {
+  margin-bottom: var(--spacing-lg);
+  animation: slide-from-header 0.8s ease-out;
+}
+
 @keyframes float-arrow {
   0%, 100% {
     transform: translateX(0px);
