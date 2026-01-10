@@ -8,6 +8,7 @@ interface Project {
   technologies: string[];
   highlights: string[];
   githubUrl?: string;
+  websiteUrl?: string;
 }
 
 @Component({
@@ -89,6 +90,104 @@ export class Projects {
         'Proyecto ganador NASA Hackathon 2025 - Sede Río Gallegos'
       ],
       githubUrl: 'https://github.com/NicoButter/NASA--HACKATHON'
+    },
+    {
+      title: 'GJParamotor',
+      tagline: 'Página de aterrizaje para GJParamotor, una plataforma dedicada a servicios de paramotor, cursos de formación, galería de imágenes y más.',
+      description: 'GJParamotor es una aplicación web desarrollada con Angular que sirve como página de aterrizaje para promocionar y gestionar servicios relacionados con el paramotor. Incluye secciones para información sobre el instructor, cursos disponibles, galería de fotos y videos, escuela de tierra, productos y servicios ofrecidos.',
+      technologies: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'Node.js'],
+      highlights: [
+        'Página de Inicio: Introducción y navegación principal.',
+        'Sobre Mí: Información personal del instructor y experiencia.',
+        'Cursos: Detalles de los cursos de paramotor disponibles.',
+        'Galería: Colección de imágenes y videos relacionados con el paramotor.',
+        'Escuela de Tierra: Información sobre formación teórica y práctica.',
+        'Productos: Catálogo de productos relacionados con el paramotor.',
+        'Servicios: Descripción de los servicios ofrecidos.',
+        'Detalles: Secciones detalladas para imágenes, videos y vuelos de descubrimiento.',
+        'Aplicación responsiva que se adapta a dispositivos móviles y de escritorio.'
+      ],
+      githubUrl: 'https://github.com/nicolasbutterfield/GJParamotor',
+      websiteUrl: 'https://www.gjparamotor.com/'
+    },
+    {
+      title: 'ProTorneo',
+      tagline: 'Sistema de Gestión de Torneos de Gimnasia Artística',
+      description: 'ProTorneo es una aplicación web desarrollada con Django para la gestión integral de torneos de gimnasia artística. Permite a organizadores, jueces, profesores y participantes gestionar competiciones de manera eficiente y organizada.',
+      technologies: ['Django 5.1.3', 'PostgreSQL', 'SQLite', 'HTML5', 'CSS3', 'JavaScript'],
+      highlights: [
+        'Gestión de Usuarios: Sistema de autenticación con roles específicos (jefe de torneo, juez, profesor, participante).',
+        'Administración de Torneos: Creación y gestión de torneos con categorías y disciplinas.',
+        'Evaluaciones y Puntuaciones: Registro de calificaciones por parte de los jueces.',
+        'Dashboards Personalizados: Interfaces adaptadas según el rol del usuario.',
+        'Gestión de Pruebas: Organización de pruebas y ejercicios por torneo.',
+        'Seguridad: Autenticación robusta y permisos granulares.',
+        'Diseño Responsivo: Interfaz moderna y adaptable a dispositivos móviles.'
+      ],
+      githubUrl: 'https://github.com/NicoButter/protorneo'
+    },
+    {
+      title: 'SGL-2.0',
+      tagline: 'Sistema de Gestión Legislativa v2.0 para la Legislatura Provincial de Santa Cruz',
+      description: 'Sistema integral de gestión legislativa desarrollado para la Legislatura Provincial de Santa Cruz, Argentina. Esta versión 2.0 representa una evolución significativa del sistema anterior, incorporando nuevas funcionalidades, mejorando la usabilidad y fortaleciendo la seguridad para apoyar el proceso legislativo provincial de manera más eficiente y transparente.',
+      technologies: ['Django 4.2', 'PostgreSQL', 'Redis', 'Celery', 'HTML5', 'CSS3', 'JavaScript', 'Bootstrap 5', 'Docker'],
+      highlights: [
+        'Gestión Integral de Proyectos de Ley: Creación, seguimiento y modificación de proyectos legislativos con versionado completo.',
+        'Sistema de Sesiones Legislativas: Programación, gestión y registro de sesiones ordinarias y extraordinarias.',
+        'Plataforma de Votaciones Digitales: Sistema seguro de votación electrónica con registro de asistencia y resultados.',
+        'Portal de Transparencia Ciudadana: Publicación automática de normas, actas y documentos legislativos.',
+        'Gestión de Diputados y Comisiones: Perfiles completos, asignación a comisiones y seguimiento de participación.',
+        'Sistema de Notificaciones Automáticas: Alertas por email y SMS para eventos legislativos importantes.',
+        'Integración con APIs Externas: Conexión con sistemas gubernamentales para validación y publicación.',
+        'Auditoría Completa: Registro detallado de todas las acciones para cumplimiento normativo.',
+        'Interfaz Adaptativa: Diseño responsivo optimizado para uso en tablets durante sesiones.',
+        'Sistema de Backup y Recuperación: Estrategias robustas para garantizar la integridad de datos críticos.',
+        'API RESTful: Interfaces programáticas para integración con otros sistemas provinciales.',
+        'Multitenancy: Soporte para múltiples legislaturas con aislamiento de datos.'
+      ],
+      githubUrl: 'https://github.com/NicoButter/sgl-2.0'
+    },
+    {
+      title: 'ContactVault',
+      tagline: 'Aplicación de gestión de contactos personales con cifrado de datos',
+      description: 'ContactVault es una aplicación de gestión de contactos personales con cifrado de datos, ideal para mantener tu agenda privada, segura y accesible. Porque hasta los números de tu suegra merecen privacidad.',
+      technologies: ['Python 3.11+', 'Tkinter', 'cryptography', 'reportlab'],
+      highlights: [
+        'Agregar, buscar, editar y eliminar contactos de manera intuitiva.',
+        'Exportación de contactos a PDF para respaldo o impresión.',
+        'Encriptación de datos sensibles con contraseña maestra para máxima seguridad.',
+        'Interfaz gráfica amigable desarrollada con Tkinter.',
+        'Backups automáticos de tus datos para prevenir pérdida de información.',
+        'Totalmente offline y sin necesidad de conexión a internet.',
+        'Almacenamiento encriptado en archivo JSON seguro.',
+        'Sistema de backups con extensión .backup para recuperación.',
+        'Instalador .exe próximamente disponible para usuarios Windows.',
+        'Arquitectura modular con separación de responsabilidades.',
+        'Funciones auxiliares para operaciones comunes.',
+        'Licencia MIT para uso libre y modificación.'
+      ],
+      githubUrl: 'https://github.com/NicoButter/contactvault'
+    },
+    {
+      title: 'LibroLink',
+      tagline: 'Sistema de gestión de bibliotecas desarrollado con Django',
+      description: 'LibroLink es un sistema de gestión de bibliotecas desarrollado con Django. Está diseñado para facilitar tanto la búsqueda de libros como la administración de socios, todo a través de una interfaz web intuitiva, moderna y responsive.',
+      technologies: ['Django', 'PostgreSQL', 'HTML5', 'CSS3', 'JavaScript', 'Python 3.x'],
+      highlights: [
+        'Búsqueda avanzada de libros por título, autor, ISBN y otros criterios.',
+        'Gestión completa de libros: alta, baja y modificación para administradores.',
+        'Sistema de autenticación de usuarios con login/logout y roles diferenciados.',
+        'Diseño responsivo adaptado para escritorio, tablet y móvil.',
+        'Interactividad dinámica con JavaScript vanilla para actualizaciones en tiempo real.',
+        'Panel de administración Django para gestión avanzada del sistema.',
+        'Arquitectura modular siguiendo las mejores prácticas de Django.',
+        'Sistema de roles y permisos para diferentes tipos de usuarios.',
+        'Interfaz intuitiva y moderna para una experiencia de usuario óptima.',
+        'Integración completa con PostgreSQL para almacenamiento robusto.',
+        'Funcionalidades de gestión de socios y préstamos de libros.',
+        'Actualizaciones en tiempo real de fecha y hora en la interfaz.'
+      ],
+      githubUrl: 'https://github.com/NicoButter/librolink'
     },
   ]);
 }

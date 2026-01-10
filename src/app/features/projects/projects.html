@@ -28,11 +28,15 @@
             <span class="line-number"> {{ 12 + (i * 15) + j }}</span>
             <span class="line-content"><span class="arrow-animate">  -</span> {{ highlight }}</span>
           </div>
-          <div class="line" *ngIf="project.githubUrl">
+          <div class="line" *ngIf="project.websiteUrl">
             <span class="line-number"> {{ 12 + (i * 15) + project.highlights.length }}</span>
+            <span class="line-content"><span class="pixel-icon">🌐</span> <a [href]="project.websiteUrl" target="_blank" class="github-link">{{ project.websiteUrl }}</a></span>
+          </div>
+          <div class="line" *ngIf="project.githubUrl">
+            <span class="line-number"> {{ 13 + (i * 15) + project.highlights.length }}</span>
             <span class="line-content"><span class="pixel-icon">🔗</span> <a [href]="project.githubUrl" target="_blank" class="github-link">{{ project.githubUrl }}</a></span>
           </div>
-          <div class="line"><span class="line-number"> {{ 13 + (i * 15) + project.highlights.length }}</span><span class="line-content"></span></div>
+          <div class="line"><span class="line-number"> {{ 14 + (i * 15) + project.highlights.length }}</span><span class="line-content"></span></div>
         </div>
         <div class="line"><span class="line-number"> 99</span><span class="line-content"><span class="pixel-icon">▼</span> [EOF]</span></div>
       </div>
