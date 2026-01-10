@@ -46,46 +46,69 @@
   box-shadow: none;
 }
 
-/* CRT Pixel Grid Effect */
+/* Star field background */
 .night-sky::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    radial-gradient(circle, rgba(0, 255, 65, 0.15) 1px, transparent 1px);
-  background-size: 4px 4px;
-  background-position: 0 0;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: white;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
   box-shadow: 
-    50px 30px 1px 0 rgba(255,255,255,0.9),
-    120px 80px 2px 0 rgba(255,255,255,0.7),
-    200px 50px 1px 0 rgba(255,255,255,0.8),
-    300px 120px 3px 0 rgba(255,255,255,0.6),
-    400px 70px 1px 0 rgba(255,255,255,0.9),
-    150px 200px 2px 0 rgba(255,255,255,0.5),
-    250px 180px 1px 0 rgba(255,255,255,0.8),
-    350px 250px 2px 0 rgba(255,255,255,0.7),
-    100px 300px 1px 0 rgba(255,255,255,0.9),
-    450px 150px 3px 0 rgba(255,255,255,0.6),
-    50px 400px 1px 0 rgba(255,255,255,0.8),
-    200px 350px 2px 0 rgba(255,255,255,0.7),
-    300px 400px 1px 0 rgba(255,255,255,0.9),
-    400px 300px 2px 0 rgba(255,255,255,0.6),
-    150px 450px 1px 0 rgba(255,255,255,0.8),
-    250px 500px 3px 0 rgba(255,255,255,0.7),
-    350px 450px 1px 0 rgba(255,255,255,0.9),
-    450px 400px 2px 0 rgba(255,255,255,0.6),
-    100px 550px 1px 0 rgba(255,255,255,0.8),
-    500px 200px 2px 0 rgba(255,255,255,0.7),
-    600px 100px 1px 0 rgba(255,255,255,0.9),
-    700px 300px 3px 0 rgba(255,255,255,0.6),
-    800px 200px 2px 0 rgba(255,255,255,0.8),
-    650px 500px 1px 0 rgba(255,255,255,0.7),
-    750px 400px 2px 0 rgba(255,255,255,0.9);
+    5vw 3vh 0px 1px rgba(255,255,255,1),
+    12vw 8vh 0px 2px rgba(255,255,255,0.9),
+    20vw 5vh 0px 1px rgba(255,255,255,1),
+    30vw 12vh 0px 2px rgba(255,255,255,0.8),
+    40vw 7vh 0px 1px rgba(255,255,255,1),
+    15vw 20vh 0px 1px rgba(255,255,255,0.9),
+    25vw 18vh 0px 1px rgba(255,255,255,1),
+    35vw 25vh 0px 2px rgba(255,255,255,0.9),
+    10vw 30vh 0px 1px rgba(255,255,255,1),
+    45vw 15vh 0px 2px rgba(255,255,255,0.8),
+    5vw 40vh 0px 1px rgba(255,255,255,1),
+    20vw 35vh 0px 1px rgba(255,255,255,0.9),
+    30vw 40vh 0px 1px rgba(255,255,255,1),
+    40vw 30vh 0px 2px rgba(255,255,255,0.9),
+    15vw 45vh 0px 1px rgba(255,255,255,1),
+    25vw 50vh 0px 2px rgba(255,255,255,0.9),
+    35vw 45vh 0px 1px rgba(255,255,255,1),
+    45vw 40vh 0px 1px rgba(255,255,255,0.8),
+    10vw 55vh 0px 1px rgba(255,255,255,1),
+    50vw 20vh 0px 2px rgba(255,255,255,0.9),
+    60vw 10vh 0px 1px rgba(255,255,255,1),
+    70vw 30vh 0px 2px rgba(255,255,255,0.9),
+    80vw 20vh 0px 1px rgba(255,255,255,1),
+    65vw 50vh 0px 1px rgba(255,255,255,0.9),
+    75vw 40vh 0px 2px rgba(255,255,255,1),
+    85vw 60vh 0px 1px rgba(255,255,255,1),
+    55vw 70vh 0px 2px rgba(255,255,255,0.9),
+    90vw 35vh 0px 1px rgba(255,255,255,0.8),
+    95vw 55vh 0px 1px rgba(255,255,255,1),
+    8vw 12vh 0px 1px rgba(255,255,255,0.9),
+    18vw 22vh 0px 2px rgba(255,255,255,1),
+    28vw 32vh 0px 1px rgba(255,255,255,0.9),
+    38vw 42vh 0px 2px rgba(255,255,255,1),
+    48vw 52vh 0px 1px rgba(255,255,255,0.9),
+    58vw 62vh 0px 2px rgba(255,255,255,1),
+    68vw 72vh 0px 1px rgba(255,255,255,0.9),
+    78vw 82vh 0px 2px rgba(255,255,255,1),
+    88vw 15vh 0px 1px rgba(255,255,255,0.9),
+    92vw 25vh 0px 2px rgba(255,255,255,1),
+    3vw 50vh 0px 1px rgba(255,255,255,1),
+    52vw 5vh 0px 1px rgba(255,255,255,0.9),
+    72vw 65vh 0px 2px rgba(255,255,255,1),
+    17vw 75vh 0px 1px rgba(255,255,255,0.9),
+    42vw 60vh 0px 1px rgba(255,255,255,1),
+    62vw 35vh 0px 2px rgba(255,255,255,0.9),
+    82vw 45vh 0px 1px rgba(255,255,255,1),
+    13vw 55vh 0px 1px rgba(255,255,255,0.9),
+    33vw 15vh 0px 2px rgba(255,255,255,1),
+    53vw 78vh 0px 1px rgba(255,255,255,0.9);
+  animation: twinkle-stars 3s ease-in-out infinite;
 }
 
 /* CRT Scanline Sweep Effect */
@@ -112,12 +135,12 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 2;
 }
 
 .connection-line {
   stroke: var(--neon-cyan);
-  stroke-width: 1;
+  stroke-width: 0.5;
   opacity: 0.6;
   animation: pulse 3s ease-in-out infinite;
 }
@@ -125,6 +148,11 @@
 @keyframes pulse {
   0%, 100% { opacity: 0.3; }
   50% { opacity: 0.8; }
+}
+
+@keyframes twinkle-stars {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
 }
 
 .skill-star {
