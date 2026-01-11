@@ -18,25 +18,29 @@
           <div class="line"><span class="line-number">  {{ 3 + (i * 15) }}</span><span class="line-content"><span class="pixel-icon">◆</span> <span class="section-title">[{{ project.title | uppercase }}]</span></span></div>
           <div class="line"><span class="line-number">  {{ 4 + (i * 15) }}</span><span class="line-content"></span></div>
           <div class="line"><span class="line-number">  {{ 5 + (i * 15) }}</span><span class="line-content"><span class="tagline">{{ project.tagline }}</span></span></div>
-          <div class="line"><span class="line-number">  {{ 6 + (i * 15) }}</span><span class="line-content"></span></div>
-          <div class="line"><span class="line-number">  {{ 7 + (i * 15) }}</span><span class="line-content"><span class="arrow-animate">></span> {{ project.description }}</span></div>
+          <div class="line" *ngIf="project.imageUrl">
+            <span class="line-number">  {{ 6 + (i * 15) }}</span>
+            <span class="line-content"><span class="pixel-icon">🖼</span> <img [src]="project.imageUrl" [alt]="project.title" class="project-image" /></span>
+          </div>
+          <div class="line"><span class="line-number">  {{ project.imageUrl ? 7 + (i * 15) : 6 + (i * 15) }}</span><span class="line-content"></span></div>
+          <div class="line"><span class="line-number">  {{ project.imageUrl ? 8 + (i * 15) : 7 + (i * 15) }}</span><span class="line-content"><span class="arrow-animate">></span> {{ project.description }}</span></div>
           <div class="line"><span class="line-number">  {{ 8 + (i * 15) }}</span><span class="line-content"></span></div>
-          <div class="line"><span class="line-number">  {{ 9 + (i * 15) }}</span><span class="line-content"><span class="pixel-icon">⚙</span> <span class="tech-label">Tech Stack:</span> <span class="tech-tags">{{ project.technologies.join(' • ') }}</span></span></div>
-          <div class="line"><span class="line-number"> {{ 10 + (i * 15) }}</span><span class="line-content"></span></div>
-          <div class="line"><span class="line-number"> {{ 11 + (i * 15) }}</span><span class="line-content"><span class="pixel-icon">✦</span> <span class="highlights-label">Highlights:</span></span></div>
+          <div class="line"><span class="line-number">  {{ project.imageUrl ? 9 + (i * 15) : 8 + (i * 15) }}</span><span class="line-content"><span class="pixel-icon">⚙</span> <span class="tech-label">Tech Stack:</span> <span class="tech-tags">{{ project.technologies.join(' • ') }}</span></span></div>
+          <div class="line"><span class="line-number"> {{ project.imageUrl ? 10 + (i * 15) : 9 + (i * 15) }}</span><span class="line-content"></span></div>
+          <div class="line"><span class="line-number"> {{ project.imageUrl ? 11 + (i * 15) : 10 + (i * 15) }}</span><span class="line-content"><span class="pixel-icon">✦</span> <span class="highlights-label">Highlights:</span></span></div>
           <div *ngFor="let highlight of project.highlights; let j = index" class="line">
-            <span class="line-number"> {{ 12 + (i * 15) + j }}</span>
+            <span class="line-number"> {{ project.imageUrl ? 12 + (i * 15) + j : 11 + (i * 15) + j }}</span>
             <span class="line-content"><span class="arrow-animate">  -</span> {{ highlight }}</span>
           </div>
           <div class="line" *ngIf="project.websiteUrl">
-            <span class="line-number"> {{ 12 + (i * 15) + project.highlights.length }}</span>
+            <span class="line-number"> {{ project.imageUrl ? 12 + (i * 15) + project.highlights.length : 11 + (i * 15) + project.highlights.length }}</span>
             <span class="line-content"><span class="pixel-icon">🌐</span> <a [href]="project.websiteUrl" target="_blank" class="github-link">{{ project.websiteUrl }}</a></span>
           </div>
           <div class="line" *ngIf="project.githubUrl">
-            <span class="line-number"> {{ 13 + (i * 15) + project.highlights.length }}</span>
+            <span class="line-number"> {{ project.imageUrl ? 13 + (i * 15) + project.highlights.length : 12 + (i * 15) + project.highlights.length }}</span>
             <span class="line-content"><span class="pixel-icon">🔗</span> <a [href]="project.githubUrl" target="_blank" class="github-link">{{ project.githubUrl }}</a></span>
           </div>
-          <div class="line"><span class="line-number"> {{ 14 + (i * 15) + project.highlights.length }}</span><span class="line-content"></span></div>
+          <div class="line"><span class="line-number"> {{ project.imageUrl ? 14 + (i * 15) + project.highlights.length : 13 + (i * 15) + project.highlights.length }}</span><span class="line-content"></span></div>
         </div>
         <div class="line"><span class="line-number"> 99</span><span class="line-content"><span class="pixel-icon">▼</span> [EOF]</span></div>
       </div>

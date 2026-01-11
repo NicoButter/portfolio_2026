@@ -26,7 +26,7 @@ export class SkillsComponent implements OnInit {
       x: 15,
       y: 20,
       connections: [1, 7, 8],
-      description: 'Superset tipado de JavaScript que añade tipos estáticos opcionales. Compila a JavaScript puro, mejorando la mantenibilidad y detección de errores en desarrollo. Soporta las últimas características de ECMAScript con compatibilidad hacia atrás.'
+      description: 'Typed superset of JavaScript that adds optional static types. Compiles to pure JavaScript, improving maintainability and error detection in development. Supports the latest ECMAScript features with backward compatibility.'
     },
     {
       name: 'JavaScript',
@@ -35,7 +35,7 @@ export class SkillsComponent implements OnInit {
       x: 25,
       y: 30,
       connections: [0, 2],
-      description: 'Lenguaje de programación interpretado, orientado a objetos y basado en prototipos. Es el corazón del desarrollo web moderno, ejecutándose en todos los navegadores. Soporta programación asíncrona y manipulación del DOM.'
+      description: 'Interpreted, object-oriented programming language based on prototypes. It is the heart of modern web development, running in all browsers. Supports asynchronous programming and DOM manipulation.'
     },
     {
       name: 'Angular',
@@ -44,7 +44,7 @@ export class SkillsComponent implements OnInit {
       x: 40,
       y: 40,
       connections: [1, 3],
-      description: 'Framework completo para desarrollo de aplicaciones web SPA. Utiliza TypeScript, componentes reutilizables y enlace de datos bidireccional. Incluye herramientas avanzadas como dependency injection, routing y formularios reactivos.'
+      description: 'Complete framework for SPA web application development. Uses TypeScript, reusable components, and bidirectional data binding. Includes advanced tools like dependency injection, routing, and reactive forms.'
     },
     {
       name: 'Java',
@@ -53,7 +53,7 @@ export class SkillsComponent implements OnInit {
       x: 60,
       y: 50,
       connections: [2, 4],
-      description: 'Lenguaje de programación orientado a objetos, strongly-typed y multiplataforma. Ejecuta en JVM (Java Virtual Machine), permitiendo "write once, run anywhere". Excelente para aplicaciones enterprise, Android y sistemas distribuidos.'
+      description: 'Object-oriented, strongly-typed, and cross-platform programming language. Runs on JVM (Java Virtual Machine), allowing "write once, run anywhere". Excellent for enterprise applications, Android, and distributed systems.'
     },
     {
       name: 'Python',
@@ -62,7 +62,7 @@ export class SkillsComponent implements OnInit {
       x: 75,
       y: 60,
       connections: [3, 5],
-      description: 'Lenguaje de alto nivel con sintaxis clara y legible. Excelente para desarrollo rápido, ciencia de datos, machine learning y scripting. Filosofía "batteries included" con extensa librería estándar.'
+      description: 'High-level language with clear and readable syntax. Excellent for rapid development, data science, machine learning, and scripting. "Batteries included" philosophy with extensive standard library.'
     },
     {
       name: 'Spring',
@@ -71,7 +71,7 @@ export class SkillsComponent implements OnInit {
       x: 85,
       y: 75,
       connections: [4, 6],
-      description: 'Framework Java para desarrollo de aplicaciones enterprise. Proporciona inyección de dependencias, AOP, seguridad y integración con bases de datos. Spring Boot simplifica la configuración y despliegue de microservicios.'
+      description: 'Java framework for enterprise application development. Provides dependency injection, AOP, security, and database integration. Spring Boot simplifies configuration and deployment of microservices.'
     },
     {
       name: 'Django',
@@ -80,7 +80,7 @@ export class SkillsComponent implements OnInit {
       x: 90,
       y: 85,
       connections: [5],
-      description: 'Framework web Python de alto nivel que fomenta el desarrollo rápido y diseño limpio. Incluye ORM, sistema de autenticación, panel admin y seguridad integrada. Principio "DRY" (Don\'t Repeat Yourself).'
+      description: 'High-level Python web framework that encourages rapid development and clean design. Includes ORM, authentication system, admin panel, and built-in security. "DRY" principle (Don\'t Repeat Yourself).'
     },
     {
       name: 'SQL',
@@ -89,7 +89,7 @@ export class SkillsComponent implements OnInit {
       x: 5,
       y: 25,
       connections: [0],
-      description: 'Lenguaje estándar para gestión de bases de datos relacionales. Permite consultar, insertar, actualizar y eliminar datos. Soporta joins, subqueries, transacciones y optimización de consultas para alto rendimiento.'
+      description: 'Standard language for managing relational databases. Allows querying, inserting, updating, and deleting data. Supports joins, subqueries, transactions, and query optimization for high performance.'
     },
     {
       name: 'Linux',
@@ -98,7 +98,7 @@ export class SkillsComponent implements OnInit {
       x: 35,
       y: 25,
       connections: [0],
-      description: 'Sistema operativo open-source basado en Unix. Kernel robusto con distribución de software amplia. Excelente para servidores, desarrollo y computación de alto rendimiento. Filosofía de libertad y colaboración.'
+      description: 'Open-source operating system based on Unix. Robust kernel with wide software distribution. Excellent for servers, development, and high-performance computing. Philosophy of freedom and collaboration.'
     }
   ]);
 
