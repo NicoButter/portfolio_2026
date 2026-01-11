@@ -55,7 +55,7 @@
         [style.height.px]="getSize(skill)"
         [style.box-shadow]="getGlowStyle(skill)"
         [title]="skill.name + ': ' + skill.level + '%'"
-        [class]="skill.category.toLowerCase()"
+        [class]="skill.category.toLowerCase() + ' ' + getEdgeClasses(skill)"
       >
         <div class="star-glow"></div>
         <div class="skill-progress-bar">

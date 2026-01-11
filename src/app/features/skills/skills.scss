@@ -363,8 +363,9 @@
     top: -80px;
     left: 50%;
     transform: translateX(-50%);
-    min-width: 280px;
-    max-width: 320px;
+    width: max-content;
+    min-width: 200px;
+    max-width: min(320px, 90vw);
     background: rgba(0, 0, 0, 0.95);
     border: 1px solid var(--neon-green);
     border-radius: 0;
@@ -372,7 +373,6 @@
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
-    white-space: nowrap;
     box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
     font-family: 'Courier New', monospace;
   }
@@ -798,4 +798,106 @@
     opacity: 0.6;
     filter: brightness(0.9);
   }
+}
+
+/* Responsive adjustments for skill progress bars */
+@media (max-width: 1024px) {
+  .skill-star .skill-progress-bar {
+    min-width: 180px;
+    max-width: min(280px, 85vw);
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+
+  .skill-star .skill-description {
+    font-size: 0.6rem;
+    max-height: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skill-star .skill-progress-bar {
+    min-width: 150px;
+    max-width: min(250px, 80vw);
+    padding: 8px 10px;
+    top: -70px;
+  }
+
+  .skill-star .progress-container {
+    height: 14px;
+    margin-bottom: 6px;
+  }
+
+  .skill-star .progress-text {
+    font-size: 0.7rem;
+  }
+
+  .skill-star .skill-description {
+    font-size: 0.55rem;
+    line-height: 1.2;
+    max-height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skill-star .skill-progress-bar {
+    min-width: 120px;
+    max-width: min(200px, 75vw);
+    padding: 6px 8px;
+    top: -60px;
+  }
+
+  .skill-star .progress-container {
+    height: 12px;
+    margin-bottom: 5px;
+  }
+
+  .skill-star .progress-text {
+    font-size: 0.65rem;
+    letter-spacing: 0.5px;
+  }
+
+  .skill-star .skill-description {
+    font-size: 0.5rem;
+    line-height: 1.1;
+    max-height: 50px;
+  }
+
+  .constellation-title {
+    font-size: 1.8rem;
+    top: var(--spacing-md);
+  }
+}
+
+@media (max-width: 360px) {
+  .skill-star .skill-progress-bar {
+    min-width: 100px;
+    max-width: min(180px, 70vw);
+    padding: 5px 6px;
+  }
+
+  .skill-star .progress-text {
+    font-size: 0.6rem;
+  }
+
+  .skill-star .skill-description {
+    font-size: 0.45rem;
+    max-height: 45px;
+  }
+}
+
+/* Adjustments for progress bars near screen edges */
+.skill-star.edge-left .skill-progress-bar {
+  left: 0;
+  transform: translateX(0);
+}
+
+.skill-star.edge-right .skill-progress-bar {
+  left: auto;
+  right: 0;
+  transform: translateX(0);
+}
+
+.skill-star.edge-top .skill-progress-bar {
+  top: 60px;
 }

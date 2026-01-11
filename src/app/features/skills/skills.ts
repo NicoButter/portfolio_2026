@@ -121,6 +121,27 @@ export class SkillsComponent implements OnInit {
     return 10 + skill.level / 2; // level 80 -> 50px, level 65 -> 42.5px, etc.
   }
 
+  getEdgeClasses(skill: Skill): string {
+    const classes: string[] = [];
+    
+    // Check left edge (less than 20% from left)
+    if (skill.x < 20) {
+      classes.push('edge-left');
+    }
+    
+    // Check right edge (more than 80% from left)
+    if (skill.x > 80) {
+      classes.push('edge-right');
+    }
+    
+    // Check top edge (less than 20% from top)
+    if (skill.y < 20) {
+      classes.push('edge-top');
+    }
+    
+    return classes.join(' ');
+  }
+
   getIcon(skill: Skill): string {
     const icons: { [key: string]: string } = {
       'TypeScript': 'assets/images/typescript_logo.jpeg',
