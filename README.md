@@ -439,11 +439,11 @@ npx angular-cli-ghpages --dir=dist/portfolio-2026/browser
 # Build
 npm run build
 
-# Sync a S3
-aws s3 sync dist/portfolio-2026/browser s3://tu-bucket-name --delete
+# Sync a S3 (requiere configuración de AWS CLI)
+aws s3 sync dist/portfolio-2026/browser s3://your-bucket-name --delete
 
 # Invalidar cache de CloudFront
-aws cloudfront create-invalidation --distribution-id YOUR_DIST_ID --paths "/*"
+aws cloudfront create-invalidation --distribution-id YOUR_DISTRIBUTION_ID --paths "/*"
 ```
 
 ### Opción 2: Despliegue con SSR
@@ -485,7 +485,7 @@ railway up
 heroku login
 
 # Crear app
-heroku create tu-portfolio
+heroku create
 
 # Configurar buildpack
 heroku buildpacks:set heroku/nodejs
@@ -519,7 +519,7 @@ sudo nano /etc/nginx/sites-available/portfolio
 # Contenido del archivo:
 server {
     listen 80;
-    server_name tu-dominio.com;
+    server_name portfolionicolas2026.netlify.app;
 
     location / {
         proxy_pass http://localhost:4000;
@@ -565,39 +565,7 @@ NODE_ENV=production
 - [ ] Verificar Core Web Vitals con Lighthouse
 - [ ] Probar en diferentes dispositivos y navegadores
 
-## Capturas de pantalla
-
-### Interfaces Interactivas
-
-#### Quake Terminal
-![Vista principal con Quake Terminal desplegado](src/assets/images/screenshots/quake-terminal-expanded.png)
-*Terminal desplegable con efectos CRT y navegación interactiva*
-
-![Secuencia de arranque del Quake Terminal](src/assets/images/screenshots/quake-boot-sequence.png)
-*Animación de inicio al estilo Quake con carga de sistemas*
-
-#### Constelación de Skills
-![Constelación espacial de habilidades](src/assets/images/screenshots/skills-constellation-overview.png)
-*Vista general de la constelación con campo estelar animado*
-
-![Tooltip de skill con barra de progreso](src/assets/images/screenshots/skill-tooltip-hover.png)
-*Hover sobre skill mostrando tooltip con progreso y descripción*
-
-![Elementos espaciales decorativos](src/assets/images/screenshots/space-elements-showcase.png)
-*ISS, Astronauta, Xenomorph, SDF-1 y Predator en el ciber-espacio*
-
-#### Efectos Visuales
-![Efecto CRT en la terminal](src/assets/images/screenshots/crt-effect-terminal.png)
-*Efectos CRT retro: scanlines, vignette y glow*
-
-![Conexiones SVG entre skills](src/assets/images/screenshots/skill-connections-svg.png)
-*Líneas animadas conectando habilidades relacionadas*
-
-#### Simulación de Editor Nano
-![Simulación de Editor Nano en sección de proyectos](src/assets/images/screenshots/nano-editor-projects.png)
-*Editor Nano con contenido de proyectos*
-
-### Assets de Elementos Espaciales
+## Assets de Elementos Espaciales
 
 Los siguientes assets están ubicados en `src/assets/images/`:
 
