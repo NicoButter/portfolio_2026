@@ -1,16 +1,44 @@
 import { ChangeDetectionStrategy, Component, signal, OnInit } from '@angular/core';
 
+/**
+ * Represents a technical skill with its proficiency level and visual position.
+ * 
+ * @interface Skill
+ * @property {string} name - The name of the skill (e.g., 'TypeScript', 'Angular')
+ * @property {number} level - Proficiency level from 0 to 100
+ * @property {string} category - Skill category: 'Frontend', 'Backend', or 'Tools'
+ * @property {number} x - Horizontal position in percentage (0-100) for constellation display
+ * @property {number} y - Vertical position in percentage (0-100) for constellation display
+ * @property {number[]} connections - Array of indices referencing connected skills in the constellation
+ * @property {string} description - Detailed description of the skill
+ * @property {string} [image] - Optional path to the skill icon image
+ */
 interface Skill {
   name: string;
   level: number;
   category: string;
   x: number;
   y: number;
-  connections: number[]; // indices of connected skills
+  connections: number[];
   description: string;
   image?: string;
 }
 
+/**
+ * Component that displays technical skills as an interactive space-themed constellation.
+ * 
+ * Features:
+ * - Skills displayed as stars with connecting lines showing relationships
+ * - Hover effects revealing progress bars and detailed descriptions
+ * - Responsive design with edge detection to prevent overflow
+ * - Space-themed animations including ISS, astronaut, and sci-fi elements
+ * - Category-based color coding (Frontend: cyan, Backend: green, Tools: purple)
+ * 
+ * @component
+ * @implements {OnInit}
+ * @example
+ * <app-skills></app-skills>
+ */
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.html',
@@ -18,6 +46,12 @@ interface Skill {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillsComponent implements OnInit {
+  /**
+   * Signal containing the array of all technical skills to display in the constellation.
+   * Each skill includes proficiency level, position, connections, and description.
+   * 
+   * @type {WritableSignal<Skill[]>}
+   */
   skills = signal<Skill[]>([
     {
       name: 'TypeScript',
@@ -102,14 +136,39 @@ export class SkillsComponent implements OnInit {
     }
   ]);
 
+  /**
+   * Signal that tracks whether the initial command animation has been executed.
+   * Used for animation timing and visual effects.
+   * 
+   * @type {WritableSignal<boolean>}
+   */
   commandExecuted = signal(false);
 
+  /**
+   * Lifecycle hook that initializes the component.
+   * Sets a delay before marking the command as executed for animation purposes.
+   * 
+   * @returns {void}
+   */
   ngOnInit(): void {
     setTimeout(() => {
       this.commandExecuted.set(true);
     }, 1000);
   }
 
+  /**
+   * Generates the box-shadow glow style for a skill star based on its category.
+   * 
+   * Color mapping:
+   * - Frontend: Cyan (#00d4ff)
+   * - Backend: Green (#00ff41)
+   * - Tools: Purple (#8000ff)
+   * 
+   * @param {Skill} skill - The skill object to generate the glow style for
+   * @returns {string} CSS box-shadow value with color and blur radius
+   * @example
+   * getGlowStyle({ category: 'Frontend', level: 80 }) // Returns '0 0 16px #00d4ff'
+   */
   getGlowStyle(skill: Skill): string {
     const color = skill.category === 'Frontend' ? '#00d4ff' :
                   skill.category === 'Backend' ? '#00ff41' : '#8000ff';
@@ -117,24 +176,46 @@ export class SkillsComponent implements OnInit {
     return `0 0 ${size}px ${color}`;
   }
 
+  /**
+   * Calculates the size of a skill star based on its proficiency level.
+   * 
+   * Formula: 10 + (level / 2)
+   * Examples:
+   * - Level 80 → 50px
+   * - Level 65 → 42.5px
+   * - Level 100 → 60px
+   * 
+   * @param {Skill} skill - The skill object to calculate size for
+   * @returns {number} Size in pixels for the star's width and height
+   */
   getSize(skill: Skill): number {
-    return 10 + skill.level / 2; // level 80 -> 50px, level 65 -> 42.5px, etc.
+    return 10 + skill.level / 2;
   }
 
+  /**
+   * Determines CSS classes for edge positioning to prevent progress bars from overflowing.
+   * 
+   * Checks skill position and adds appropriate classes:
+   * - 'edge-left': When x < 20% (near left edge)
+   * - 'edge-right': When x > 80% (near right edge)
+   * - 'edge-top': When y < 20% (near top edge)
+   * 
+   * @param {Skill} skill - The skill object to check position for
+   * @returns {string} Space-separated CSS class names for edge positioning
+   * @example
+   * getEdgeClasses({ x: 10, y: 15 }) // Returns 'edge-left edge-top'
+   */
   getEdgeClasses(skill: Skill): string {
     const classes: string[] = [];
     
-    // Check left edge (less than 20% from left)
     if (skill.x < 20) {
       classes.push('edge-left');
     }
     
-    // Check right edge (more than 80% from left)
     if (skill.x > 80) {
       classes.push('edge-right');
     }
     
-    // Check top edge (less than 20% from top)
     if (skill.y < 20) {
       classes.push('edge-top');
     }
@@ -142,6 +223,17 @@ export class SkillsComponent implements OnInit {
     return classes.join(' ');
   }
 
+  /**
+   * Retrieves the icon path for a given skill.
+   * 
+   * Maps skill names to their corresponding icon image paths.
+   * Returns a default icon path if the skill name is not found.
+   * 
+   * @param {Skill} skill - The skill object to get the icon for
+   * @returns {string} Relative path to the skill's icon image
+   * @example
+   * getIcon({ name: 'TypeScript' }) // Returns 'assets/images/typescript_logo.jpeg'
+   */
   getIcon(skill: Skill): string {
     const icons: { [key: string]: string } = {
       'TypeScript': 'assets/images/typescript_logo.jpeg',
@@ -157,9 +249,22 @@ export class SkillsComponent implements OnInit {
     return icons[skill.name] || 'assets/images/default.png';
   }
 
+  /**
+   * Handles image loading errors by replacing the failed image with an emoji fallback.
+   * 
+   * When a skill icon fails to load:
+   * 1. Hides the broken image element
+   * 2. Creates a span element with an emoji representation
+   * 3. Appends the emoji as a visual fallback
+   * 
+   * @param {Event} event - The error event triggered when image fails to load
+   * @param {Skill} skill - The skill object whose image failed to load
+   * @returns {void}
+   * @example
+   * // In template: (error)="onImageError($event, skill)"
+   */
   onImageError(event: Event, skill: Skill): void {
     const img = event.target as HTMLImageElement;
-    // Fallback to emoji if image fails to load
     const emojiFallbacks: { [key: string]: string } = {
       'TypeScript': '🟦',
       'JavaScript': '🟨',

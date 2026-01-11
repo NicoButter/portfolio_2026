@@ -1,3 +1,35 @@
+/**
+ * Skills Constellation Component Styles
+ * 
+ * A space-themed visualization of technical skills displayed as an interactive constellation.
+ * 
+ * Features:
+ * - Multi-layered animated star field background
+ * - Skill nodes represented as glowing stars with category-based colors
+ * - SVG connection lines showing skill relationships
+ * - Hover tooltips with progress bars and descriptions
+ * - CRT monitor effects (scanlines, vignette)
+ * - Animated space elements (ISS, astronaut, comets, sci-fi references)
+ * - Responsive design with edge detection for proper tooltip positioning
+ * - Smooth animations and transitions throughout
+ * 
+ * Color Scheme:
+ * - Frontend skills: Cyan (#00d4ff)
+ * - Backend skills: Green (#00ff41)
+ * - Tools: Purple (#8000ff)
+ * 
+ * @author Portfolio Project
+ * @version 2.0.0
+ */
+
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
+
+/**
+ * Main constellation container
+ * Full viewport dimensions with dark space-themed gradient
+ */
 .skills-constellation {
   width: 100vw;
   height: 90vh;
@@ -9,7 +41,10 @@
   overflow: hidden;
 }
 
-/* CRT Vignette on entire constellation */
+/**
+ * CRT vignette overlay effect
+ * Creates a subtle darkening at the edges mimicking old CRT monitors
+ */
 .skills-constellation::after {
   content: '';
   position: fixed;
@@ -22,6 +57,13 @@
   z-index: 10;
 }
 
+/* ============================================
+   TITLE AND MAIN DISPLAY AREA
+   ============================================ */
+
+/**
+ * Main title centered at the top with neon cyan glow effect
+ */
 .constellation-title {
   position: absolute;
   top: var(--spacing-lg);
@@ -35,6 +77,10 @@
   font-family: var(--font-display);
 }
 
+/**
+ * Night sky container - main display area for skill constellation
+ * Uses radial gradient for depth effect
+ */
 .night-sky {
   flex: 1;
   width: 100%;
@@ -46,7 +92,16 @@
   box-shadow: none;
 }
 
-/* Star field background - Group 1 */
+/* ============================================
+   STAR FIELD BACKGROUNDS
+   Three separate star groups for depth and variety
+   ============================================ */
+
+/**
+ * Star field background - Group 1
+ * Uses pseudo-element with multiple box-shadows to create stars
+ * Each shadow represents an individual star at different positions
+ */
 .night-sky::before {
   content: '';
   position: absolute;
@@ -79,7 +134,11 @@
   animation: twinkle-stars-1 3s ease-in-out infinite;
 }
 
-/* Star field background - Group 2 */
+/**
+ * Star field background - Group 2
+ * Second layer of stars with different positions and animation timing
+ * Creates depth and visual interest
+ */
 .stars-group-2 {
   content: '';
   position: absolute;
@@ -113,7 +172,11 @@
   animation: twinkle-stars-2 4s ease-in-out infinite 0.8s;
 }
 
-/* Star field background - Group 3 */
+/**
+ * Star field background - Group 3
+ * Third layer of stars with unique positions and delayed animation
+ * Adds final layer of depth to the starfield
+ */
 .stars-group-3 {
   content: '';
   position: absolute;
@@ -143,7 +206,15 @@
   animation: twinkle-stars-3 3.5s ease-in-out infinite 1.6s;
 }
 
-/* Comets */
+/* ============================================
+   SHOOTING STARS / COMETS
+   ============================================ */
+
+/**
+ * Base comet/shooting star styles
+ * Small white dot with a trailing glow effect
+ * The ::before pseudo-element creates the tail
+ */
 .comet {
   position: absolute;
   width: 3px;
@@ -173,6 +244,7 @@
   }
 }
 
+/** Individual comet instances with staggered animation timings */
 .comet-1 {
   top: 10%;
   right: -10%;
@@ -203,7 +275,15 @@
   animation: shooting-star-5 32s linear infinite 55s;
 }
 
-/* CRT Scanline Sweep Effect */
+/* ============================================
+   CRT EFFECTS
+   ============================================ */
+
+/**
+ * CRT scanline sweep effect
+ * Mimics the horizontal scanlines of old CRT monitors
+ * Creates subtle moving lines across the display
+ */
 .night-sky::after {
   content: '';
   position: absolute;
@@ -221,6 +301,14 @@
   z-index: 2;
 }
 
+/* ============================================
+   SKILL CONNECTIONS
+   ============================================ */
+
+/**
+ * SVG container for connection lines between skills
+ * Positioned absolutely to overlay the constellation
+ */
 .connections {
   position: absolute;
   top: 0;
@@ -230,6 +318,10 @@
   z-index: 2;
 }
 
+/**
+ * Individual connection line between skills
+ * Animated pulsing effect for visual interest
+ */
 .connection-line {
   stroke: var(--neon-cyan);
   stroke-width: 0.5;
@@ -237,28 +329,37 @@
   animation: pulse 3s ease-in-out infinite;
 }
 
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+/** Pulsing animation for connection lines */
 @keyframes pulse {
   0%, 100% { opacity: 0.3; }
   50% { opacity: 0.8; }
 }
 
+/** Twinkling animation for star group 1 */
 @keyframes twinkle-stars-1 {
   0%, 100% { opacity: 0.7; }
   50% { opacity: 1; }
 }
 
+/** Twinkling animation for star group 2 - different timing pattern */
 @keyframes twinkle-stars-2 {
   0%, 100% { opacity: 0.85; }
   35% { opacity: 0.6; }
   70% { opacity: 1; }
 }
 
+/** Twinkling animation for star group 3 - unique timing pattern */
 @keyframes twinkle-stars-3 {
   0%, 100% { opacity: 0.75; }
   25% { opacity: 1; }
   60% { opacity: 0.65; }
 }
 
+/** Shooting star animation 1 - diagonal path across screen */
 @keyframes shooting-star-1 {
   0% {
     transform: translate(0, 0);
@@ -273,6 +374,7 @@
   }
 }
 
+/** Shooting star animation 2 - different trajectory and timing */
 @keyframes shooting-star-2 {
   0% {
     transform: translate(0, 0);
@@ -287,6 +389,7 @@
   }
 }
 
+/** Shooting star animation 3 - medium speed path */
 @keyframes shooting-star-3 {
   0% {
     transform: translate(0, 0);
@@ -301,6 +404,7 @@
   }
 }
 
+/** Shooting star animation 4 - slower, longer trajectory */
 @keyframes shooting-star-4 {
   0% {
     transform: translate(0, 0);
@@ -315,6 +419,7 @@
   }
 }
 
+/** Shooting star animation 5 - unique path for variety */
 @keyframes shooting-star-5 {
   0% {
     transform: translate(0, 0);
@@ -329,6 +434,7 @@
   }
 }
 
+/** Progress bar shine animation - subtle brightness pulse */
 @keyframes progress-shine {
   0%, 100% {
     filter: brightness(1);
@@ -338,6 +444,15 @@
   }
 }
 
+/* ============================================
+   SKILL STARS (NODES)
+   ============================================ */
+
+/**
+ * Individual skill star node
+ * Represents a single skill in the constellation
+ * Scales on hover and shows tooltip with progress bar
+ */
 .skill-star {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -346,10 +461,15 @@
   z-index: 3;
   transition: transform 0.3s ease;
 
+  /** Hover effect - enlarges the star */
   &:hover {
     transform: translate(-50%, -50%) scale(1.5);
   }
 
+  /**
+   * Star-shaped glow effect
+   * Uses clip-path to create classic 5-pointed star shape
+   */
   .star-glow {
     width: 100%;
     height: 100%;
@@ -358,6 +478,12 @@
     animation: twinkle 2s ease-in-out infinite;
   }
 
+  /**
+   * Progress bar tooltip container
+   * Appears above the star on hover
+   * Contains progress bar and skill description
+   * Responsive width prevents overflow on small screens
+   */
   .skill-progress-bar {
     position: absolute;
     top: -80px;
@@ -377,6 +503,10 @@
     font-family: 'Courier New', monospace;
   }
 
+  /**
+   * Progress bar container
+   * Horizontal bar showing skill proficiency level
+   */
   .progress-container {
     position: relative;
     width: 100%;
@@ -390,6 +520,11 @@
     margin-bottom: 8px;
   }
 
+  /**
+   * Filled portion of the progress bar
+   * Width set dynamically based on skill level
+   * Terminal-style blinking animation
+   */
   .progress-fill {
     position: absolute;
     top: 0;
@@ -400,6 +535,7 @@
     box-shadow: none;
     animation: terminal-blink 1.5s ease-in-out infinite;
     
+    /** Adds subtle striped pattern overlay for depth */
     &::after {
       content: '';
       position: absolute;
@@ -417,6 +553,10 @@
     }
   }
 
+  /**
+   * Percentage text overlay on progress bar
+   * Centered and always visible with neon glow
+   */
   .progress-text {
     position: absolute;
     top: 50%;
@@ -431,6 +571,11 @@
     letter-spacing: 1px;
   }
 
+  /**
+   * Detailed skill description text
+   * Scrollable if content exceeds max height
+   * Custom styled scrollbar matching theme
+   */
   .skill-description {
     color: var(--neon-green);
     font-size: 0.65rem;
@@ -444,6 +589,7 @@
     scrollbar-width: thin;
     scrollbar-color: var(--neon-green) rgba(0, 0, 0, 0.5);
     
+    /** WebKit (Chrome, Safari) scrollbar styling */
     &::-webkit-scrollbar {
       width: 4px;
     }
@@ -458,20 +604,24 @@
     }
   }
 
+  /** Show progress bar on star hover */
   &:hover .skill-progress-bar {
     opacity: 1;
   }
 
+  /** Animate progress fill on hover */
   &:hover .progress-fill {
     animation: progress-fill-animation 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards, terminal-blink 1.5s ease-in-out infinite;
   }
 
+  /** Progress bar fill-in animation from 0 to final width */
   @keyframes progress-fill-animation {
     from {
       width: 0;
     }
   }
 
+  /** Terminal-style subtle blink effect for progress bar */
   @keyframes terminal-blink {
     0%, 100% { 
       opacity: 0.9;
@@ -481,6 +631,11 @@
     }
   }
 
+  /**
+   * Skill technology icon image
+   * Hidden by default, shows on hover
+   * Positioned in center of star
+   */
   .skill-icon {
     position: absolute;
     top: 50%;
@@ -496,6 +651,10 @@
     filter: brightness(1.1) contrast(1.2) drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
   }
 
+  /**
+   * Emoji fallback when image fails to load
+   * Provides visual representation if icon image is unavailable
+   */
   .skill-icon-emoji {
     position: absolute;
     top: 50%;
@@ -507,29 +666,49 @@
     pointer-events: none;
   }
 
+  /** Show icon/emoji on star hover */
   &:hover .skill-icon,
   &:hover .skill-icon-emoji {
     opacity: 1;
   }
 }
 
+/**
+ * Twinkling animation for star glow
+ * Creates pulsing effect with slight scale change
+ */
 @keyframes twinkle {
   0%, 100% { opacity: 0.7; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.2); }
 }
 
+/* ============================================
+   CATEGORY COLOR VARIATIONS
+   ============================================ */
+
+/** Frontend skills - cyan glow */
 .skill-star.frontend .star-glow {
   background: radial-gradient(circle, var(--neon-cyan) 0%, transparent 70%);
 }
 
+/** Backend skills - green glow */
 .skill-star.backend .star-glow {
   background: radial-gradient(circle, var(--neon-green) 0%, transparent 70%);
 }
 
+/** Tools/Other skills - purple glow */
 .skill-star.tools .star-glow {
   background: radial-gradient(circle, var(--neon-purple) 0%, transparent 70%);
 }
 
+/* ============================================
+   LEGEND
+   ============================================ */
+
+/**
+ * Category legend at bottom of constellation
+ * Shows color coding for skill categories
+ */
 .legend {
   position: absolute;
   bottom: var(--spacing-lg);
@@ -540,6 +719,7 @@
   gap: var(--spacing-md);
 }
 
+/** Individual legend item with color indicator and label */
 .legend-item {
   display: flex;
   align-items: center;
@@ -548,6 +728,10 @@
   color: var(--text);
 }
 
+/**
+ * Color indicator dot in legend
+ * Circular dot with glow matching category color
+ */
 .legend-color {
   width: 20px;
   height: 20px;
@@ -569,12 +753,21 @@
   }
 }
 
+/** Scanline animation - moves from top to bottom continuously */
 @keyframes scanline {
   0% { transform: translateY(-100%); }
   100% { transform: translateY(100%); }
 }
 
-/* ISS - International Space Station */
+/* ============================================
+   SPACE-THEMED DECORATIVE ELEMENTS
+   ============================================ */
+
+/**
+ * International Space Station (ISS)
+ * Orbits slowly across the constellation
+ * Fades in and out for realistic space effect
+ */
 .iss {
   position: absolute;
   top: 15%;
@@ -595,6 +788,7 @@
   animation: iss-orbit 60s linear infinite;
 }
 
+/** ISS orbital path animation - slow crossing from left to right */
 @keyframes iss-orbit {
   0% {
     left: 5%;
@@ -619,7 +813,10 @@
   }
 }
 
-/* Astronaut */
+/**
+ * Astronaut floating in space
+ * Gentle drift with rotation for realistic zero-gravity effect
+ */
 .astronaut {
   position: absolute;
   top: 40%;
@@ -639,6 +836,7 @@
   animation: astronaut-float 15s ease-in-out infinite;
 }
 
+/** Astronaut floating animation - gentle up/down with slight rotation */
 @keyframes astronaut-float {
   0%, 100% {
     transform: translateY(0px) rotate(0deg);
@@ -658,7 +856,11 @@
   }
 }
 
-/* Xenomorph */
+/**
+ * Xenomorph (Alien franchise reference)
+ * Lurking menacingly in the shadows
+ * Subtle horizontal movement with green glow
+ */
 .xenomorph {
   position: absolute;
   bottom: 20%;
@@ -678,6 +880,7 @@
   animation: xenomorph-lurk 12s ease-in-out infinite;
 }
 
+/** Xenomorph lurking animation - slow horizontal creep with opacity changes */
 @keyframes xenomorph-lurk {
   0%, 100% {
     transform: translateX(0);
@@ -697,7 +900,11 @@
   }
 }
 
-/* SDF-1 - Super Dimension Fortress */
+/**
+ * SDF-1 - Super Dimension Fortress from Macross anime
+ * Large spacecraft with orange glow
+ * Flies across the screen on a long trajectory
+ */
 .sdf1 {
   position: absolute;
   top: 25%;
@@ -718,6 +925,7 @@
   animation: sdf1-flight 45s linear infinite;
 }
 
+/** SDF-1 flight path animation - crosses screen from right to left with scale changes */
 @keyframes sdf1-flight {
   0% {
     right: -15%;
@@ -747,7 +955,11 @@
   }
 }
 
-/* Predator stalking */
+/**
+ * Predator (Predator franchise reference)
+ * Stalking with stealth effect
+ * Vertical movement with brightness changes simulating cloaking
+ */
 .predator {
   position: absolute;
   bottom: 15%;
@@ -767,6 +979,7 @@
   animation: predator-stalk 20s ease-in-out infinite;
 }
 
+/** Predator stalking animation - vertical drift with opacity/brightness changes for cloaking effect */
 @keyframes predator-stalk {
   0%, 100% {
     transform: translateY(0);
@@ -800,7 +1013,15 @@
   }
 }
 
-/* Responsive adjustments for skill progress bars */
+/* ============================================
+   RESPONSIVE DESIGN
+   Media queries for different screen sizes
+   ============================================ */
+
+/**
+ * Tablets and smaller desktops (max-width: 1024px)
+ * Reduces progress bar size and text for better fit
+ */
 @media (max-width: 1024px) {
   .skill-star .skill-progress-bar {
     min-width: 180px;
@@ -815,6 +1036,10 @@
   }
 }
 
+/**
+ * Tablets and mobile landscape (max-width: 768px)
+ * Further reduces sizes and adjusts positioning
+ */
 @media (max-width: 768px) {
   .skill-star .skill-progress-bar {
     min-width: 150px;
@@ -839,6 +1064,10 @@
   }
 }
 
+/**
+ * Mobile phones (max-width: 480px)
+ * Compact layout for small screens
+ */
 @media (max-width: 480px) {
   .skill-star .skill-progress-bar {
     min-width: 120px;
@@ -869,6 +1098,10 @@
   }
 }
 
+/**
+ * Very small mobile devices (max-width: 360px)
+ * Minimal sizes for very constrained screens
+ */
 @media (max-width: 360px) {
   .skill-star .skill-progress-bar {
     min-width: 100px;
@@ -886,18 +1119,34 @@
   }
 }
 
-/* Adjustments for progress bars near screen edges */
+/* ============================================
+   EDGE DETECTION ADJUSTMENTS
+   Prevents progress bars from overflowing screen
+   ============================================ */
+
+/**
+ * Left edge adjustment
+ * Aligns progress bar to left when star is near left edge
+ */
 .skill-star.edge-left .skill-progress-bar {
   left: 0;
   transform: translateX(0);
 }
 
+/**
+ * Right edge adjustment
+ * Aligns progress bar to right when star is near right edge
+ */
 .skill-star.edge-right .skill-progress-bar {
   left: auto;
   right: 0;
   transform: translateX(0);
 }
 
+/**
+ * Top edge adjustment
+ * Positions progress bar below star when near top edge
+ */
 .skill-star.edge-top .skill-progress-bar {
   top: 60px;
 }

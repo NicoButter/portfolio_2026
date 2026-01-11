@@ -1,39 +1,60 @@
+<!--
+  Skills Constellation Component Template
+  
+  Displays technical skills as an interactive space-themed constellation with:
+  - Animated star field background
+  - Skill nodes positioned as stars with connecting lines
+  - Hover tooltips showing progress bars and descriptions
+  - Space-themed decorative elements (ISS, astronaut, xenomorph, SDF-1, predator)
+  - Responsive design with edge detection to prevent overflow
+  - Category legend (Frontend, Backend, Tools)
+-->
+
 <section class="skills-constellation">
+  <!-- Main title with neon glow effect -->
   <h2 class="constellation-title">Skill Constellation</h2>
+  
+  <!-- Main container for the space background and skill nodes -->
   <div class="night-sky">
+    <!-- Additional animated star groups -->
     <div class="stars-group-2"></div>
     <div class="stars-group-3"></div>
+    
+    <!-- Animated shooting stars/comets -->
     <div class="comet comet-1"></div>
     <div class="comet comet-2"></div>
     <div class="comet comet-3"></div>
     <div class="comet comet-4"></div>
     <div class="comet comet-5"></div>
     
-    <!-- ISS - International Space Station -->
+    <!-- ISS - International Space Station floating across the scene -->
     <div class="iss">
       <img src="assets/images/iss.png" alt="International Space Station">
     </div>
     
-    <!-- Astronaut floating in space -->
+    <!-- Astronaut floating in space with gentle drift animation -->
     <div class="astronaut">
       <img src="assets/images/astronaut.png" alt="Astronaut">
     </div>
     
-    <!-- Xenomorph lurking in the shadows -->
+    <!-- Xenomorph egg lurking in the shadows (Alien franchise reference) -->
     <div class="xenomorph">
       <img src="assets/images/xenomorpf_egg.png" alt="Xenomorph">
     </div>
     
-    <!-- SDF-1 - Super Dimension Fortress -->
+    <!-- SDF-1 - Super Dimension Fortress from Macross anime -->
     <div class="sdf1">
       <img src="assets/images/sdf-1.png" alt="SDF-1 Macross">
     </div>
     
-    <!-- Predator stalking -->
+    <!-- Predator stalking with shimmer effect -->
     <div class="predator">
       <img src="assets/images/predator.png" alt="Predator">
     </div>
+    
+    <!-- SVG container for drawing lines between connected skills -->
     <svg class="connections" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <!-- Iterate through each skill and draw connection lines -->
       @for (skill of skills(); track skill.name; let i = $index) {
         @for (conn of skill.connections; track conn) {
           <line
@@ -46,6 +67,8 @@
         }
       }
     </svg>
+    
+    <!-- Skill nodes rendered as stars with tooltips -->
     @for (skill of skills(); track skill.name; let i = $index) {
       <div
         class="skill-star"
@@ -57,18 +80,28 @@
         [title]="skill.name + ': ' + skill.level + '%'"
         [class]="skill.category.toLowerCase() + ' ' + getEdgeClasses(skill)"
       >
+        <!-- Star shape with pulsing glow animation -->
         <div class="star-glow"></div>
+        
+        <!-- Progress bar tooltip shown on hover -->
         <div class="skill-progress-bar">
+          <!-- Horizontal bar showing skill proficiency -->
           <div class="progress-container">
             <div class="progress-fill" [style.width.%]="skill.level"></div>
             <div class="progress-text">{{ skill.level }}%</div>
           </div>
+          
+          <!-- Detailed description of the skill -->
           <div class="skill-description">{{ skill.description }}</div>
         </div>
+        
+        <!-- Skill icon with error fallback to emoji -->
         <img [src]="getIcon(skill)" [alt]="skill.name" class="skill-icon" (error)="onImageError($event, skill)" />
       </div>
     }
   </div>
+  
+  <!-- Category legend showing color coding -->
   <div class="legend">
     <div class="legend-item">
       <span class="legend-color frontend"></span> Frontend
