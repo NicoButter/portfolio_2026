@@ -35,7 +35,7 @@ export class Projects {
         'Automatic persistence in ~/.config/iconwearrc',
         'Context menu with detailed metrics and restoration options'
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=300&fit=crop&crop=center',
+      imageUrl: 'assets/images/iconwearkde.jpg',
       githubUrl: 'https://github.com/nicolasbutterfield/iconwear-kde'
     },
     {
@@ -53,7 +53,7 @@ export class Projects {
         'Configuración persistente entre sesiones de VS Code',
         'Auto-play opcional al abrir VS Code'
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=300&fit=crop&crop=center',
+      imageUrl: 'assets/images/devsoundtrak.webp',
       githubUrl: 'https://github.com/nicolasbutterfield/dev-soundtrack'
     },
     {
@@ -93,7 +93,7 @@ export class Projects {
         'Smooth animations with Animate.css for better UX',
         'NASA Hackathon 2025 Winner - Río Gallegos Venue'
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&h=300&fit=crop&crop=center',
+      imageUrl: 'assets/images/electrospace.jpeg',
       githubUrl: 'https://github.com/NicoButter/NASA--HACKATHON'
     },
     {
@@ -112,7 +112,7 @@ export class Projects {
         'Details: Detailed sections for images, videos and discovery flights.',
         'Responsive application that adapts to mobile and desktop devices.'
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&crop=center',
+      imageUrl: 'assets/images/gjparamotor.png',
       githubUrl: 'https://github.com/nicolasbutterfield/GJParamotor',
       websiteUrl: 'https://www.gjparamotor.com/'
     },
@@ -130,7 +130,7 @@ export class Projects {
         'Security: Robust authentication and granular permissions.',
         'Responsive Design: Modern and adaptable interface to mobile devices.'
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop&crop=center',
+      imageUrl: 'assets/images/protorneo.png',
       githubUrl: 'https://github.com/NicoButter/protorneo'
     },
     {
@@ -152,7 +152,7 @@ export class Projects {
         'RESTful API: Programmatic interfaces for integration with other provincial systems.',
         'Multitenancy: Support for multiple legislatures with data isolation.'
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=400&h=300&fit=crop&crop=center',
+      imageUrl: 'assets/images/sgl.png',
       githubUrl: 'https://github.com/NicoButter/sgl-2.0'
     },
     {
@@ -174,7 +174,7 @@ export class Projects {
         'Auxiliary functions for common operations.',
         'MIT license for free use and modification.'
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop&crop=center',
+      imageUrl: 'assets/images/vault.jpg',
       githubUrl: 'https://github.com/NicoButter/contactvault'
     },
     {
@@ -196,7 +196,7 @@ export class Projects {
         'Member and book loan management functionalities.',
         'Real-time date and time updates in the interface.'
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop&crop=center',
+      imageUrl: 'assets/images/librolink.jpg',
       githubUrl: 'https://github.com/NicoButter/librolink'
     },
     {
@@ -240,7 +240,7 @@ export class Projects {
         'Real-time facial recognition processing.',
         'Exportable reports in multiple formats.'
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop&crop=center',
+      imageUrl: 'assets/images/joi_secure_pass.webp',
       githubUrl: 'https://github.com/NicoButter/JoiSecurePass'
     },
   ]);
