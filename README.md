@@ -9,7 +9,7 @@
 
 ## ✨ Demo en Vivo
 
-🌐 **[Ver Portfolio](https://tu-dominio.netlify.app)** _(Actualiza con tu URL de producción)_
+🌐 **[Ver Portfolio](https://portfolionicolas2026.netlify.app)** | [Proyectos](https://portfolionicolas2026.netlify.app/projects) | [Skills](https://portfolionicolas2026.netlify.app/skills)
 
 ---
 
@@ -546,7 +546,7 @@ Para producción, considera configurar:
 PORT=4000
 
 # URL base (para SSR)
-BASE_URL=https://tu-dominio.com
+BASE_URL=https://portfolionicolas2026.netlify.app
 
 # Otros
 NODE_ENV=production
@@ -720,7 +720,7 @@ SOFTWARE.
 
 **Nicolás Butterfield**
 
-- 🌐 Portfolio: [tu-dominio.com](https://tu-dominio.com)
+- 🌐 Portfolio: [portfolionicolas2026.netlify.app](https://portfolionicolas2026.netlify.app)
 - 💼 LinkedIn: [linkedin.com/in/tu-perfil](https://linkedin.com/in/tu-perfil)
 - 🐙 GitHub: [@tu-usuario](https://github.com/tu-usuario)
 - 📧 Email: tu-email@ejemplo.com
