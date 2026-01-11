@@ -2,3 +2,11 @@
   base    = "/"
   command = "npm run build"
   publish = "dist/portfolio-2026/browser"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
