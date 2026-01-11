@@ -309,7 +309,7 @@ portfolio_2026/
 
 ### 1. Clonar el repositorio
 ```bash
-git clone https://github.com/tu-usuario/portfolio-2026.git
+git clone https://github.com/NicoButter/portfolio-2026.git
 cd portfolio-2026
 ```
 
@@ -502,7 +502,7 @@ web: node dist/portfolio-2026/server/server.mjs
 #### VPS (Ubuntu/Debian)
 ```bash
 # En el servidor
-git clone https://github.com/tu-usuario/portfolio-2026.git
+git clone https://github.com/NicoButter/portfolio-2026.git
 cd portfolio-2026
 npm install
 npm run build
@@ -721,9 +721,9 @@ SOFTWARE.
 **Nicolás Butterfield**
 
 - 🌐 Portfolio: [portfolionicolas2026.netlify.app](https://portfolionicolas2026.netlify.app)
-- 💼 LinkedIn: [linkedin.com/in/tu-perfil](https://linkedin.com/in/tu-perfil)
-- 🐙 GitHub: [@tu-usuario](https://github.com/tu-usuario)
-- 📧 Email: tu-email@ejemplo.com
+- 💼 LinkedIn: [Nicolás Butterfield](https://www.linkedin.com/in/nicolás-butterfield-9964aa1a3/)
+- 🐙 GitHub: [@NicoButter](https://github.com/NicoButter)
+- 📧 Email: nicobutter@gmail.com
 
 ## 🙏 Agradecimientos
 
