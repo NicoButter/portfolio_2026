@@ -243,5 +243,29 @@ export class Projects {
       imageUrl: 'assets/images/joi_secure_pass.webp',
       githubUrl: 'https://github.com/NicoButter/JoiSecurePass'
     },
+    {
+      title: 'Celebra - Invitaciones Digitales',
+      tagline: 'Crea y comparte invitaciones digitales para tus eventos de forma rápida y gratuita',
+      description: 'Plataforma de invitaciones digitales 100% frontend sin registro ni backend. Crea hermosas invitaciones personalizadas con 14 templates únicos, 100+ Google Fonts, diseño responsive y compartir directo por WhatsApp y redes sociales. Guardado automático con localStorage, PWA ready y bundle optimizado.',
+      technologies: ['Angular 19', 'TypeScript', 'Angular Material', 'RxJS', 'SCSS', 'Netlify'],
+      highlights: [
+        '14 templates únicos para diferentes tipos de eventos: casamiento, cumpleaños, baby shower, bautismo, graduación, reunión trabajo, fiesta, quinceañera, asado, evento deportivo, despedida de soltera, reunión casual, after office y otro evento',
+        '100+ Google Fonts disponibles con selector tipo Adobe Illustrator',
+        '3 tipos de fondo: imagen predefinida, color sólido o gradiente personalizado',
+        'Formulario reactivo con validación en tiempo real y vista previa live lado a lado',
+        'Coverflow 3D para selección intuitiva de plantillas',
+        'Compartir y accesibilidad: WhatsApp, redes sociales, copia al portapapeles y URLs amigables',
+        'Guardado automático en localStorage y persistencia de datos',
+        'Diseño completamente responsive optimizado para móviles',
+        'Modo oscuro/claro automático según preferencias del sistema',
+        'Bundle optimizado < 600KB gzipped con lazy loading y tree shaking',
+        'PWA ready para instalación como aplicación',
+        'Performance: Lighthouse score 95+ y First Contentful Paint < 2s',
+        'Seguridad: DomSanitizer, validación de inputs y escape de URLs',
+        'Totalmente gratuito, sin registro requerido, 100% frontend'
+      ],
+      imageUrl: 'assets/images/celebra.png',
+      githubUrl: 'https://github.com/NicoButter/celebra'
+    },
   ]);
 }
