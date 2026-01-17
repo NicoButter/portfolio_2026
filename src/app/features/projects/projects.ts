@@ -36,7 +36,7 @@ export class Projects {
         'Context menu with detailed metrics and restoration options'
       ],
       imageUrl: 'assets/images/iconwearkde.jpg',
-      githubUrl: 'https://github.com/nicolasbutterfield/iconwear-kde'
+      githubUrl: 'https://github.com/NicoButter/iconwear-kde'
     },
     {
       title: 'Dev Soundtrack',
@@ -54,7 +54,7 @@ export class Projects {
         'Auto-play opcional al abrir VS Code'
       ],
       imageUrl: 'assets/images/devsoundtrak.webp',
-      githubUrl: 'https://github.com/nicolasbutterfield/dev-soundtrack'
+      githubUrl: 'https://github.com/NicoButter/dev-soundtrack'
     },
     {
       title: 'UNPA Coding Games',
@@ -74,7 +74,7 @@ export class Projects {
         '9 automated tests and complete test suite'
       ],
       imageUrl: 'assets/images/unpa_coding_games.jpg',
-      githubUrl: 'https://github.com/nicolasbutterfield/UNPA_Coding_Games'
+      githubUrl: 'https://github.com/NicoButter/UNPA_Coding_Games'
     },
     {
       title: 'ElectroSpace - ISS Experience',
@@ -113,7 +113,7 @@ export class Projects {
         'Responsive application that adapts to mobile and desktop devices.'
       ],
       imageUrl: 'assets/images/gjparamotor.png',
-      githubUrl: 'https://github.com/nicolasbutterfield/GJParamotor',
+      githubUrl: 'https://github.com/NicoButter/GJParamotor',
       websiteUrl: 'https://www.gjparamotor.com/'
     },
     {
