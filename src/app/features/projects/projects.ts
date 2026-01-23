@@ -265,7 +265,8 @@ export class Projects {
         'Totalmente gratuito, sin registro requerido, 100% frontend'
       ],
       imageUrl: 'assets/images/celebra.png',
-      githubUrl: 'https://github.com/NicoButter/celebra'
+      githubUrl: 'https://github.com/NicoButter/celebra',
+      websiteUrl: 'https://celebra.netlify.app/editor'
     },
   ]);
 }
