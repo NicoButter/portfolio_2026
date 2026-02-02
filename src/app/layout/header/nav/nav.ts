@@ -62,4 +62,13 @@ export class Nav implements OnInit {
       this.router.navigate([route]);
     });
   }
+
+  downloadCV(): void {
+    const link = document.createElement('a');
+    link.href = 'assets/docs/butterfield_curriculum_2025_sn.pdf';
+    link.download = 'CV_Nicolás_Butterfield.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
 }
