@@ -22,6 +22,24 @@ interface Project {
 export class Projects {
   projects = signal<Project[]>([
     {
+      title: 'Melodica',
+      tagline: 'An interactive web application for music lovers, designed to help with composition, chord learning, and musical instruments.',
+      description: 'An interactive web application for music lovers, built with Angular. Melodica offers an intuitive and bohemian experience for creating melodies and exploring the world of music. Includes creative tools like composer, songbook and music workshop, interactive instruments like guitar and piano, real-time note detection with microphone, intelligent chord selector, and an elegant interface with earth and gold color palette.',
+      technologies: ['Angular 21+', 'TypeScript', 'SCSS', 'Node.js 20+', 'Angular CLI'],
+      highlights: [
+        'Interactive composer for creating melodies step by step with guided assistant',
+        'Songbook for storing and organizing musical compositions',
+        'Music Workshop with interactive instruments: Guitar and Piano',
+        'Real-time note detection using microphone with confidence visualization',
+        'Chord selector with intelligent suggestions and instrument visualization',
+        'Bohemian interface with elegant design, earth and gold colors, fully responsive',
+        'Educational content with "About" page and sound gems on SoundCloud',
+        'Optimized for SSR and deployment on Vercel, Netlify, Firebase'
+      ],
+      githubUrl: 'https://github.com/nicobutter/melodica',
+      imageUrl: 'assets/images/melodica_logo.jpeg'
+    },
+    {
       title: 'IconWear KDE',
       tagline: 'Icons age based on how much you use them. Your desktop tells your story.',
       description: 'KDE Plasma application that adds a unique visual dimension: icons progressively wear out based on their usage, showing scratches, desaturation, and loss of brightness. Realistic weighted wear system that considers launches and active time. Includes complete DBus API, automatic persistence, and visual effects rendered with GLSL shaders on GPU.',
