@@ -1,15 +1,16 @@
 .terminal-page {
   min-height: 100vh;
   padding: 0;
+  padding-top: 20px;
   position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 
 .nano-editor {
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 20px);
   background: #000;
   border: none;
   border-radius: 0;
@@ -432,6 +433,7 @@
 @media (max-width: 768px) {
   .terminal-page {
     padding: var(--spacing-md);
+    padding-top: 50px;
   }
   
   .project-image {
