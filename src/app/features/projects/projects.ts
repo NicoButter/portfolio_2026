@@ -47,7 +47,7 @@ export class Projects {
         'Global administration panel for accounts, licenses and operational metrics.',
         'Production version 0.9.0, under active development.'
       ],
-      imageUrl: 'assets/images/logo-kinetra.png',
+      imageUrl: 'assets/images/logo-kinetra.webp',
       websiteUrl: 'https://kinetra.vetrabyte.com.ar/'
     },
     {
@@ -61,7 +61,7 @@ export class Projects {
         'TeleoNear: communication with nearby devices through Google Nearby Connections.',
         'Voice recognition with immediate dictation and transcription support.'
       ],
-      imageUrl: 'assets/images/logo-teleo.png',
+      imageUrl: 'assets/images/logo-teleo.webp',
       githubUrl: 'https://github.com/NicoButter/teleo'
     },
     {
@@ -76,7 +76,7 @@ export class Projects {
         'Certification, notifications and end-to-end audit trails.',
         'Multi-course and multi-cohort administration in a single platform.'
       ],
-      imageUrl: 'assets/images/logo-blackrabbit.png',
+      imageUrl: 'assets/images/logo-blackrabbit.webp',
       websiteUrl: 'https://campus.vetrabyte.com.ar/'
     },
     {
@@ -95,7 +95,7 @@ export class Projects {
         'Optimized for SSR and deployment on Vercel, Netlify, Firebase'
       ],
       githubUrl: 'https://github.com/nicobutter/melodica',
-      imageUrl: 'assets/images/melodica_logo.jpeg'
+      imageUrl: 'assets/images/melodica_logo.webp'
     },
     {
       title: 'IconWear KDE',
@@ -111,7 +111,7 @@ export class Projects {
         'Automatic persistence in ~/.config/iconwearrc',
         'Context menu with detailed metrics and restoration options'
       ],
-      imageUrl: 'assets/images/iconwearkde.jpg',
+      imageUrl: 'assets/images/iconwearkde.webp',
       githubUrl: 'https://github.com/NicoButter/iconwear-kde'
     },
     {
@@ -149,7 +149,7 @@ export class Projects {
         'Complete audit of tournament state changes',
         '9 automated tests and complete test suite'
       ],
-      imageUrl: 'assets/images/unpa_coding_games.jpg',
+      imageUrl: 'assets/images/unpa_coding_games.webp',
       githubUrl: 'https://github.com/NicoButter/UNPA_Coding_Games'
     },
     {
@@ -169,7 +169,7 @@ export class Projects {
         'Smooth animations with Animate.css for better UX',
         'NASA Hackathon 2025 Winner - Río Gallegos Venue'
       ],
-      imageUrl: 'assets/images/electrospace.jpeg',
+      imageUrl: 'assets/images/electrospace.webp',
       githubUrl: 'https://github.com/NicoButter/NASA--HACKATHON'
     },
     {
@@ -188,7 +188,7 @@ export class Projects {
         'Details: Detailed sections for images, videos and discovery flights.',
         'Responsive application that adapts to mobile and desktop devices.'
       ],
-      imageUrl: 'assets/images/gjparamotor.png',
+      imageUrl: 'assets/images/gjparamotor.webp',
       githubUrl: 'https://github.com/NicoButter/GJParamotor',
       websiteUrl: 'https://www.gjparamotor.com/'
     },
@@ -206,7 +206,7 @@ export class Projects {
         'Security: Robust authentication and granular permissions.',
         'Responsive Design: Modern and adaptable interface to mobile devices.'
       ],
-      imageUrl: 'assets/images/protorneo.png',
+      imageUrl: 'assets/images/protorneo.webp',
       githubUrl: 'https://github.com/NicoButter/protorneo'
     },
     {
@@ -228,7 +228,7 @@ export class Projects {
         'RESTful API: Programmatic interfaces for integration with other provincial systems.',
         'Multitenancy: Support for multiple legislatures with data isolation.'
       ],
-      imageUrl: 'assets/images/sgl.png',
+      imageUrl: 'assets/images/sgl.webp',
       githubUrl: 'https://github.com/NicoButter/sgl-2.0'
     },
     {
@@ -272,7 +272,7 @@ export class Projects {
         'Member and book loan management functionalities.',
         'Real-time date and time updates in the interface.'
       ],
-      imageUrl: 'assets/images/librolink.jpg',
+      imageUrl: 'assets/images/librolink.webp',
       githubUrl: 'https://github.com/NicoButter/librolink'
     },
     {
