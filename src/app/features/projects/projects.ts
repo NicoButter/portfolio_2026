@@ -22,6 +22,49 @@ interface Project {
 export class Projects {
   projects = signal<Project[]>([
     {
+      title: 'Vetrabyte',
+      tagline: 'Software built to operate, grow and evolve',
+      description: 'Vetrabyte is my software development venture—the brand under which I build web applications, management systems, SaaS platforms, automations, APIs and digital infrastructure for businesses, professionals and organizations.',
+      technologies: ['Web Development', 'SaaS', 'Management Systems', 'Automation', 'APIs', 'Infrastructure'],
+      highlights: [
+        'Web applications designed around real business operations.',
+        'Scalable SaaS platforms and custom management systems.',
+        'Automations and APIs that connect processes and services.',
+        'Digital infrastructure built to grow with each organization.'
+      ],
+      imageUrl: 'assets/images/vetrabyte_logo.webp',
+      websiteUrl: 'https://vetrabyte.com.ar/'
+    },
+    {
+      title: 'Kinetra',
+      tagline: 'Professional management for personal trainers, anthropometry, scheduling and patient follow-up.',
+      description: 'Kinetra is a multi-tenant web application for personal trainers. It centralizes patients, anthropometric measurements, functional assessments, scheduling, billing and PDF reports under an independent professional account. Each trainer works exclusively with their own patients and related data, while administrators have a global panel to manage accounts, licenses and operational metrics.',
+      technologies: ['Multi-tenant SaaS', 'Patient Management', 'Anthropometry', 'Scheduling', 'Billing', 'PDF Reports'],
+      highlights: [
+        'Independent professional accounts with isolated patient data.',
+        'Patient records with anthropometric measurements and functional assessments.',
+        'Integrated scheduling, billing and PDF report generation.',
+        'Global administration panel for accounts, licenses and operational metrics.',
+        'Production version 0.9.0, under active development.'
+      ],
+      imageUrl: 'assets/images/logo-kinetra.png',
+      websiteUrl: 'https://kinetra.vetrabyte.com.ar/'
+    },
+    {
+      title: 'Teleo',
+      tagline: 'Real-time communication through voice recognition and nearby connectivity.',
+      description: 'Teleo is an application focused on real-time communication, making interaction more accessible through speech recognition technology and proximity-based connectivity.',
+      technologies: ['Speech Recognition', 'Voice Transcription', 'Google Nearby Connections', 'Real-time Communication'],
+      highlights: [
+        'Live Word: real-time visualization of spoken words.',
+        'Write and Display: a simple interface to type messages and present them full screen.',
+        'TeleoNear: communication with nearby devices through Google Nearby Connections.',
+        'Voice recognition with immediate dictation and transcription support.'
+      ],
+      imageUrl: 'assets/images/logo-teleo.png',
+      githubUrl: 'https://github.com/NicoButter/teleo'
+    },
+    {
       title: 'Melodica',
       tagline: 'An interactive web application for music lovers, designed to help with composition, chord learning, and musical instruments.',
       description: 'An interactive web application for music lovers, built with Angular. Melodica offers an intuitive and bohemian experience for creating melodies and exploring the world of music. Includes creative tools like composer, songbook and music workshop, interactive instruments like guitar and piano, real-time note detection with microphone, intelligent chord selector, and an elegant interface with earth and gold color palette.',

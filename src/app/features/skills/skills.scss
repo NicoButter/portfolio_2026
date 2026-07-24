@@ -13,17 +13,45 @@
   background: radial-gradient(circle at 85% 0%, rgba(0, 212, 255, 0.13), transparent 28rem), #050914;
 }
 
+.skill-deck::before,
+.skill-deck::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* CRT phosphor dots and edge darkening, matching the terminal sections. */
+.skill-deck::before {
+  z-index: 1;
+  opacity: 0.5;
+  background:
+    radial-gradient(ellipse at center, transparent 42%, rgba(0, 0, 0, 0.42) 100%),
+    radial-gradient(circle, rgba(0, 255, 65, 0.16) 1px, transparent 1px);
+  background-size: auto, 4px 4px;
+}
+
+/* Moving scanlines keep the deck in the same CRT visual language. */
+.skill-deck::after {
+  z-index: 2;
+  opacity: 0.56;
+  background: linear-gradient(0deg, transparent 0%, rgba(0, 255, 65, 0.055) 1px, transparent 2px);
+  background-size: 100% 3px;
+  animation: deck-crt-sweep 3s linear infinite;
+}
+
 .ambient-grid {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  z-index: 0;
   opacity: 0.3;
   background-image: linear-gradient(rgba(0, 212, 255, 0.09) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 212, 255, 0.09) 1px, transparent 1px);
   background-size: 36px 36px;
   mask-image: linear-gradient(to bottom, black, transparent 82%);
 }
 
-.deck-header, .deck-layout { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; }
+.deck-header, .deck-layout { position: relative; z-index: 3; max-width: 1280px; margin: 0 auto; }
 
 .eyebrow, .group-index, .inspector-label, .skill-count { font-family: var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; }
 .eyebrow { display: flex; align-items: center; gap: 0.55rem; margin: 0 0 0.9rem; color: var(--neon-green); font-size: 0.72rem; }
@@ -77,6 +105,7 @@
 .related-skills span { padding: 0.28rem 0.45rem; color: var(--neon-green); border: 1px solid rgba(0, 255, 65, 0.3); font-family: var(--font-mono); font-size: 0.68rem; }
 
 @keyframes status-pulse { 50% { opacity: 0.5; box-shadow: 0 0 3px var(--neon-green); } }
+@keyframes deck-crt-sweep { to { background-position: 0 -20px; } }
 
 @media (max-width: 1024px) { .skill-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .deck-layout { grid-template-columns: minmax(0, 1fr) 280px; } }
 @media (max-width: 760px) { .skill-deck { min-height: auto; padding-top: 4.5rem; } .heading-row { align-items: start; } .deck-layout { grid-template-columns: 1fr; } .skill-inspector { position: static; order: -1; } .skill-groups { gap: 2rem; } }
