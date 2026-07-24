@@ -1,116 +1,76 @@
-<!--
-  Skills Constellation Component Template
-  
-  Displays technical skills as an interactive space-themed constellation with:
-  - Animated star field background
-  - Skill nodes positioned as stars with connecting lines
-  - Hover tooltips showing progress bars and descriptions
-  - Space-themed decorative elements (ISS, astronaut, xenomorph, SDF-1, predator)
-  - Responsive design with edge detection to prevent overflow
-  - Category legend (Frontend, Backend, Tools)
--->
+<section class="skill-deck" aria-labelledby="skills-title">
+  <div class="ambient-grid" aria-hidden="true"></div>
 
-<section class="skills-constellation">
-  <!-- Main title with neon glow effect -->
-  <h2 class="constellation-title">Skill Constellation</h2>
-  
-  <!-- Main container for the space background and skill nodes -->
-  <div class="night-sky">
-    <!-- Additional animated star groups -->
-    <div class="stars-group-2"></div>
-    <div class="stars-group-3"></div>
-    
-    <!-- Animated shooting stars/comets -->
-    <div class="comet comet-1"></div>
-    <div class="comet comet-2"></div>
-    <div class="comet comet-3"></div>
-    <div class="comet comet-4"></div>
-    <div class="comet comet-5"></div>
-    
-    <!-- ISS - International Space Station floating across the scene -->
-    <div class="iss">
-      <img src="assets/images/iss.png" alt="International Space Station">
-    </div>
-    
-    <!-- Astronaut floating in space with gentle drift animation -->
-    <div class="astronaut">
-      <img src="assets/images/astronaut.png" alt="Astronaut">
-    </div>
-    
-    <!-- Xenomorph egg lurking in the shadows (Alien franchise reference) -->
-    <div class="xenomorph">
-      <img src="assets/images/xenomorpf_egg.png" alt="Xenomorph">
-    </div>
-    
-    <!-- SDF-1 - Super Dimension Fortress from Macross anime -->
-    <div class="sdf1">
-      <img src="assets/images/sdf-1.png" alt="SDF-1 Macross">
-    </div>
-    
-    <!-- Predator stalking with shimmer effect -->
-    <div class="predator">
-      <img src="assets/images/predator.png" alt="Predator">
-    </div>
-    
-    <!-- SVG container for drawing lines between connected skills -->
-    <svg class="connections" viewBox="0 0 100 100" preserveAspectRatio="none">
-      <!-- Iterate through each skill and draw connection lines -->
-      @for (skill of skills(); track skill.name; let i = $index) {
-        @for (conn of skill.connections; track conn) {
-          <line
-            [attr.x1]="skill.x"
-            [attr.y1]="skill.y"
-            [attr.x2]="skills()[conn].x"
-            [attr.y2]="skills()[conn].y"
-            class="connection-line"
-          />
-        }
-      }
-    </svg>
-    
-    <!-- Skill nodes rendered as stars with tooltips -->
-    @for (skill of skills(); track skill.name; let i = $index) {
-      <div
-        class="skill-star"
-        [style.left.%]="skill.x"
-        [style.top.%]="skill.y"
-        [style.width.px]="getSize(skill)"
-        [style.height.px]="getSize(skill)"
-        [style.box-shadow]="getGlowStyle(skill)"
-        [title]="skill.name + ': ' + skill.level + '%'"
-        [class]="skill.category.toLowerCase() + ' ' + getEdgeClasses(skill)"
-      >
-        <!-- Star shape with pulsing glow animation -->
-        <div class="star-glow"></div>
-        
-        <!-- Progress bar tooltip shown on hover -->
-        <div class="skill-progress-bar">
-          <!-- Horizontal bar showing skill proficiency -->
-          <div class="progress-container">
-            <div class="progress-fill" [style.width.%]="skill.level"></div>
-            <div class="progress-text">{{ skill.level }}%</div>
-          </div>
-          
-          <!-- Detailed description of the skill -->
-          <div class="skill-description">{{ skill.description }}</div>
-        </div>
-        
-        <!-- Skill icon with error fallback to emoji -->
-        <img [src]="getIcon(skill)" [alt]="skill.name" class="skill-icon" (error)="onImageError($event, skill)" />
+  <header class="deck-header">
+    <p class="eyebrow"><span class="status-dot"></span> capabilities.sys / online</p>
+    <div class="heading-row">
+      <div>
+        <h2 id="skills-title">Skill Deck</h2>
+        <p>Technologies I use to turn ideas into reliable digital products.</p>
       </div>
-    }
-  </div>
-  
-  <!-- Category legend showing color coding -->
-  <div class="legend">
-    <div class="legend-item">
-      <span class="legend-color frontend"></span> Frontend
+      <p class="skill-count"><strong>{{ skills().length }}</strong> technologies<br>indexed</p>
     </div>
-    <div class="legend-item">
-      <span class="legend-color backend"></span> Backend
+  </header>
+
+  <div class="deck-layout">
+    <div class="skill-groups" aria-label="Technology skills">
+      @for (group of groups; track group.name) {
+        <section class="skill-group" [class]="'skill-group ' + group.name.toLowerCase()" [attr.aria-labelledby]="group.name + '-title'">
+          <div class="group-heading">
+            <div>
+              <p class="group-index">0{{ $index + 1 }}</p>
+              <h3 [id]="group.name + '-title'">{{ group.label }}</h3>
+            </div>
+            <p>{{ group.hint }}</p>
+          </div>
+
+          <div class="skill-grid">
+            @for (skill of skillsFor(group.name); track skill.name) {
+              <button
+                type="button"
+                class="skill-card"
+                [class.is-selected]="selectedSkill().name === skill.name"
+                [attr.aria-pressed]="selectedSkill().name === skill.name"
+                (click)="selectSkill(skill)"
+              >
+                <img [src]="skill.image" [alt]="" class="skill-logo">
+                <span class="skill-card-copy">
+                  <span class="skill-name">{{ skill.name }}</span>
+                  <span class="skill-level">{{ skill.levelLabel }}</span>
+                </span>
+                <span class="meter" aria-hidden="true"><span [style.width.%]="skill.level"></span></span>
+              </button>
+            }
+          </div>
+        </section>
+      }
     </div>
-    <div class="legend-item">
-      <span class="legend-color tools"></span> Tools
-    </div>
+
+    <aside class="skill-inspector" [class]="'skill-inspector ' + selectedSkill().category.toLowerCase()" aria-live="polite" aria-label="Selected skill detail">
+      <p class="inspector-label">Selected module</p>
+      <div class="inspector-title">
+        <img [src]="selectedSkill().image" [alt]="selectedSkill().name + ' logo'" class="inspector-logo">
+        <div>
+          <h3>{{ selectedSkill().name }}</h3>
+          <p>{{ selectedSkill().category }}</p>
+        </div>
+      </div>
+      <div class="inspector-level">
+        <span>{{ selectedSkill().levelLabel }}</span>
+        <strong>{{ selectedSkill().level }}%</strong>
+      </div>
+      <div class="inspector-meter" aria-label="Proficiency level: {{ selectedSkill().level }} percent">
+        <span [style.width.%]="selectedSkill().level"></span>
+      </div>
+      <p class="inspector-description">{{ selectedSkill().description }}</p>
+      <div class="related-skills">
+        <p>Often paired with</p>
+        <div>
+          @for (related of selectedSkill().related; track related) {
+            <span>{{ related }}</span>
+          }
+        </div>
+      </div>
+    </aside>
   </div>
 </section>
