@@ -65,6 +65,21 @@ export class Projects {
       githubUrl: 'https://github.com/NicoButter/teleo'
     },
     {
+      title: 'BlackRabbit',
+      tagline: 'Multi-course, multi-cohort educational platform built with Django.',
+      description: 'BlackRabbit is an educational platform that separates reusable course content from each specific course edition. It brings together academic teams, content building, enrollment requests, activities, submissions, rubrics, grading, certification, notifications and auditing in one system.',
+      technologies: ['Django', 'Multi-tenant Education', 'Course Management', 'Assessment', 'Certification', 'Audit Trails'],
+      highlights: [
+        'Reusable course content and independent course editions.',
+        'Academic team management and a structured content builder.',
+        'Enrollment requests, activities, submissions, rubrics and grading workflows.',
+        'Certification, notifications and end-to-end audit trails.',
+        'Multi-course and multi-cohort administration in a single platform.'
+      ],
+      imageUrl: 'assets/images/logo-blackrabbit.png',
+      websiteUrl: 'https://campus.vetrabyte.com.ar/'
+    },
+    {
       title: 'Melodica',
       tagline: 'An interactive web application for music lovers, designed to help with composition, chord learning, and musical instruments.',
       description: 'An interactive web application for music lovers, built with Angular. Melodica offers an intuitive and bohemian experience for creating melodies and exploring the world of music. Includes creative tools like composer, songbook and music workshop, interactive instruments like guitar and piano, real-time note detection with microphone, intelligent chord selector, and an elegant interface with earth and gold color palette.',
