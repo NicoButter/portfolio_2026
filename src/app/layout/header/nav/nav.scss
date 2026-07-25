@@ -234,14 +234,15 @@
   }
   
   .nav-links {
-    gap: var(--spacing-sm);
-    flex-wrap: wrap;
+    gap: 0.15rem;
+    flex-wrap: nowrap;
   }
   
   .nav-link {
-    font-size: 0.65rem;
-    letter-spacing: 0.5px;
-    padding: var(--spacing-xs) 0.4rem;
+    font-size: 0.62rem;
+    letter-spacing: 0;
+    padding: var(--spacing-xs) 0.24rem;
+    white-space: nowrap;
   }
   
   .terminal-icon-link {
